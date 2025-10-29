@@ -34,7 +34,7 @@ export default function Header() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <Droplets className="h-5 w-5" />
             </span>
-            <span className="font-extrabold tracking-tight text-xl">BlueDrop Plumbing</span>
+            <span className="font-extrabold tracking-tight text-xl">Dink's Plumbing</span>
           </a>
           <div className="flex items-center gap-2">
             {hasPhone ? (

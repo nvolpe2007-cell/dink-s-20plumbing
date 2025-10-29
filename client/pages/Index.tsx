@@ -65,7 +65,7 @@ export default function Index() {
                   <Wrench className="h-6 w-6" />
                 </div>
                 <div>
-                  <div className="font-bold text-lg">BlueDrop Promise</div>
+                  <div className="font-bold text-lg">Dink's Promise</div>
                   <div className="text-sm text-muted-foreground">No-nonsense plumbing. Flat-rate quotes.</div>
                 </div>
               </div>
