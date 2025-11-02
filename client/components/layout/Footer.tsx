@@ -1,4 +1,4 @@
-const OWNER_EMAIL = import.meta.env.VITE_OWNER_EMAIL as string | undefined;
+const OWNER_EMAIL = (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ?? "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 
 export default function Footer() {
