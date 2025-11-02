@@ -29,9 +29,9 @@ export default function Index() {
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
-            <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-              Plumbing fixed today.
-            </h1>
+            <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6">
+              Plumbing fixed TODAY.
+            </p>
             <p className="text-lg text-muted-foreground max-w-xl">
               Leaks, clogs, or no hot water ��� we arrive fast, fix it right,
               and leave your place cleaner than we found it.
