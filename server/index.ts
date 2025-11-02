@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleBooking } from "./routes/booking";
+import { handleAuthRedirect, handleOAuthCallback, handleCreateEvent } from "./routes/google";
 
 export function createServer() {
   const app = express();
@@ -23,6 +24,11 @@ export function createServer() {
   // Booking webhook endpoint for external calendar apps (POST JSON)
   // Configure external calendar to POST to /api/booking-webhook with booking details.
   app.post("/api/booking-webhook", handleBooking);
+
+  // Google OAuth & Calendar endpoints
+  app.get("/api/google/auth", handleAuthRedirect);
+  app.get("/api/google/oauth2callback", handleOAuthCallback);
+  app.post("/api/create-event", handleCreateEvent);
 
   return app;
 }
