@@ -4,7 +4,7 @@ import { CheckCircle2, Clock, Droplets, ShieldCheck, Wrench, User } from "lucide
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL = (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ?? "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const BOOKING_URL = CALENDAR_URL ?? `https://www.vyte.in/add_invitees?invitees[]=${encodeURIComponent(OWNER_EMAIL)}`;
+const BOOKING_URL = CALENDAR_URL ?? "https://calendar.google.com/calendar/u/0/r/appointment?pli=1";
 
 export default function Index() {
   const hasBooking = typeof BOOKING_URL === "string" && BOOKING_URL.length > 0;
