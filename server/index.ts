@@ -19,5 +19,10 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Booking webhook endpoint for external calendar apps (POST JSON)
+  // Configure external calendar to POST to /api/booking-webhook with booking details.
+  const { handleBooking } = await import("./routes/booking");
+  app.post("/api/booking-webhook", handleBooking);
+
   return app;
 }
