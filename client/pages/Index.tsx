@@ -26,9 +26,9 @@ export default function Index() {
             </p>
 
             <div className="flex flex-wrap gap-3 items-center">
-              {hasCalendar ? (
+              {hasBooking ? (
                 <Button asChild size="lg" className="px-8">
-                  <a href={CALENDAR_URL} target="_blank" rel="noreferrer">
+                  <a href={BOOKING_URL} target="_blank" rel="noreferrer">
                     <Clock className="h-4 w-4" /> Book a time
                   </a>
                 </Button>
