@@ -7,6 +7,7 @@ import {
   Wrench,
   User,
 } from "lucide-react";
+import { useRef, useState } from "react";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL =
