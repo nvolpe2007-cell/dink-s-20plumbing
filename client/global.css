@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Audiowide&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -111,6 +111,20 @@
   .brand-font {
     font-family: 'Pacifico', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     letter-spacing: -0.5px;
+  }
+
+  /* Pipe-style metallic brand font (uses Audiowide as base) */
+  .pipe-font {
+    font-family: 'Audiowide', 'Pacifico', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    display: inline-block;
+    background: linear-gradient(180deg, #f5f7fa 0%, #d8dbe0 25%, #b8bcc2 50%, #e9ecef 70%, #fdfdfd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(0,0,0,0.12);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 3px 0 rgba(0,0,0,0.12), 0 6px 12px rgba(0,0,0,0.18);
+    transform: translateZ(0);
+    letter-spacing: 0.5px;
   }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
