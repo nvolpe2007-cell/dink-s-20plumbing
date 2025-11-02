@@ -10,6 +10,20 @@ const BOOKING_URL =
   CALENDAR_URL ??
   "https://calendar.google.com/calendar/u/0/r/appointment?pli=1";
 
+const MAIL_SUBJECT = "Booking request - Dink's Plumbing";
+const MAIL_BODY = `Hi Dink's Plumbing,
+
+I'd like to book a service.
+Preferred date & time:
+Address:
+Phone:
+Details:
+
+Thanks,`;
+const MAILTO_URL = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(
+  MAIL_SUBJECT
+)}&body=${encodeURIComponent(MAIL_BODY)}`;
+
 export default function Header() {
   const hasBooking = typeof BOOKING_URL === "string" && BOOKING_URL.length > 0;
   const hasEmail = typeof OWNER_EMAIL === "string" && OWNER_EMAIL.length > 0;
@@ -43,7 +57,7 @@ export default function Header() {
             ) : hasEmail ? (
               <a
                 className="font-semibold underline"
-                href={`mailto:${OWNER_EMAIL}?subject=Emergency%20plumbing`}
+                href={MAILTO_URL}
               >
                 Email
               </a>
@@ -82,7 +96,7 @@ export default function Header() {
             ) : hasEmail ? (
               <Button asChild size="sm" aria-label="Email us">
                 <a
-                  href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("Booking request - Dink's Plumbing")}`}
+                  href={MAILTO_URL}
                 >
                   Email
                 </a>
