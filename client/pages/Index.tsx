@@ -77,7 +77,7 @@ export default function Index() {
                 <li className="flex items-start gap-3"><Droplets className="mt-0.5 h-4 w-4 text-primary" /> Clean workspace, zero mess</li>
               </ul>
 
-              {(hasCalendar || hasEmail || hasPhone) ? (
+              {(hasBooking || hasEmail || hasPhone) ? (
                 <div className="mt-6 grid gap-2">
                   {hasBooking ? (
                     <Button asChild className="w-full">
@@ -86,7 +86,7 @@ export default function Index() {
                   ) : null}
                   {hasEmail ? (
                     <Button asChild variant="secondary" className="w-full">
-                      <a href={`mailto:${OWNER_EMAIL}?subject=Booking%20request%20-%20BlueDrop%20Plumbing`}>Email to book</a>
+                      <a href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("Booking request - Dink's Plumbing")}`}>Email to book</a>
                     </Button>
                   ) : null}
                   {hasPhone ? (
