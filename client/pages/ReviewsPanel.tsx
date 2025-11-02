@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
   const reviews = [
@@ -27,6 +27,30 @@ export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
 
   const [expanded, setExpanded] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [widgetLoaded, setWidgetLoaded] = useState(false);
+
+  // Try to load Elfsight widget script and render widget by its app id
+  useEffect(() => {
+    const APP_CLASS = "elfsight-app-7637e8fe-79b3-4a63-9d9e-ca81911779c1";
+    // If widget exists already, mark loaded
+    if (document.querySelector(`.${APP_CLASS}`)) {
+      setWidgetLoaded(true);
+      return;
+    }
+
+    const s = document.createElement("script");
+    s.src = "https://apps.elfsight.com/p/platform.js";
+    s.defer = true;
+    s.onload = () => {
+      // platform initializes automatically
+      setTimeout(() => setWidgetLoaded(true), 500);
+    };
+    document.body.appendChild(s);
+
+    return () => {
+      // don't remove script to avoid disrupting other widgets
+    };
+  }, []);
 
   function prev() {
     if (!scrollRef.current) return;
@@ -47,27 +71,35 @@ export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
         </div>
       </div>
 
-      <div ref={scrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4">
-        {reviews.map((r) => (
-          <article
-            key={r.id}
-            onClick={() => setExpanded(expanded === r.id ? null : r.id)}
-            className={`min-w-[280px] max-w-sm snap-start bg-card p-4 rounded-lg shadow-sm cursor-pointer transition-transform ${expanded === r.id ? "scale-105" : ""}`}>
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="font-semibold">{r.name}</div>
-                <div className="text-xs text-muted-foreground">{r.date}</div>
+      { /* If Elfsight widget is available, render it. Otherwise fallback to local reviews carousel */ }
+      {widgetLoaded ? (
+        <div className="elfsight-widget-wrapper">
+          <div className="elfsight-app-7637e8fe-79b3-4a63-9d9e-ca81911779c1" />
+        </div>
+      ) : (
+        <div ref={scrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4">
+          {reviews.map((r) => (
+            <article
+              key={r.id}
+              onClick={() => setExpanded(expanded === r.id ? null : r.id)}
+              className={`min-w-[280px] max-w-sm snap-start bg-card p-4 rounded-lg shadow-sm cursor-pointer transition-transform ${expanded === r.id ? "scale-105" : ""}`}>
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="font-semibold">{r.name}</div>
+                  <div className="text-xs text-muted-foreground">{r.date}</div>
+                </div>
+                <div className="text-primary">★</div>
               </div>
-              <div className="text-primary">★</div>
-            </div>
-            <p className="mt-3 text-sm text-muted-foreground">{expanded === r.id ? r.full : r.excerpt}</p>
-          </article>
-        ))}
-      </div>
+              <p className="mt-3 text-sm text-muted-foreground">{expanded === r.id ? r.full : r.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      )}
 
       <div className="mt-3 text-right">
         <a className="text-sm text-primary underline" href={`mailto:${ownerEmail}?subject=${encodeURIComponent("I want to leave a review for Dink's Plumbing")}`}>Leave us a review</a>
       </div>
+
     </div>
   );
 }
