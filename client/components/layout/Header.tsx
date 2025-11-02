@@ -43,9 +43,9 @@ export default function Header() {
                 <a href={`tel:${OWNER_PHONE}`}>Call</a>
               </Button>
             ) : null}
-            {true ? (
+            {BOOKING_URL ? (
               <Button asChild size="sm" aria-label="Book now">
-                <a href="/book">Book now</a>
+                <a href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
               </Button>
             ) : hasEmail ? (
               <Button asChild size="sm" aria-label="Email us">
