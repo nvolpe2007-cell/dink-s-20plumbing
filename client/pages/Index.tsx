@@ -160,16 +160,16 @@ export default function Index() {
 
       <section className="container py-12">
         <h2 className="text-2xl font-bold mb-6">Customer reviews</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start">
-          <div className="col-span-1">
+        <div className="grid gap-6 grid-cols-1 lg:grid-cols-3 items-start">
+          <div className="col-span-1 lg:col-span-2">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F78f8f27ac42a4f89b20ed79a18fe0146?format=webp&width=800"
+              src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F78f8f27ac42a4f89b20ed79a18fe0146?format=webp&width=1200"
               alt="Reviews"
-              className="w-full rounded-lg shadow-md object-cover"
+              className="w-full rounded-lg shadow-md object-cover h-96"
             />
           </div>
 
-          <div className="col-span-2 grid gap-4">
+          <div className="col-span-1 lg:col-span-1 grid gap-4">
             <div className="mt-4">
               <a href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("I want to leave a review for Dink's Plumbing")}`} className="text-sm text-primary underline">Leave us a review</a>
             </div>
