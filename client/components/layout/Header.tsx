@@ -49,7 +49,7 @@ export default function Header() {
               </Button>
             ) : hasEmail ? (
               <Button asChild size="sm" aria-label="Email us">
-                <a href={`mailto:${OWNER_EMAIL}?subject=Booking%20request%20-%20Dink's%20Plumbing`}>Email</a>
+                <a href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("Booking request - Dink's Plumbing")}`}>Email</a>
               </Button>
             ) : null}
           </div>
