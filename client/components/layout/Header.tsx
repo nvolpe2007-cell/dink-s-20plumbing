@@ -72,9 +72,8 @@ export default function Header() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <Droplets className="h-5 w-5" />
             </span>
-            <span className="font-extrabold tracking-tight text-xl brand-font">
-              Dink's Plumbing
-            </span>
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F0102e098787a4ba7be28a9c418799477?format=webp&width=800" alt="Dink's Plumbing" className="h-8 object-contain" />
+            <span className="sr-only">Dink's Plumbing</span>
           </a>
           <div className="flex items-center gap-2">
             {hasPhone ? (
