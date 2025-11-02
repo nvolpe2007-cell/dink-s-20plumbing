@@ -20,7 +20,7 @@ export default function Footer() {
             </a>
           ) : null}
           {OWNER_EMAIL ? (
-            <a className="hover:underline" href={`mailto:${OWNER_EMAIL}`}>
+            <a className="hover:underline" href={MAILTO_URL}>
               {OWNER_EMAIL}
             </a>
           ) : null}
