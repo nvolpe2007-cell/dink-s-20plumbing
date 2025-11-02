@@ -31,4 +31,16 @@ const App = () => (
   </QueryClientProvider>
 );
 
-createRoot(document.getElementById("root")!).render(<App />);
+const container = document.getElementById("root");
+// Prevent creating multiple roots during HMR/reloads: reuse existing root if present
+declare global {
+  interface Window {
+    __REACT_ROOT__?: import("react-dom/client").Root;
+  }
+}
+if (container) {
+  if (!(window as any).__REACT_ROOT__) {
+    (window as any).__REACT_ROOT__ = createRoot(container);
+  }
+  (window as any).__REACT_ROOT__.render(<App />);
+}
