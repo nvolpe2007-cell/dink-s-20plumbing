@@ -163,18 +163,8 @@ export default function Index() {
       <section className="container py-12">
         <h2 className="text-2xl font-bold mb-6">Customer reviews</h2>
 
-        <div className="grid gap-6 grid-cols-1 lg:grid-cols-3 items-start">
-          <div className="col-span-1 lg:col-span-2">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F78f8f27ac42a4f89b20ed79a18fe0146?format=webp&width=1200"
-              alt="Reviews"
-              className="w-full rounded-lg shadow-md object-cover h-96"
-            />
-          </div>
-
-          <div className="col-span-1 lg:col-span-1">
-            <ReviewsPanel ownerEmail={OWNER_EMAIL} />
-          </div>
+        <div className="mx-auto max-w-3xl">
+          <ReviewsPanel ownerEmail={OWNER_EMAIL} />
         </div>
       </section>
 
