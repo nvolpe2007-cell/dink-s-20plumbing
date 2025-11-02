@@ -161,6 +161,7 @@ export default function Index() {
 
       <section className="container py-12">
         <h2 className="text-2xl font-bold mb-6">Customer reviews</h2>
+
         <div className="grid gap-6 grid-cols-1 lg:grid-cols-3 items-start">
           <div className="col-span-1 lg:col-span-2">
             <img
@@ -170,13 +171,12 @@ export default function Index() {
             />
           </div>
 
-          <div className="col-span-1 lg:col-span-1 grid gap-4">
-            <div className="mt-4">
-              <a href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("I want to leave a review for Dink's Plumbing")}`} className="text-sm text-primary underline">Leave us a review</a>
-            </div>
+          <div className="col-span-1 lg:col-span-1">
+            <ReviewsPanel ownerEmail={OWNER_EMAIL} />
           </div>
         </div>
       </section>
+
 
       <section className="border-t">
         <div className="container py-12 grid sm:grid-cols-3 gap-6">
