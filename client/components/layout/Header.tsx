@@ -72,7 +72,7 @@ export default function Header() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <Droplets className="h-5 w-5" />
             </span>
-            <span className="font-extrabold tracking-tight text-xl">
+            <span className="font-extrabold tracking-tight text-xl brand-font">
               Dink's Plumbing
             </span>
           </a>
