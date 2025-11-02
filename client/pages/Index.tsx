@@ -86,7 +86,7 @@ export default function Index() {
           </div>
 
           <div className="relative z-10">
-            <div className="glass-card rounded-3xl border p-6 shadow-lg max-w-md mx-auto">
+            <div className="glass-card rounded-3xl border p-6 shadow-lg max-w-[456px] mx-auto">
               <div className="flex items-center gap-4">
                 <div className="inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Wrench className="h-6 w-6" />
