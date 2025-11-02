@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL = (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ?? "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
+const BOOKING_URL = CALENDAR_URL ?? `https://www.vyte.in/add_invitees?invitees[]=${encodeURIComponent(OWNER_EMAIL)}`;
 
 export default function Header() {
-  const hasCalendar = typeof CALENDAR_URL === "string" && CALENDAR_URL.length > 0;
+  const hasBooking = typeof BOOKING_URL === "string" && BOOKING_URL.length > 0;
   const hasEmail = typeof OWNER_EMAIL === "string" && OWNER_EMAIL.length > 0;
   const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
 
@@ -19,8 +20,8 @@ export default function Header() {
           <div>
             {hasPhone ? (
               <a className="font-semibold underline" href={`tel:${OWNER_PHONE}`}>Call now</a>
-            ) : hasCalendar ? (
-              <a className="font-semibold underline" href={CALENDAR_URL} target="_blank" rel="noreferrer">Book</a>
+            ) : hasBooking ? (
+              <a className="font-semibold underline" href={BOOKING_URL} target="_blank" rel="noreferrer">Book</a>
             ) : hasEmail ? (
               <a className="font-semibold underline" href={`mailto:${OWNER_EMAIL}?subject=Emergency%20plumbing`}>Email</a>
             ) : null}
@@ -42,13 +43,13 @@ export default function Header() {
                 <a href={`tel:${OWNER_PHONE}`}>Call</a>
               </Button>
             ) : null}
-            {hasCalendar ? (
+            {hasBooking ? (
               <Button asChild size="sm" aria-label="Book now">
-                <a href={CALENDAR_URL} target="_blank" rel="noreferrer">Book now</a>
+                <a href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
               </Button>
             ) : hasEmail ? (
               <Button asChild size="sm" aria-label="Email us">
-                <a href={`mailto:${OWNER_EMAIL}?subject=Booking%20request%20-%20BlueDrop%20Plumbing`}>Email</a>
+                <a href={`mailto:${OWNER_EMAIL}?subject=Booking%20request%20-%20Dink's%20Plumbing`}>Email</a>
               </Button>
             ) : null}
           </div>
