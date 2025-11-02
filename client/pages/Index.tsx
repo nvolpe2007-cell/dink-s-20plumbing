@@ -158,6 +158,53 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="container py-12">
+        <h2 className="text-2xl font-bold mb-6">Customer reviews</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start">
+          <div className="col-span-1">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F78f8f27ac42a4f89b20ed79a18fe0146?format=webp&width=800"
+              alt="Reviews"
+              className="w-full rounded-lg shadow-md object-cover"
+            />
+          </div>
+
+          <div className="col-span-2 grid gap-4">
+            <blockquote className="bg-card p-6 rounded-lg shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="rounded-full bg-primary/10 p-2">
+                  <svg className="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M12 .587l3.668 7.431L23 9.75l-5.5 5.356L18.334 24 12 20.012 5.666 24 7.5 15.106 2 9.75l7.332-1.732L12 .587z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-bold">Maria K.</div>
+                  <div className="text-xs text-muted-foreground">Verified homeowner</div>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground">"Fast, honest, and fixed my leak the same day. Highly recommend Dink's Plumbing."</p>
+            </blockquote>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="bg-card p-4 rounded-lg shadow-sm">
+                <div className="font-semibold">John O.</div>
+                <div className="text-xs text-muted-foreground mb-2">April 7, 2022</div>
+                <p className="text-sm text-muted-foreground">Always on time and efficient — great service.</p>
+              </div>
+              <div className="bg-card p-4 rounded-lg shadow-sm">
+                <div className="font-semibold">Gerald C.</div>
+                <div className="text-xs text-muted-foreground mb-2">March 7, 2022</div>
+                <p className="text-sm text-muted-foreground">We've relied on Dink's for years — dependable and honest.</p>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <a href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("I want to leave a review for Dink's Plumbing")}`} className="text-sm text-primary underline">Leave us a review</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="border-t">
         <div className="container py-12 grid sm:grid-cols-3 gap-6">
           <Stat
