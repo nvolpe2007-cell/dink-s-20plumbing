@@ -8,6 +8,7 @@ import {
   User,
 } from "lucide-react";
 import { useRef, useState } from "react";
+import ReviewsPanel from "./ReviewsPanel";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL =
