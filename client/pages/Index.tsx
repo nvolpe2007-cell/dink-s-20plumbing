@@ -1,10 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Clock, Droplets, ShieldCheck, Wrench, User } from "lucide-react";
+import {
+  CheckCircle2,
+  Clock,
+  Droplets,
+  ShieldCheck,
+  Wrench,
+  User,
+} from "lucide-react";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
-const OWNER_EMAIL = (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ?? "Plum4it2@yahoo.com";
+const OWNER_EMAIL =
+  (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
+  "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const BOOKING_URL = CALENDAR_URL ?? "https://calendar.google.com/calendar/u/0/r/appointment?pli=1";
+const BOOKING_URL =
+  CALENDAR_URL ??
+  "https://calendar.google.com/calendar/u/0/r/appointment?pli=1";
 
 export default function Index() {
   const hasBooking = typeof BOOKING_URL === "string" && BOOKING_URL.length > 0;
@@ -22,7 +33,8 @@ export default function Index() {
               Plumbing fixed today.
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl">
-              Leaks, clogs, or no hot water ��� we arrive fast, fix it right, and leave your place cleaner than we found it.
+              Leaks, clogs, or no hot water ��� we arrive fast, fix it right,
+              and leave your place cleaner than we found it.
             </p>
 
             <div className="flex flex-wrap gap-3 items-center">
@@ -36,7 +48,9 @@ export default function Index() {
 
               {hasEmail ? (
                 <Button asChild variant="secondary" size="lg" className="px-6">
-                  <a href={`mailto:${OWNER_EMAIL}?subject=I%20need%20a%20plumber`}>
+                  <a
+                    href={`mailto:${OWNER_EMAIL}?subject=I%20need%20a%20plumber`}
+                  >
                     Email to book
                   </a>
                 </Button>
@@ -50,12 +64,24 @@ export default function Index() {
             </div>
 
             <ul className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Leaks</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Clogs</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Water heaters</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Toilets</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Faucets</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Burst pipes</li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Leaks
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Clogs
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Water heaters
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Toilets
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Faucets
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Burst pipes
+              </li>
             </ul>
           </div>
 
@@ -67,26 +93,43 @@ export default function Index() {
                 </div>
                 <div>
                   <div className="font-bold text-lg">Dink's Promise</div>
-                  <div className="text-sm text-muted-foreground">No-nonsense plumbing. Flat-rate quotes.</div>
+                  <div className="text-sm text-muted-foreground">
+                    No-nonsense plumbing. Flat-rate quotes.
+                  </div>
                 </div>
               </div>
 
               <ul className="mt-5 space-y-3 text-sm">
-                <li className="flex items-start gap-3"><Wrench className="mt-0.5 h-4 w-4 text-primary" /> Same-day service, on time</li>
-                <li className="flex items-start gap-3"><ShieldCheck className="mt-0.5 h-4 w-4 text-primary" /> Upfront pricing, guaranteed</li>
-                <li className="flex items-start gap-3"><Droplets className="mt-0.5 h-4 w-4 text-primary" /> Clean workspace, zero mess</li>
+                <li className="flex items-start gap-3">
+                  <Wrench className="mt-0.5 h-4 w-4 text-primary" /> Same-day
+                  service, on time
+                </li>
+                <li className="flex items-start gap-3">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 text-primary" />{" "}
+                  Upfront pricing, guaranteed
+                </li>
+                <li className="flex items-start gap-3">
+                  <Droplets className="mt-0.5 h-4 w-4 text-primary" /> Clean
+                  workspace, zero mess
+                </li>
               </ul>
 
-              {(hasBooking || hasEmail || hasPhone) ? (
+              {hasBooking || hasEmail || hasPhone ? (
                 <div className="mt-6 grid gap-2">
                   {hasBooking ? (
                     <Button asChild className="w-full">
-                      <a href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
+                      <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+                        Book now
+                      </a>
                     </Button>
                   ) : null}
                   {hasEmail ? (
                     <Button asChild variant="secondary" className="w-full">
-                      <a href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("Booking request - Dink's Plumbing")}`}>Email to book</a>
+                      <a
+                        href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("Booking request - Dink's Plumbing")}`}
+                      >
+                        Email to book
+                      </a>
                     </Button>
                   ) : null}
                   {hasPhone ? (
@@ -96,7 +139,10 @@ export default function Index() {
                   ) : null}
                 </div>
               ) : (
-                <p className="mt-6 text-sm text-muted-foreground">Add VITE_CALENDAR_URL or VITE_OWNER_EMAIL to enable one‑click booking.</p>
+                <p className="mt-6 text-sm text-muted-foreground">
+                  Add VITE_CALENDAR_URL or VITE_OWNER_EMAIL to enable one‑click
+                  booking.
+                </p>
               )}
             </div>
 
@@ -114,23 +160,45 @@ export default function Index() {
 
       <section className="border-t">
         <div className="container py-12 grid sm:grid-cols-3 gap-6">
-          <Stat icon={<Clock className="h-5 w-5" />} label="Response" value="Under 60 min" />
-          <Stat icon={<ShieldCheck className="h-5 w-5" />} label="Warranty" value="1 year" />
-          <Stat icon={<Droplets className="h-5 w-5" />} label="Happy homeowners" value="Thousands" />
+          <Stat
+            icon={<Clock className="h-5 w-5" />}
+            label="Response"
+            value="Under 60 min"
+          />
+          <Stat
+            icon={<ShieldCheck className="h-5 w-5" />}
+            label="Warranty"
+            value="1 year"
+          />
+          <Stat
+            icon={<Droplets className="h-5 w-5" />}
+            label="Happy homeowners"
+            value="Thousands"
+          />
         </div>
       </section>
     </div>
   );
 }
 
-function Stat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function Stat({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
   return (
     <div className="space-y-2 text-center bg-card p-6 rounded-xl shadow-sm">
       <div className="mx-auto inline-flex items-center justify-center rounded-md bg-primary/10 p-2 text-primary">
         {icon}
       </div>
       <div className="text-2xl font-bold">{value}</div>
-      <div className="text-xs uppercase tracking-wide text-muted-foreground">{label}</div>
+      <div className="text-xs uppercase tracking-wide text-muted-foreground">
+        {label}
+      </div>
     </div>
   );
 }

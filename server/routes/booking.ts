@@ -10,7 +10,10 @@ export const handleBooking: RequestHandler = async (req, res) => {
     // Expected fields: name, email, phone, time, notes, source
     const { name, email, phone, time, notes, source } = payload;
 
-    const ownerEmail = (process.env.VITE_OWNER_EMAIL as string) || (process.env.OWNER_EMAIL as string) || "Plum4it2@yahoo.com";
+    const ownerEmail =
+      (process.env.VITE_OWNER_EMAIL as string) ||
+      (process.env.OWNER_EMAIL as string) ||
+      "Plum4it2@yahoo.com";
     const notifyPhone = process.env.NOTIFY_PHONE || "+13103443833"; // user provided 310-344-3833
 
     // Build a friendly message
@@ -45,7 +48,10 @@ export const handleBooking: RequestHandler = async (req, res) => {
             from: { email: process.env.SENDGRID_FROM || ownerEmail },
             content: [
               { type: "text/plain", value: text },
-              { type: "text/html", value: `<pre>${text.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</pre>` },
+              {
+                type: "text/html",
+                value: `<pre>${text.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</pre>`,
+              },
             ],
           }),
         });
@@ -54,7 +60,10 @@ export const handleBooking: RequestHandler = async (req, res) => {
         console.error("Booking: failed to send SendGrid email", err);
       }
     } else {
-      console.log("Booking: SENDGRID_API_KEY not set, skipping email. Payload:\n", payload);
+      console.log(
+        "Booking: SENDGRID_API_KEY not set, skipping email. Payload:\n",
+        payload,
+      );
     }
 
     // Send SMS via Twilio if credentials present
@@ -67,7 +76,10 @@ export const handleBooking: RequestHandler = async (req, res) => {
         const body = new URLSearchParams();
         body.append("To", notifyPhone);
         body.append("From", twilioFrom);
-        body.append("Body", `New booking: ${name ?? "Unknown"} at ${time ?? "unspecified"}. Contact: ${phone ?? email ?? "-"}`);
+        body.append(
+          "Body",
+          `New booking: ${name ?? "Unknown"} at ${time ?? "unspecified"}. Contact: ${phone ?? email ?? "-"}`,
+        );
 
         const url = `https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`;
         await fetch(url, {
@@ -83,7 +95,10 @@ export const handleBooking: RequestHandler = async (req, res) => {
         console.error("Booking: failed to send Twilio SMS", err);
       }
     } else {
-      console.log("Booking: Twilio credentials not set, skipping SMS. Payload:\n", payload);
+      console.log(
+        "Booking: Twilio credentials not set, skipping SMS. Payload:\n",
+        payload,
+      );
     }
 
     // Respond OK to webhook sender
