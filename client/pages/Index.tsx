@@ -22,7 +22,7 @@ export default function Index() {
               Plumbing fixed today.
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl">
-              Leaks, clogs, or no hot water — we arrive fast, fix it right, and leave your place cleaner than we found it.
+              Leaks, clogs, or no hot water ��� we arrive fast, fix it right, and leave your place cleaner than we found it.
             </p>
 
             <div className="flex flex-wrap gap-3 items-center">
@@ -79,9 +79,9 @@ export default function Index() {
 
               {(hasCalendar || hasEmail || hasPhone) ? (
                 <div className="mt-6 grid gap-2">
-                  {hasCalendar ? (
+                  {hasBooking ? (
                     <Button asChild className="w-full">
-                      <a href={CALENDAR_URL} target="_blank" rel="noreferrer">Book now</a>
+                      <a href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
                     </Button>
                   ) : null}
                   {hasEmail ? (
