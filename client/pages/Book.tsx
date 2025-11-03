@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function Book() {
-  const AVAILABLE_FROM = 9; // 9 AM
-  const AVAILABLE_TO = 17; // 5 PM
+  const AVAILABLE_FROM = 8; // 8 AM
+  const AVAILABLE_TO = 20; // 8 PM
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
