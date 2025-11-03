@@ -155,7 +155,43 @@ export default function Book() {
             <a className="text-sm text-muted-foreground" href="/">
               Cancel
             </a>
+            <button
+              type="button"
+              onClick={async () => {
+                setLoadingSlots(true);
+                setSlots(null);
+                try {
+                  const resp = await fetch('/api/available-slots', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ days: 7 }) });
+                  const json = await resp.json();
+                  if (json.ok) setSlots(json.slots || []);
+                  else setSlots([]);
+                } catch (err) {
+                  setSlots([]);
+                } finally {
+                  setLoadingSlots(false);
+                }
+              }}
+              className="text-sm ml-2 underline"
+            >
+              {loadingSlots ? 'Finding...' : 'Find available slots'}
+            </button>
           </div>
+
+          {slots ? (
+            <div className="mt-4 grid gap-2">
+              {slots.length === 0 ? <div className="text-sm text-muted-foreground">No slots found</div> : null}
+              {slots.slice(0, 12).map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => { setStart(s); setAvailability('Available'); }}
+                  className="text-left rounded border px-3 py-2"
+                >
+                  {new Date(s).toLocaleString()}
+                </button>
+              ))}
+            </div>
+          ) : null}
 
           {message ? <div className="text-sm mt-2">{message}</div> : null}
         </form>
