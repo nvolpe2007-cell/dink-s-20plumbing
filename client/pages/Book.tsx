@@ -137,10 +137,13 @@ export default function Book() {
               className="mt-1 w-full rounded-md border px-3 py-2"
             />
             {timeError ? <div className="text-sm text-destructive mt-2">{timeError}</div> : null}
+            {availability ? (
+              <div className={`text-sm mt-2 ${availability === 'Available' ? 'text-success' : 'text-destructive'}`}>{availability}</div>
+            ) : null}
           </label>
 
           <div className="flex items-center gap-2">
-            <Button type="submit" disabled={loading || !!timeError}>
+            <Button type="submit" disabled={loading || !!timeError || availability === 'Busy'}>
               {loading ? "Booking..." : "Confirm booking"}
             </Button>
             <a className="text-sm text-muted-foreground" href="/">
