@@ -65,10 +65,6 @@ export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
     <div>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold">What people say</h3>
-        <div className="flex gap-2">
-          <button onClick={prev} className="rounded-md bg-muted px-3 py-1 text-sm">Prev</button>
-          <button onClick={next} className="rounded-md bg-primary px-3 py-1 text-sm text-primary-foreground">Next</button>
-        </div>
       </div>
 
       { /* If Elfsight widget is available, render it. Otherwise fallback to local reviews carousel */ }
