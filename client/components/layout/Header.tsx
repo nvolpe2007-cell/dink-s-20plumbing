@@ -8,7 +8,7 @@ const OWNER_EMAIL =
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 const BOOKING_URL =
   CALENDAR_URL ??
-  "https://calendar.google.com/calendar/u/0/r/appointment?pli=1";
+  `https://calendar.google.com/calendar/u/0/r/eventedit?add=${encodeURIComponent(OWNER_EMAIL)}`;
 
 const MAIL_SUBJECT = "Booking request - Dink's Plumbing";
 const MAIL_BODY = `Hi Dink's Plumbing,
