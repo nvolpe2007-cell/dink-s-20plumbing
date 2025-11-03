@@ -138,7 +138,7 @@ export default function Book() {
             />
             {timeError ? <div className="text-sm text-destructive mt-2">{timeError}</div> : null}
             {availability ? (
-              <div className={`text-sm mt-2 ${availability === 'Available' ? 'text-success' : 'text-destructive'}`}>{availability}</div>
+              <div className={`text-sm mt-2 ${availability === 'Available' ? 'text-green-600' : 'text-destructive'}`}>{availability}</div>
             ) : null}
           </label>
 
