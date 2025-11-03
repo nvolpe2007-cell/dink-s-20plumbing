@@ -121,15 +121,43 @@ export const handleCreateEvent: RequestHandler = async (req, res) => {
       await refreshAccessToken();
     }
 
+    // Compute end time (default 30m)
+    const startISO = new Date(start).toISOString();
+    const endISO = new Date((end && new Date(end)) || new Date(new Date(start).getTime() + 30 * 60000)).toISOString();
+
+    // Check free/busy for the owner calendar
+    try {
+      const fbRes = await fetch("https://www.googleapis.com/calendar/v3/freeBusy", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${ownerTokens.access_token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          timeMin: startISO,
+          timeMax: endISO,
+          items: [{ id: "primary" }],
+        }),
+      });
+      const fbJson = await fbRes.json();
+      if (fbRes.status >= 400) {
+        console.error("Freebusy API error", fbJson);
+        return res.status(500).json({ ok: false, error: fbJson });
+      }
+      const busy = fbJson.calendars && fbJson.calendars.primary && fbJson.calendars.primary.busy;
+      if (Array.isArray(busy) && busy.length > 0) {
+        return res.status(409).json({ ok: false, error: "Requested time is busy on owner's calendar" });
+      }
+    } catch (fbErr) {
+      console.error("Freebusy check failed", fbErr);
+      return res.status(500).json({ ok: false, error: String(fbErr) });
+    }
+
     const event = {
       summary: `Booking: ${name || "Customer"}`,
       description: `Phone: ${phone || "-"}\nEmail: ${email || "-"}\nNotes: ${notes || "-"}`,
-      start: { dateTime: new Date(start).toISOString() },
-      end: {
-        dateTime: new Date(
-          end || new Date(new Date(start).getTime() + 30 * 60000),
-        ).toISOString(),
-      },
+      start: { dateTime: startISO },
+      end: { dateTime: endISO },
       attendees: [{ email: OWNER_EMAIL }],
     };
 
