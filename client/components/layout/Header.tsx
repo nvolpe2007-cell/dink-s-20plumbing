@@ -75,7 +75,7 @@ export default function Header() {
                   <Droplets className="h-5 w-5" />
                 </span>
                 <div className="flex flex-col leading-tight">
-                  <span className="pipe-font text-2xl sm:text-3xl" style={{backgroundColor: 'rgba(0,0,0,1)', font: '400 30px/36px Audiowide, Pacifico, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial', boxShadow: '0 8px 30px rgba(0,0,0,0.18)'}}>
+                  <span className="pipe-font text-2xl sm:text-3xl" style={{backgroundColor: 'transparent', font: '400 30px/36px Audiowide, Pacifico, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial', boxShadow: '0 8px 24px rgba(2,6,23,0.12)', textShadow: '0 1px 0 rgba(255,255,255,0.6), 0 6px 18px rgba(2,6,23,0.08)'}}>
                     Dink's
                   </span>
                   <span className="pipe-font text-sm sm:text-base -mt-1" style={{textShadow: 'rgba(255, 255, 255, 0.6) 0px 1px 0px, rgba(0, 0, 0, 0.12) 0px 3px 0px, rgba(0, 0, 0, 0.18) 0px 6px 12px'}}>
