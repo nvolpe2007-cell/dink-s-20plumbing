@@ -131,6 +131,7 @@ export default function Book() {
               onChange={(e) => {
                 setStart(e.target.value);
                 setTimeError(validateTime(e.target.value));
+                checkAvailability(e.target.value);
               }}
               type="datetime-local"
               className="mt-1 w-full rounded-md border px-3 py-2"
