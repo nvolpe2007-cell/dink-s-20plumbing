@@ -18,9 +18,13 @@ export default function Book() {
     if (!value) return null;
     const d = new Date(value);
     if (isNaN(d.getTime())) return "Invalid date";
+    const day = d.getDay(); // 0 = Sunday, 6 = Saturday
+    if (day === 0) {
+      return "We're closed on Sundays; please pick another day (Mon–Sat).";
+    }
     const hour = d.getHours();
     if (hour < AVAILABLE_FROM || hour >= AVAILABLE_TO) {
-      return `Our availability is ${AVAILABLE_FROM}:00–${AVAILABLE_TO}:00; please pick a time in that window.`;
+      return `Our availability is ${AVAILABLE_FROM}:00–${AVAILABLE_TO}:00 (Mon–Sat); please pick a time in that window.`;
     }
     return null;
   }
