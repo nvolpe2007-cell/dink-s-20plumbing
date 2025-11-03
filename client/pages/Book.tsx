@@ -131,6 +131,28 @@ export default function Book() {
               className="mt-1 w-full rounded-md border px-3 py-2"
             />
           </label>
+
+          <label className="block">
+            <div className="text-sm font-medium">Service needed</div>
+            <select value={service} onChange={(e) => setService(e.target.value)} className="mt-1 w-full rounded-md border px-3 py-2">
+              <option value="">Select a service</option>
+              <option value="Leak repair">Leak repair</option>
+              <option value="Clog removal">Clog removal</option>
+              <option value="Water heater">Water heater</option>
+              <option value="Toilet repair">Toilet repair</option>
+              <option value="Other">Other / General</option>
+            </select>
+          </label>
+
+          <label className="block">
+            <div className="text-sm font-medium">Address</div>
+            <input
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="mt-1 w-full rounded-md border px-3 py-2"
+            />
+          </label>
+
           <label className="block">
             <div className="text-sm font-medium">Appointment time</div>
             <input
