@@ -208,7 +208,14 @@ export default function Book() {
                 <button
                   key={s}
                   type="button"
-                  onClick={() => { setStart(s); setAvailability('Available'); }}
+                  onClick={() => {
+                    // convert ISO to local datetime-local value yyyy-mm-ddThh:mm
+                    const d = new Date(s);
+                    const pad = (n: number) => n.toString().padStart(2, '0');
+                    const local = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+                    setStart(local);
+                    setAvailability('Available');
+                  }}
                   className="text-left rounded border px-3 py-2"
                 >
                   {new Date(s).toLocaleString()}
