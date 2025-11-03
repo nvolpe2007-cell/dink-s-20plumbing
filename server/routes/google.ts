@@ -281,8 +281,9 @@ export const handleCreateEvent: RequestHandler = async (req, res) => {
     }
 
     const event = {
-      summary: `Booking: ${name || "Customer"}`,
-      description: `Phone: ${phone || "-"}\nEmail: ${email || "-"}\nNotes: ${notes || "-"}`,
+      summary: `${service ? service + ' - ' : ''}Booking: ${name || "Customer"}`,
+      description: `Service: ${service || '-'}\nAddress: ${address || '-'}\nPhone: ${phone || "-"}\nEmail: ${email || "-"}\nNotes: ${notes || "-"}`,
+      location: address || undefined,
       start: { dateTime: startISO },
       end: { dateTime: endISO },
       attendees: [{ email: OWNER_EMAIL }],
