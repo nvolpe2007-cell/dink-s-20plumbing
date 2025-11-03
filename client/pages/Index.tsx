@@ -45,9 +45,9 @@ export default function Index() {
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
-            <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)'}}>
-                      <p>Plumbing fixed TODAY</p>
-                    </p>
+            <div className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)'}}>
+                      <p className="m-0">Plumbing fixed TODAY</p>
+                    </div>
             <div className="text-lg max-w-xl" style={{color: 'rgb(0, 53, 53)', fontWeight: 400, textShadow: '0 3px 12px rgba(2,6,23,0.08)', boxShadow: '0 20px 40px rgba(2,6,23,0.08)', maxWidth: '576px'}}>
                       Leaks, clogs, or no hot water, we arrive fast, fix it
                       right, and leave your place cleaner than we found it.
