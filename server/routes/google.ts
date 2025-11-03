@@ -213,7 +213,7 @@ export const handleAvailableSlots: RequestHandler = async (req, res) => {
 
 export const handleCreateEvent: RequestHandler = async (req, res) => {
   try {
-    const { name, email, phone, start, end, notes } = req.body;
+    const { name, email, phone, service, address, start, end, notes } = req.body;
     if (!start)
       return res.status(400).json({ ok: false, error: "Missing start time" });
 
