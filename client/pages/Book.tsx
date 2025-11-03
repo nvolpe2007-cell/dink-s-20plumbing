@@ -12,6 +12,7 @@ export default function Book() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [timeError, setTimeError] = useState<string | null>(null);
+  const [availability, setAvailability] = useState<string | null>(null);
 
   function validateTime(value: string) {
     if (!value) return null;
@@ -22,6 +23,33 @@ export default function Book() {
       return `Our availability is ${AVAILABLE_FROM}:00–${AVAILABLE_TO}:00; please pick a time in that window.`;
     }
     return null;
+  }
+
+  // Check availability against owner's Google Calendar
+  async function checkAvailability(value: string) {
+    setAvailability(null);
+    if (!value) return;
+    const err = validateTime(value);
+    if (err) {
+      setAvailability(null);
+      return;
+    }
+    try {
+      const end = new Date(new Date(value).getTime() + 30 * 60000).toISOString();
+      const resp = await fetch("/api/check-availability", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ start: new Date(value).toISOString(), end }),
+      });
+      const json = await resp.json();
+      if (json.ok) {
+        setAvailability(json.free ? "Available" : "Busy");
+      } else {
+        setAvailability("Error checking availability");
+      }
+    } catch (err) {
+      setAvailability("Error checking availability");
+    }
   }
 
   async function handleSubmit(e: React.FormEvent) {
