@@ -48,7 +48,7 @@ export default function Index() {
             <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6" style={{boxShadow: '7px 3px 38px 1px rgba(0, 0, 0, 1)'}}>
               Plumbing fixed TODAY.
             </p>
-            <div className="text-lg max-w-xl" style={{color: 'rgba(0, 53, 53, 1)', textShadow: '1px 1px 3px rgba(0, 0, 0, 1)', boxShadow: '7px 3px 9px 1px black'}}>
+            <div className="text-lg max-w-xl" style={{color: 'rgb(0, 53, 53)', fontWeight: 400, textShadow: '1px 1px 3px rgb(0, 0, 0)', boxShadow: '7px 3px 38px 1px rgb(0, 0, 0)', maxWidth: '576px'}}>
                       Leaks, clogs, or no hot water, we arrive fast, fix it
                       right, and leave your place cleaner than we found it.
                     </div>
