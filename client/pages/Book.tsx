@@ -8,6 +8,8 @@ export default function Book() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [service, setService] = useState("");
+  const [address, setAddress] = useState("");
   const [start, setStart] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
