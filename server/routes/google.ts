@@ -100,6 +100,19 @@ export const handleCreateEvent: RequestHandler = async (req, res) => {
     if (!start)
       return res.status(400).json({ ok: false, error: "Missing start time" });
 
+    // Enforce owner's availability window (server-side best-effort)
+    const OWNER_AVAILABLE_FROM = parseInt((process.env.OWNER_AVAILABLE_FROM as string) || "9", 10);
+    const OWNER_AVAILABLE_TO = parseInt((process.env.OWNER_AVAILABLE_TO as string) || "17", 10);
+
+    const startDate = new Date(start);
+    if (isNaN(startDate.getTime()))
+      return res.status(400).json({ ok: false, error: "Invalid start time" });
+
+    const startHour = startDate.getHours();
+    if (startHour < OWNER_AVAILABLE_FROM || startHour >= OWNER_AVAILABLE_TO) {
+      return res.status(400).json({ ok: false, error: `Owner availability is ${OWNER_AVAILABLE_FROM}:00-${OWNER_AVAILABLE_TO}:00` });
+    }
+
     // Ensure access token valid
     if (
       !ownerTokens.access_token ||
