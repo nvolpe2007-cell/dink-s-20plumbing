@@ -94,6 +94,39 @@ async function refreshAccessToken() {
   ownerTokens.expiry_date = Date.now() + (json.expires_in || 3600) * 1000;
 }
 
+export const handleCheckAvailability: RequestHandler = async (req, res) => {
+  try {
+    const { start, end } = req.body;
+    if (!start) return res.status(400).json({ ok: false, error: "Missing start" });
+
+    if (
+      !ownerTokens.access_token ||
+      (ownerTokens.expiry_date && ownerTokens.expiry_date < Date.now() + 10000)
+    ) {
+      await refreshAccessToken();
+    }
+
+    const startISO = new Date(start).toISOString();
+    const endISO = new Date((end && new Date(end)) || new Date(new Date(start).getTime() + 30 * 60000)).toISOString();
+
+    const fbRes = await fetch("https://www.googleapis.com/calendar/v3/freeBusy", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${ownerTokens.access_token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ timeMin: startISO, timeMax: endISO, items: [{ id: "primary" }] }),
+    });
+    const fbJson = await fbRes.json();
+    if (fbRes.status >= 400) return res.status(500).json({ ok: false, error: fbJson });
+    const busy = fbJson.calendars && fbJson.calendars.primary && fbJson.calendars.primary.busy;
+    return res.status(200).json({ ok: true, free: !(Array.isArray(busy) && busy.length > 0) });
+  } catch (err) {
+    console.error("check-availability error", err);
+    return res.status(500).json({ ok: false, error: String(err) });
+  }
+};
+
 export const handleCreateEvent: RequestHandler = async (req, res) => {
   try {
     const { name, email, phone, start, end, notes } = req.body;
