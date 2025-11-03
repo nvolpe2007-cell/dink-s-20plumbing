@@ -2,17 +2,41 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function Book() {
+  const AVAILABLE_FROM = 9; // 9 AM
+  const AVAILABLE_TO = 17; // 5 PM
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [start, setStart] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [timeError, setTimeError] = useState<string | null>(null);
+
+  function validateTime(value: string) {
+    if (!value) return null;
+    const d = new Date(value);
+    if (isNaN(d.getTime())) return "Invalid date";
+    const hour = d.getHours();
+    if (hour < AVAILABLE_FROM || hour >= AVAILABLE_TO) {
+      return `Our availability is ${AVAILABLE_FROM}:00–${AVAILABLE_TO}:00; please pick a time in that window.`;
+    }
+    return null;
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setMessage(null);
+    setTimeError(null);
+
+    const tErr = validateTime(start);
+    if (tErr) {
+      setTimeError(tErr);
+      setLoading(false);
+      return;
+    }
+
     try {
       const end = new Date(
         new Date(start).getTime() + 30 * 60000,
