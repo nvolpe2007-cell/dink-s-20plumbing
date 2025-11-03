@@ -34,6 +34,7 @@ export function createServer() {
   app.get("/api/google/auth", handleAuthRedirect);
   app.get("/api/google/oauth2callback", handleOAuthCallback);
   app.post("/api/check-availability", handleCheckAvailability);
+  app.post("/api/available-slots", handleAvailableSlots);
   app.post("/api/create-event", handleCreateEvent);
 
   return app;
