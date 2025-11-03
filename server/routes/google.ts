@@ -131,6 +131,86 @@ export const handleCheckAvailability: RequestHandler = async (req, res) => {
   }
 };
 
+export const handleAvailableSlots: RequestHandler = async (req, res) => {
+  try {
+    const days = parseInt((req.body && req.body.days) || "7", 10);
+    const slotMinutes = parseInt((req.body && req.body.slotMinutes) || "30", 10);
+
+    if (!ownerTokens.refresh_token) {
+      return res.status(400).json({ ok: false, error: "Owner not authorized: visit /api/google/auth to connect the owner Google account" });
+    }
+
+    if (
+      !ownerTokens.access_token ||
+      (ownerTokens.expiry_date && ownerTokens.expiry_date < Date.now() + 10000)
+    ) {
+      await refreshAccessToken();
+    }
+
+    const OWNER_AVAILABLE_FROM = parseInt((process.env.OWNER_AVAILABLE_FROM as string) || "8", 10);
+    const OWNER_AVAILABLE_TO = parseInt((process.env.OWNER_AVAILABLE_TO as string) || "20", 10);
+
+    const now = new Date();
+    const results: string[] = [];
+
+    for (let i = 0; i < days; i++) {
+      const day = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
+      const weekday = day.getDay();
+      if (weekday === 0) continue; // skip Sunday
+
+      const dayStart = new Date(day.getFullYear(), day.getMonth(), day.getDate(), OWNER_AVAILABLE_FROM, 0, 0);
+      const dayEnd = new Date(day.getFullYear(), day.getMonth(), day.getDate(), OWNER_AVAILABLE_TO, 0, 0);
+
+      // Query freebusy for the full day window
+      const fbRes = await fetch("https://www.googleapis.com/calendar/v3/freeBusy", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${ownerTokens.access_token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ timeMin: dayStart.toISOString(), timeMax: dayEnd.toISOString(), items: [{ id: "primary" }] }),
+      });
+      const fbJson = await fbRes.json();
+      if (fbRes.status >= 400) {
+        console.error("Freebusy API error", fbJson);
+        continue;
+      }
+      const busy = (fbJson.calendars && fbJson.calendars.primary && fbJson.calendars.primary.busy) || [];
+
+      // Build available intervals by subtracting busy intervals
+      const freeIntervals: { start: Date; end: Date }[] = [];
+      let cursor = new Date(dayStart);
+      const sortedBusy = busy
+        .map((b: any) => ({ start: new Date(b.start), end: new Date(b.end) }))
+        .sort((a: any, b: any) => a.start.getTime() - b.start.getTime());
+
+      for (const b of sortedBusy) {
+        if (b.start > cursor) {
+          freeIntervals.push({ start: new Date(cursor), end: new Date(Math.min(b.start.getTime(), dayEnd.getTime())) });
+        }
+        cursor = new Date(Math.max(cursor.getTime(), b.end.getTime()));
+        if (cursor >= dayEnd) break;
+      }
+      if (cursor < dayEnd) freeIntervals.push({ start: new Date(cursor), end: new Date(dayEnd) });
+
+      // Slice free intervals into slots
+      for (const fi of freeIntervals) {
+        let s = new Date(fi.start);
+        while (s.getTime() + slotMinutes * 60000 <= fi.end.getTime()) {
+          // only future slots
+          if (s.getTime() > Date.now()) results.push(new Date(s).toISOString());
+          s = new Date(s.getTime() + slotMinutes * 60000);
+        }
+      }
+    }
+
+    return res.status(200).json({ ok: true, slots: results.slice(0, 200) });
+  } catch (err) {
+    console.error("available-slots error", err);
+    return res.status(500).json({ ok: false, error: String(err) });
+  }
+};
+
 export const handleCreateEvent: RequestHandler = async (req, res) => {
   try {
     const { name, email, phone, start, end, notes } = req.body;
