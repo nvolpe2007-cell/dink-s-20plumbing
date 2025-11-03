@@ -67,43 +67,51 @@ export default function Header() {
       </div>
 
       <div className="border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-background/80">
-        <div className="container flex h-16 items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
-              <Droplets className="h-5 w-5" />
-            </span>
-            <div className="flex flex-col leading-tight">
-              <span className="pipe-font text-2xl sm:text-3xl">Dink's</span>
-              <span className="pipe-font text-sm sm:text-base -mt-1">Plumbing</span>
+        <div style={{display: 'flex', flexDirection: 'column', position: 'relative', minHeight: '100px', padding: '20px'}}>
+          <section style={{display: 'flex', flexDirection: 'column', position: 'relative', minHeight: '100px', padding: '20px', width: '100%', alignSelf: 'stretch', flexGrow: 1, maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto'}}>
+            <div className="container flex h-16 items-center justify-between" style={{height: '64px', padding: '0 32px'}}>
+              <a href="/" className="flex items-center gap-2">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                  <Droplets className="h-5 w-5" />
+                </span>
+                <div className="flex flex-col leading-tight">
+                  <span className="pipe-font text-2xl sm:text-3xl" style={{backgroundColor: 'rgba(0,0,0,1)', font: '400 30px/36px Audiowide, Pacifico, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial', boxShadow: '0 8px 30px rgba(0,0,0,0.18)'}}>
+                    Dink's
+                  </span>
+                  <span className="pipe-font text-sm sm:text-base -mt-1" style={{textShadow: 'rgba(255, 255, 255, 0.6) 0px 1px 0px, rgba(0, 0, 0, 0.12) 0px 3px 0px, rgba(0, 0, 0, 0.18) 0px 6px 12px'}}>
+                    Plumbing
+                  </span>
+                </div>
+              </a>
+              <div className="flex items-center gap-2">
+                {hasPhone ? (
+                  <Button
+                    asChild
+                    variant="secondary"
+                    size="sm"
+                    aria-label="Call now"
+                  >
+                    <a href={`tel:${OWNER_PHONE}`}>Call</a>
+                  </Button>
+                ) : null}
+                {BOOKING_URL ? (
+                  <Button asChild size="sm" aria-label="Book now">
+                    <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+                      Book now
+                    </a>
+                  </Button>
+                ) : hasEmail ? (
+                  <Button asChild size="sm" aria-label="Email us">
+                    <a
+                      href={MAILTO_URL}
+                    >
+                      Email
+                    </a>
+                  </Button>
+                ) : null}
+              </div>
             </div>
-          </a>
-          <div className="flex items-center gap-2">
-            {hasPhone ? (
-              <Button
-                asChild
-                variant="secondary"
-                size="sm"
-                aria-label="Call now"
-              >
-                <a href={`tel:${OWNER_PHONE}`}>Call</a>
-              </Button>
-            ) : null}
-            {BOOKING_URL ? (
-              <Button asChild size="sm" aria-label="Book now">
-                <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-                  Book now
-                </a>
-              </Button>
-            ) : hasEmail ? (
-              <Button asChild size="sm" aria-label="Email us">
-                <a
-                  href={MAILTO_URL}
-                >
-                  Email
-                </a>
-              </Button>
-            ) : null}
-          </div>
+          </section>
         </div>
       </div>
     </header>
