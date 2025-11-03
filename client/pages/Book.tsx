@@ -80,7 +80,7 @@ export default function Book() {
       const resp = await fetch("/api/create-event", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, start, end }),
+        body: JSON.stringify({ name, email, phone, service, address, start, end }),
       });
       const json = await resp.json();
       if (json.ok) {
