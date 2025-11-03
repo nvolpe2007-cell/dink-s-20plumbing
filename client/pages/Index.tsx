@@ -48,12 +48,10 @@ export default function Index() {
             <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6">
               Plumbing fixed TODAY.
             </p>
-            <p className="text-lg max-w-xl" style={{color: 'rgba(0, 53, 53, 1)', textShadow: '1px 1px 3px rgba(0, 0, 0, 1)', boxShadow: '7px 3px 9px 1px black'}}>
-                      <p>
-                        Leaks, clogs, or no hot water, we arrive fast, fix it
-                        right, and leave your place cleaner than we found it.
-                      </p>
-                    </p>
+            <div className="text-lg max-w-xl" style={{color: 'rgba(0, 53, 53, 1)', textShadow: '1px 1px 3px rgba(0, 0, 0, 1)', boxShadow: '7px 3px 9px 1px black'}}>
+                      Leaks, clogs, or no hot water, we arrive fast, fix it
+                      right, and leave your place cleaner than we found it.
+                    </div>
 
             <div className="flex flex-wrap gap-3 items-center">
               {hasBooking ? (
