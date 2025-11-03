@@ -13,6 +13,8 @@ export default function Book() {
   const [message, setMessage] = useState<string | null>(null);
   const [timeError, setTimeError] = useState<string | null>(null);
   const [availability, setAvailability] = useState<string | null>(null);
+  const [slots, setSlots] = useState<string[] | null>(null);
+  const [loadingSlots, setLoadingSlots] = useState(false);
 
   function validateTime(value: string) {
     if (!value) return null;
