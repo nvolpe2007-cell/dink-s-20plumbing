@@ -100,14 +100,18 @@ export default function Book() {
             <input
               required
               value={start}
-              onChange={(e) => setStart(e.target.value)}
+              onChange={(e) => {
+                setStart(e.target.value);
+                setTimeError(validateTime(e.target.value));
+              }}
               type="datetime-local"
               className="mt-1 w-full rounded-md border px-3 py-2"
             />
+            {timeError ? <div className="text-sm text-destructive mt-2">{timeError}</div> : null}
           </label>
 
           <div className="flex items-center gap-2">
-            <Button type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading || !!timeError}>
               {loading ? "Booking..." : "Confirm booking"}
             </Button>
             <a className="text-sm text-muted-foreground" href="/">
