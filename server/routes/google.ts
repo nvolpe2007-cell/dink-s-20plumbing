@@ -99,6 +99,10 @@ export const handleCheckAvailability: RequestHandler = async (req, res) => {
     const { start, end } = req.body;
     if (!start) return res.status(400).json({ ok: false, error: "Missing start" });
 
+    if (!ownerTokens.refresh_token) {
+      return res.status(400).json({ ok: false, error: "Owner not authorized: visit /api/google/auth to connect the owner Google account" });
+    }
+
     if (
       !ownerTokens.access_token ||
       (ownerTokens.expiry_date && ownerTokens.expiry_date < Date.now() + 10000)
@@ -144,6 +148,11 @@ export const handleCreateEvent: RequestHandler = async (req, res) => {
     const startHour = startDate.getHours();
     if (startHour < OWNER_AVAILABLE_FROM || startHour >= OWNER_AVAILABLE_TO) {
       return res.status(400).json({ ok: false, error: `Owner availability is ${OWNER_AVAILABLE_FROM}:00-${OWNER_AVAILABLE_TO}:00` });
+    }
+
+    // Ensure owner authorized
+    if (!ownerTokens.refresh_token) {
+      return res.status(400).json({ ok: false, error: "Owner not authorized: visit /api/google/auth to connect the owner Google account" });
     }
 
     // Ensure access token valid
