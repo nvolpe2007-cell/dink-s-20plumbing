@@ -45,10 +45,10 @@ export default function Index() {
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
-            <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6" style={{boxShadow: '7px 3px 38px 1px rgba(0, 0, 0, 1)'}}>
+            <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)'}}>
               Plumbing fixed TODAY.
             </p>
-            <div className="text-lg max-w-xl" style={{color: 'rgb(0, 53, 53)', fontWeight: 400, textShadow: '1px 1px 3px rgb(0, 0, 0)', boxShadow: '7px 3px 38px 1px rgb(0, 0, 0)', maxWidth: '576px'}}>
+            <div className="text-lg max-w-xl" style={{color: 'rgb(0, 53, 53)', fontWeight: 400, textShadow: '0 3px 12px rgba(2,6,23,0.08)', boxShadow: '0 20px 40px rgba(2,6,23,0.08)', maxWidth: '576px'}}>
                       Leaks, clogs, or no hot water, we arrive fast, fix it
                       right, and leave your place cleaner than we found it.
                     </div>
@@ -101,8 +101,8 @@ export default function Index() {
             </ul>
           </div>
 
-          <div className="relative z-10" style={{boxShadow: '7px 3px 38px 1px rgba(0, 0, 0, 1)'}}>
-            <div className="glass-card rounded-3xl border p-6 max-w-[456px] mx-auto" style={{boxShadow: '1px 1px 3px 0px rgba(0, 0, 0, 1)'}}>
+          <div className="relative z-10" style={{boxShadow: '0 30px 60px rgba(2,6,23,0.12)'}}>
+            <div className="glass-card rounded-3xl border p-6 max-w-[456px] mx-auto" style={{boxShadow: '0 8px 24px rgba(2,6,23,0.08)'}}>
               <div className="flex items-center gap-4">
                 <div className="inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Wrench className="h-6 w-6" />
