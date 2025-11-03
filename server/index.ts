@@ -8,6 +8,7 @@ import {
   handleOAuthCallback,
   handleCreateEvent,
   handleCheckAvailability,
+  handleAvailableSlots,
 } from "./routes/google";
 
 export function createServer() {
