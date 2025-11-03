@@ -32,6 +32,7 @@ export function createServer() {
   // Google OAuth & Calendar endpoints
   app.get("/api/google/auth", handleAuthRedirect);
   app.get("/api/google/oauth2callback", handleOAuthCallback);
+  app.post("/api/check-availability", handleCheckAvailability);
   app.post("/api/create-event", handleCreateEvent);
 
   return app;
