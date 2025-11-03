@@ -45,7 +45,7 @@ export default function Index() {
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
-            <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6">
+            <p className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6" style={{boxShadow: '7px 3px 38px 1px rgba(0, 0, 0, 1)'}}>
               Plumbing fixed TODAY.
             </p>
             <div className="text-lg max-w-xl" style={{color: 'rgba(0, 53, 53, 1)', textShadow: '1px 1px 3px rgba(0, 0, 0, 1)', boxShadow: '7px 3px 9px 1px black'}}>
