@@ -56,9 +56,9 @@ export default function Index() {
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 items-center">
               {hasBooking ? (
-                <Button asChild size="lg" className="px-8 w-full sm:w-auto">
+                <Button asChild size="lg" className="px-8 w-full sm:w-auto cta-book">
                   <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-                    <Clock className="h-4 w-4" /> Book a time
+                    <Clock className="h-4 w-4" /> Book now
                   </a>
                 </Button>
               ) : null}
@@ -134,7 +134,7 @@ export default function Index() {
               {hasBooking || hasEmail || hasPhone ? (
                 <div className="mt-6 grid gap-2">
                   {hasBooking ? (
-                    <Button asChild className="w-full">
+                    <Button asChild className="w-full cta-book">
                       <a href={BOOKING_URL} target="_blank" rel="noreferrer">
                         Book now
                       </a>
