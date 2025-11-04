@@ -63,7 +63,7 @@ export default function Header() {
                   className="font-semibold underline cta-link"
                   href={`tel:+13103443833`}
                 >
-                  <Phone className="mr-1 inline-block h-4 w-4" /> Text or call to book +1 (310)-344-3833
+                  <Phone className="mr-1 inline-block h-4 w-4" /> +1 (310)-344-3833
                 </a>
               ) : null}
             </div>
