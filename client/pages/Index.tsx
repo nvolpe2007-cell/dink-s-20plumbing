@@ -67,7 +67,7 @@ export default function Index() {
               {hasEmail ? (
                 <Button asChild variant="secondary" size="lg" className="px-6 w-full sm:w-auto cta-book">
                   <a href={`tel:+13103443833`}>
-                    <Phone className="mr-2 h-4 w-4 inline-block" /> Text or call to book +1 (310)-344-3833
+                    <Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833
                   </a>
                 </Button>
               ) : null}
@@ -142,7 +142,7 @@ export default function Index() {
                   {hasEmail ? (
                     <Button asChild variant="secondary" className="w-full cta-book">
                       <a href={`tel:+13103443833`}>
-                        <Phone className="mr-2 h-4 w-4 inline-block" /> Text or call to book +1 (310)-344-3833
+                        <Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833
                       </a>
                     </Button>
                   ) : null}
