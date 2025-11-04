@@ -5,6 +5,7 @@ import {
   Droplets,
   ShieldCheck,
   Wrench,
+  BookOpen,
 } from "lucide-react";
 import { useRef, useState } from "react";
 import ReviewsPanel from "./ReviewsPanel";
