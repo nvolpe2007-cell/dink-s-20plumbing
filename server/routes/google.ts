@@ -316,3 +316,16 @@ export const handleCreateEvent: RequestHandler = async (req, res) => {
     res.status(500).json({ ok: false, error: String(err) });
   }
 };
+
+export const handleSimulateOwner: RequestHandler = (_req, res) => {
+  if (process.env.NODE_ENV === 'production') {
+    return res.status(403).json({ ok: false, error: 'Not allowed in production' });
+  }
+  ownerTokens = {
+    access_token: 'SIMULATED_ACCESS_TOKEN',
+    refresh_token: 'SIMULATED_REFRESH_TOKEN',
+    expiry_date: Date.now() + 24 * 3600 * 1000,
+  };
+  console.log('Simulated owner tokens set (dev only)');
+  res.json({ ok: true, simulated: true });
+};
