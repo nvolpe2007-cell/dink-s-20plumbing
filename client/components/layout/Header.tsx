@@ -99,7 +99,7 @@ export default function Header() {
                 </Button>
               ) : hasEmail ? (
                 <Button asChild size="sm" className="w-full sm:w-auto">
-                  <a href={MAILTO_URL}>Email</a>
+                  <a href={MAILTO_URL}><BookOpen className="mr-2 h-4 w-4 inline-block" /> Book</a>
                 </Button>
               ) : null}
             </div>
