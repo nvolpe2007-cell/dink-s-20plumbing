@@ -30,6 +30,7 @@ export default function Header() {
   const hasBooking = typeof BOOKING_URL === "string" && BOOKING_URL.length > 0;
   const hasEmail = typeof OWNER_EMAIL === "string" && OWNER_EMAIL.length > 0;
   const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
+  const [showPhone, setShowPhone] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 w-full">
