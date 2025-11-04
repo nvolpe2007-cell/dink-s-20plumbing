@@ -46,7 +46,7 @@ export default function Index() {
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
             <div className="mt-6">
-            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[60px] leading-tight md:leading-[60px] text-slate-900" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)'}}>
+            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[60px] leading-tight md:leading-[60px] text-slate-900" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)', wordBreak: 'keep-all', overflowWrap: 'normal', hyphens: 'none'}}>
                       your plumbing problems fixed today
                     </h1>
                     </div>
