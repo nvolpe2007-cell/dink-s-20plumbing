@@ -67,48 +67,33 @@ export default function Header() {
       </div>
 
       <div className="border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-background/80">
-        <div style={{display: 'flex', flexDirection: 'column', position: 'relative', minHeight: '100px', padding: '20px'}}>
-          <section style={{display: 'flex', flexDirection: 'column', position: 'relative', minHeight: '100px', padding: '20px', width: '100%', alignSelf: 'stretch', flexGrow: 1, maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto'}}>
-            <div className="container flex h-16 items-center justify-between" style={{height: '64px', padding: '0 32px'}}>
-              <a href="/" className="flex items-center gap-2">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                  <Droplets className="h-5 w-5" />
-                </span>
-                <div className="flex items-center leading-tight">
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 whitespace-nowrap" style={{backgroundColor: 'transparent', letterSpacing: '-0.02em', lineHeight: '1'}}>
-                    Dink's Plumbing
-                  </span>
-                </div>
-              </a>
-              <div className="flex items-center gap-2">
-                {hasPhone ? (
-                  <Button
-                    asChild
-                    variant="secondary"
-                    size="sm"
-                    aria-label="Call now"
-                  >
-                    <a href={`tel:${OWNER_PHONE}`}>Call</a>
-                  </Button>
-                ) : null}
-                {BOOKING_URL ? (
-                  <Button asChild size="sm" aria-label="Book now">
-                    <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-                      Book now
-                    </a>
-                  </Button>
-                ) : hasEmail ? (
-                  <Button asChild size="sm" aria-label="Email us">
-                    <a
-                      href={MAILTO_URL}
-                    >
-                      Email
-                    </a>
-                  </Button>
-                ) : null}
-              </div>
+        <div className="container mx-auto px-4 py-2 sm:py-3">
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-2">
+            <a href="/" className="flex items-center gap-3 w-full sm:w-auto">
+              <span className="inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                <Droplets className="h-4 w-4 sm:h-5 sm:w-5" />
+              </span>
+              <span className="text-lg sm:text-2xl md:text-3xl font-extrabold text-slate-900 whitespace-nowrap">Dink's Plumbing</span>
+            </a>
+
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+              {hasPhone ? (
+                <Button asChild variant="secondary" size="sm" className="w-full sm:w-auto">
+                  <a href={`tel:${OWNER_PHONE}`}>Call</a>
+                </Button>
+              ) : null}
+
+              {BOOKING_URL ? (
+                <Button asChild size="sm" className="w-full sm:w-auto">
+                  <a href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
+                </Button>
+              ) : hasEmail ? (
+                <Button asChild size="sm" className="w-full sm:w-auto">
+                  <a href={MAILTO_URL}>Email</a>
+                </Button>
+              ) : null}
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </header>
