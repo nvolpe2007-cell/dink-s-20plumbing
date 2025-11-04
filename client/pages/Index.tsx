@@ -65,10 +65,8 @@ export default function Index() {
 
               {hasEmail ? (
                 <Button asChild variant="secondary" size="lg" className="px-6 w-full sm:w-auto">
-                  <a
-                    href={MAILTO_URL}
-                  >
-                    Email to book
+                  <a href={MAILTO_URL}>
+                    <BookOpen className="mr-2 h-4 w-4 inline-block" /> Book
                   </a>
                 </Button>
               ) : null}
@@ -142,10 +140,8 @@ export default function Index() {
                   ) : null}
                   {hasEmail ? (
                     <Button asChild variant="secondary" className="w-full">
-                      <a
-                        href={MAILTO_URL}
-                      >
-                        Email to book
+                      <a href={MAILTO_URL}>
+                        <BookOpen className="mr-2 h-4 w-4 inline-block" /> Book
                       </a>
                     </Button>
                   ) : null}
