@@ -116,30 +116,35 @@
   /* Interactive brand styles */
   .brand-interactive {
     display: inline-block;
-    transition: transform 220ms cubic-bezier(.2,.8,.2,1), text-shadow 220ms ease, color 220ms ease;
+    transition: transform 220ms cubic-bezier(.2,.8,.2,1), text-shadow 220ms ease, color 220ms ease, filter 220ms ease;
     cursor: pointer;
+    color: hsl(var(--foreground));
   }
   .brand-interactive:hover {
-    transform: translateY(-3px) scale(1.03);
-    text-shadow: 0 6px 18px rgba(16,24,40,0.12);
+    transform: translateY(-4px) scale(1.04);
+    text-shadow: 0 10px 30px rgba(2,6,23,0.18), 0 2px 8px rgba(2,6,23,0.12);
     color: hsl(var(--primary));
+    filter: drop-shadow(0 10px 18px rgba(2,6,23,0.15));
   }
   .brand-interactive:active {
-    transform: translateY(-1px) scale(0.99);
+    transform: translateY(-1px) scale(0.995);
   }
 
   /* Pipe-style metallic brand font (uses Audiowide as base) */
   .pipe-font {
     font-family: 'Audiowide', 'Pacifico', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     display: inline-block;
-    background: linear-gradient(180deg, #f5f7fa 0%, #d8dbe0 25%, #b8bcc2 50%, #e9ecef 70%, #fdfdfd 100%);
+    background: linear-gradient(180deg, #dfe7ee 0%, #bfc9d1 25%, #98a3ab 50%, #c6cfd6 75%, #eef2f6 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(0,0,0,0.12);
-    text-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 3px 0 rgba(0,0,0,0.12), 0 6px 12px rgba(0,0,0,0.18);
+    -webkit-text-stroke: 1.6px rgba(3,7,18,0.35);
+    text-shadow: 0 2px 0 rgba(255,255,255,0.9), 0 6px 10px rgba(2,6,23,0.25), 0 12px 30px rgba(2,6,23,0.32);
+    filter: drop-shadow(0 10px 20px rgba(2,6,23,0.28));
     transform: translateZ(0);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
+    font-weight: 700;
   }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
