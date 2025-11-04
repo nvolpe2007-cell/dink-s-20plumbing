@@ -1,5 +1,6 @@
 import { Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Clock } from "lucide-react";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL =
@@ -52,7 +53,7 @@ export default function Header() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Book now
+                <Clock className="mr-1 inline-block h-4 w-4" /> Book now
               </a>
             ) : hasEmail ? (
               <a
@@ -82,7 +83,7 @@ export default function Header() {
 
               {BOOKING_URL ? (
                 <Button asChild size="sm" className="w-full sm:w-auto">
-                  <a href={BOOKING_URL} target="_blank" rel="noreferrer">Book now</a>
+                  <a href={BOOKING_URL} target="_blank" rel="noreferrer"><Clock className="mr-2 h-4 w-4" /> Book now</a>
                 </Button>
               ) : hasEmail ? (
                 <Button asChild size="sm" className="w-full sm:w-auto">

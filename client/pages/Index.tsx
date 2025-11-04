@@ -136,7 +136,7 @@ export default function Index() {
                   {hasBooking ? (
                     <Button asChild className="w-full cta-book">
                       <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-                        Book now
+                        <Clock className="mr-2 h-4 w-4" /> Book now
                       </a>
                     </Button>
                   ) : null}

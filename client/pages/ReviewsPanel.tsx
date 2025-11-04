@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { Clock } from "lucide-react";
+
 export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
   const reviews = [
     {
@@ -107,7 +109,7 @@ export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
             return (
               <div className="mx-auto inline-block">
                 <a href={BOOKING_URL} target="_blank" rel="noreferrer" className="cta-book inline-block rounded-full px-6 py-3">
-                  Book now
+                  <Clock className="mr-2 inline-block h-4 w-4" /> Book now
                 </a>
               </div>
             );
