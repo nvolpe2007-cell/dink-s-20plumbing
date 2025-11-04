@@ -5,7 +5,6 @@ import {
   Droplets,
   ShieldCheck,
   Wrench,
-  User,
 } from "lucide-react";
 import { useRef, useState } from "react";
 import ReviewsPanel from "./ReviewsPanel";
@@ -163,16 +162,9 @@ export default function Index() {
               )}
             </div>
 
-            <figure className="mt-6 flex items-center gap-4">
-              <div className="inline-flex items-center justify-center rounded-full bg-primary/10 p-3">
-                <User className="h-6 w-6 text-primary" />
-              </div>
-              <figcaption className="text-sm">
-                <p>
-                  <br />
-                </p>
-              </figcaption>
-            </figure>
+            <div className="mt-6 text-sm text-muted-foreground">
+              Friendly, courteous technicians — we treat your home with respect and leave the area cleaner than we found it.
+            </div>
           </div>
         </div>
       </section>
