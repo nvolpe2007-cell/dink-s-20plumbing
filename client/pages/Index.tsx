@@ -45,17 +45,18 @@ export default function Index() {
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
-            <div className="text-[60px] font-extrabold tracking-tight leading-[60px] mt-6" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)'}}>
-                      <p className="m-0">your plumbing problems fixed today</p>
+            <div className="mt-6">
+            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[60px] leading-tight md:leading-[60px] text-slate-900" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)'}}>
+                      your plumbing problems fixed today
+                    </h1>
                     </div>
-            <div className="text-lg max-w-xl" style={{color: 'rgb(0, 53, 53)', fontWeight: 400, textShadow: '0 3px 12px rgba(2,6,23,0.08)', boxShadow: '0 20px 40px rgba(2,6,23,0.08)', maxWidth: '576px'}}>
-                      Leaks, clogs, or no hot water, we arrive fast, fix it
-                      right, and leave your place cleaner than we found it.
+            <div className="text-base sm:text-lg max-w-xl" style={{color: 'rgb(0, 53, 53)', fontWeight: 400, textShadow: '0 3px 12px rgba(2,6,23,0.08)', boxShadow: '0 20px 40px rgba(2,6,23,0.08)', maxWidth: '576px'}}>
+                      Leaks, clogs, or no hot water, we arrive fast, fix it right, and leave your place cleaner than we found it.
                     </div>
 
-            <div className="flex flex-wrap gap-3 items-center">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 items-center">
               {hasBooking ? (
-                <Button asChild size="lg" className="px-8">
+                <Button asChild size="lg" className="px-8 w-full sm:w-auto">
                   <a href={BOOKING_URL} target="_blank" rel="noreferrer">
                     <Clock className="h-4 w-4" /> Book a time
                   </a>
@@ -63,7 +64,7 @@ export default function Index() {
               ) : null}
 
               {hasEmail ? (
-                <Button asChild variant="secondary" size="lg" className="px-6">
+                <Button asChild variant="secondary" size="lg" className="px-6 w-full sm:w-auto">
                   <a
                     href={MAILTO_URL}
                   >
@@ -73,7 +74,7 @@ export default function Index() {
               ) : null}
 
               {hasPhone ? (
-                <Button asChild variant="outline" size="lg" className="px-6">
+                <Button asChild variant="outline" size="lg" className="px-6 w-full sm:w-auto">
                   <a href={`tel:${OWNER_PHONE}`}>Call now</a>
                 </Button>
               ) : null}
