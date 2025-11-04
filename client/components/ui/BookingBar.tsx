@@ -34,9 +34,9 @@ export default function BookingBar() {
     <div className="fixed bottom-4 left-1/2 z-50 transform -translate-x-1/2 sm:hidden">
       <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg">
         {hasBooking ? (
-          <Button asChild size="sm" className="px-3">
+          <Button asChild size="sm" className="px-3 cta-book">
             <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-              <Clock className="mr-2 h-4 w-4" /> Book
+              <Clock className="mr-2 h-4 w-4" /> Book now
             </a>
           </Button>
         ) : null}
