@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="text-muted-foreground">Fast fixes for leaks, clogs, and heaters. Licensed & Insured.</div>
         <div className="sm:justify-self-end flex gap-4">
           {OWNER_PHONE ? (
-            <a className="hover:underline" href={`tel:${OWNER_PHONE}`}>{OWNER_PHONE}</a>
+            <a className="hover:underline phone-number" href={`tel:${OWNER_PHONE}`}>{OWNER_PHONE}</a>
           ) : null}
           {OWNER_EMAIL ? (
             <a className="hover:underline" href={MAILTO_URL}>{OWNER_EMAIL}</a>
