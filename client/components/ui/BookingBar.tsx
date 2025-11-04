@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Clock, Phone, BookOpen } from "lucide-react";
+import { Clock, Phone } from "lucide-react";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL =
