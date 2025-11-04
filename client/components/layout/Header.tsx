@@ -1,6 +1,7 @@
 import { Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Clock } from "lucide-react";
+import { Clock, Phone, BookOpen } from "lucide-react";
+import { useState } from "react";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL =
@@ -38,31 +39,41 @@ export default function Header() {
           <div className="font-medium">
             Emergency plumbing — we respond fast
           </div>
-          <div>
-            {hasPhone ? (
-              <a
-                className="font-semibold underline"
-                href={`tel:${OWNER_PHONE}`}
-              >
-                Call now
-              </a>
-            ) : hasBooking ? (
-              <a
-                className="font-semibold underline cta-link"
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Clock className="mr-1 inline-block h-4 w-4" /> Book now
-              </a>
-            ) : hasEmail ? (
-              <a
-                className="font-semibold underline"
-                href={MAILTO_URL}
-              >
-                Email
-              </a>
-            ) : null}
+          <div className="flex items-center gap-3">
+            <div>
+              {hasPhone ? (
+                <a
+                  className="font-semibold underline"
+                  href={`tel:${OWNER_PHONE}`}
+                >
+                  Call now
+                </a>
+              ) : hasBooking ? (
+                <a
+                  className="font-semibold underline cta-link"
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Clock className="mr-1 inline-block h-4 w-4" /> Book now
+                </a>
+              ) : hasEmail ? (
+                <a
+                  className="font-semibold underline cta-link"
+                  href={MAILTO_URL}
+                >
+                  <BookOpen className="mr-1 inline-block h-4 w-4" /> Book
+                </a>
+              ) : null}
+            </div>
+
+            {/* phone reveal button */}
+            <div>
+              <button type="button" className="text-sm text-primary inline-flex items-center gap-2" onClick={() => setShowPhone((s) => !s)}>
+                <Phone className="h-4 w-4" />
+                {showPhone ? <span className="font-medium">310-344-3833</span> : <span className="sr-only">Show phone</span>}
+              </button>
+            </div>
           </div>
         </div>
       </div>
