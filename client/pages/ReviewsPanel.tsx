@@ -96,6 +96,25 @@ export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
         <a className="text-sm text-primary underline" href={`mailto:${ownerEmail}?subject=${encodeURIComponent("I want to leave a review for Dink's Plumbing")}`}>Leave us a review</a>
       </div>
 
+      {/* Book now CTA under reviews */}
+      <div className="mt-4 text-center">
+        {/* Construct booking URL from env if available */}
+        {
+          (() => {
+            const CALENDAR_URL = (import.meta.env.VITE_CALENDAR_URL as string | undefined);
+            const OWNER_EMAIL = ownerEmail || "Plum4it2@yahoo.com";
+            const BOOKING_URL = CALENDAR_URL ?? `https://calendar.google.com/calendar/u/0/r/eventedit?add=${encodeURIComponent(OWNER_EMAIL)}`;
+            return (
+              <div className="mx-auto inline-block">
+                <a href={BOOKING_URL} target="_blank" rel="noreferrer" className="cta-book inline-block rounded-full px-6 py-3">
+                  Book now
+                </a>
+              </div>
+            );
+          })()
+        }
+      </div>
+
     </div>
   );
 }
