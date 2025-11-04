@@ -72,7 +72,7 @@ export default function Header() {
             <div>
               <button type="button" className="text-sm text-primary inline-flex items-center gap-2" onClick={() => setShowPhone((s) => !s)}>
                 <Phone className="h-4 w-4" />
-                {showPhone ? <span className="font-medium">310-344-3833</span> : <span className="sr-only">Show phone</span>}
+                {showPhone ? <span className="font-medium">+1 (310)-344-3833</span> : <span className="sr-only">Show phone</span>}
               </button>
             </div>
           </div>
