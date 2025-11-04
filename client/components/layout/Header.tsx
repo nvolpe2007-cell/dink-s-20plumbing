@@ -74,12 +74,9 @@ export default function Header() {
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
                   <Droplets className="h-5 w-5" />
                 </span>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900" style={{backgroundColor: 'transparent', letterSpacing: '-0.02em', lineHeight: '1'}}>
-                    Dink's
-                  </span>
-                  <span className="text-sm sm:text-base md:text-lg font-semibold text-muted-foreground -mt-1">
-                    Plumbing
+                <div className="flex items-center leading-tight">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 whitespace-nowrap" style={{backgroundColor: 'transparent', letterSpacing: '-0.02em', lineHeight: '1'}}>
+                    Dink's Plumbing
                   </span>
                 </div>
               </a>
