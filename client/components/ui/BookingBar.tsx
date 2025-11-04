@@ -43,8 +43,8 @@ export default function BookingBar() {
 
         {hasEmail ? (
           <Button asChild variant="secondary" size="sm" className="px-3 cta-book">
-            <a href={MAILTO_URL}>
-              <BookOpen className="mr-2 h-4 w-4 inline-block" /> Book
+            <a href={`tel:+13103443833`}>
+              <Phone className="mr-2 h-4 w-4 inline-block" /> Text or call to book +1 (310)-344-3833
             </a>
           </Button>
         ) : null}
