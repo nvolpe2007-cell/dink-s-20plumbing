@@ -47,12 +47,12 @@ export default function Header() {
               </a>
             ) : hasBooking ? (
               <a
-                className="font-semibold underline"
+                className="font-semibold underline cta-link"
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noreferrer"
               >
-                Book
+                Book now
               </a>
             ) : hasEmail ? (
               <a
