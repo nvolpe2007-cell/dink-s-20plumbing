@@ -70,7 +70,7 @@ export default function Header() {
         <div className="container mx-auto px-4 py-2 sm:py-3">
           <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-2">
             <a href="/" className="flex items-center gap-0 w-full sm:w-auto">
-              <span className="brand-font brand-interactive text-lg sm:text-2xl md:text-3xl font-extrabold text-slate-900 whitespace-nowrap">Dink's Plumbing</span>
+              <span className="pipe-font brand-interactive text-lg sm:text-2xl md:text-3xl font-extrabold text-slate-900 whitespace-nowrap">Dink's Plumbing</span>
             </a>
 
             <div className="flex items-center gap-2 w-full sm:w-auto justify-end">

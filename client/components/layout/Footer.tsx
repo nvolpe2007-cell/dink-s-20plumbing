@@ -21,7 +21,7 @@ export default function Footer() {
   return (
     <footer className="border-t bg-card text-card-foreground">
       <div className="container py-8 grid gap-3 sm:grid-cols-3 items-center text-sm">
-        <div className="font-semibold">© {new Date().getFullYear()} Dink's Plumbing</div>
+        <div className="font-semibold">© {new Date().getFullYear()} <span className="pipe-font brand-interactive">Dink's Plumbing</span></div>
         <div className="text-muted-foreground">Fast fixes for leaks, clogs, and heaters. Licensed & Insured.</div>
         <div className="sm:justify-self-end flex gap-4">
           {OWNER_PHONE ? (
