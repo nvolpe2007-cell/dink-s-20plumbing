@@ -9,6 +9,7 @@ import {
   handleCreateEvent,
   handleCheckAvailability,
   handleAvailableSlots,
+  handleSimulateOwner,
 } from "./routes/google";
 
 export function createServer() {
