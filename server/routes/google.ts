@@ -253,6 +253,17 @@ export const handleCreateEvent: RequestHandler = async (req, res) => {
     const endISO = new Date((end && new Date(end)) || new Date(new Date(start).getTime() + 30 * 60000)).toISOString();
 
     // Check free/busy for the owner calendar
+    if (ownerTokens.access_token && ownerTokens.access_token.startsWith('SIMULATED')) {
+      // Dev mode: return a mocked created event without calling Google APIs
+      const createJson = {
+        id: 'simulated-event-' + Date.now(),
+        htmlLink: `https://calendar.google.com/event?eid=simulated-${Date.now()}`,
+        summary: `${service ? service + ' - ' : ''}Booking: ${name || "Customer"}`,
+        start: { dateTime: startISO },
+        end: { dateTime: endISO },
+      };
+      return res.status(200).json({ ok: true, event: createJson });
+    }
     try {
       const fbRes = await fetch("https://www.googleapis.com/calendar/v3/freeBusy", {
         method: "POST",
