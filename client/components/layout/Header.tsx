@@ -61,9 +61,9 @@ export default function Header() {
               ) : hasEmail ? (
                 <a
                   className="font-semibold underline cta-link"
-                  href={MAILTO_URL}
+                  href={`tel:+13103443833`}
                 >
-                  <BookOpen className="mr-1 inline-block h-4 w-4" /> Book
+                  <Phone className="mr-1 inline-block h-4 w-4" /> Text or call to book +1 (310)-344-3833
                 </a>
               ) : null}
             </div>
@@ -98,8 +98,8 @@ export default function Header() {
                   <a href={BOOKING_URL} target="_blank" rel="noreferrer"><Clock className="mr-2 h-4 w-4" /> Book now</a>
                 </Button>
               ) : hasEmail ? (
-                <Button asChild size="sm" className="w-full sm:w-auto">
-                  <a href={MAILTO_URL}><BookOpen className="mr-2 h-4 w-4 inline-block" /> Book</a>
+                <Button asChild size="sm" className="w-full sm:w-auto cta-book">
+                  <a href={`tel:+13103443833`}><Phone className="mr-2 h-4 w-4 inline-block" /> Text or call to book +1 (310)-344-3833</a>
                 </Button>
               ) : null}
             </div>
