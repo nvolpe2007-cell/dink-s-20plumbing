@@ -37,6 +37,7 @@ export default function Index() {
   const hasBooking = typeof BOOKING_URL === "string" && BOOKING_URL.length > 0;
   const hasEmail = typeof OWNER_EMAIL === "string" && OWNER_EMAIL.length > 0;
   const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
+  const [revealPhone, setRevealPhone] = useState(false);
 
   return (
     <div className="bg-gradient-to-b from-sky-50 to-white dark:from-sidebar dark:to-background">
