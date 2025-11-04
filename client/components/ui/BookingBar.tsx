@@ -42,9 +42,9 @@ export default function BookingBar() {
         ) : null}
 
         {hasEmail ? (
-          <Button asChild variant="secondary" size="sm" className="px-3">
+          <Button asChild variant="secondary" size="sm" className="px-3 cta-book">
             <a href={MAILTO_URL}>
-              Email
+              <BookOpen className="mr-2 h-4 w-4 inline-block" /> Book
             </a>
           </Button>
         ) : null}
