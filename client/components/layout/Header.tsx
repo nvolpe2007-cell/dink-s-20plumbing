@@ -38,15 +38,12 @@ export default function Header() {
       <div className="w-full bg-accent text-accent-foreground">
         <div className="container flex items-center justify-between text-sm py-1">
           <div className="font-medium">
-            Emergency plumbing — we respond fast
+            Emergency plumbing ��� we respond fast
           </div>
           <div className="flex items-center gap-3">
             <div>
               {hasPhone ? (
-                <a
-                  className="font-semibold underline"
-                  href={`tel:${OWNER_PHONE}`}
-                >
+                <a className="font-semibold underline phone-number" href={`tel:${OWNER_PHONE}`}>
                   Call now
                 </a>
               ) : hasBooking ? (
@@ -59,10 +56,7 @@ export default function Header() {
                   <Clock className="mr-1 inline-block h-4 w-4" /> Book now
                 </a>
               ) : hasEmail ? (
-                <a
-                  className="font-semibold underline cta-link"
-                  href={`tel:+13103443833`}
-                >
+                <a className="font-semibold underline cta-link phone-number" href={`tel:+13103443833`}>
                   <Phone className="mr-1 inline-block h-4 w-4" /> +1 (310)-344-3833
                 </a>
               ) : null}
@@ -89,7 +83,7 @@ export default function Header() {
             <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
               {hasPhone ? (
                 <Button asChild variant="secondary" size="sm" className="w-full sm:w-auto">
-                  <a href={`tel:${OWNER_PHONE}`}>Call</a>
+                  <a href={`tel:${OWNER_PHONE}`} className="phone-number">Call</a>
                 </Button>
               ) : null}
 
@@ -99,7 +93,7 @@ export default function Header() {
                 </Button>
               ) : hasEmail ? (
                 <Button asChild size="sm" className="w-full sm:w-auto cta-book">
-                  <a href={`tel:+13103443833`}><Phone className="mr-2 h-4 w-4 inline-block" /> Text or call to book +1 (310)-344-3833</a>
+                  <a href={`tel:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833</a>
                 </Button>
               ) : null}
             </div>
