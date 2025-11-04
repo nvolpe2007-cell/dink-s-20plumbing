@@ -164,7 +164,7 @@ export default function Index() {
             <div className="mt-4">
               <button type="button" onClick={() => setRevealPhone(r => !r)} className="inline-flex items-center gap-2 text-sm text-primary">
                 <Phone className="h-4 w-4" />
-                {revealPhone ? <span className="font-medium">310-344-3833</span> : <span className="sr-only">Show phone</span>}
+                {revealPhone ? <span className="font-medium">+1 (310)-344-3833</span> : <span className="sr-only">Show phone</span>}
               </button>
             </div>
 
