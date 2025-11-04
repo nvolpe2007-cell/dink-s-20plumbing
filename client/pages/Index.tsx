@@ -162,9 +162,7 @@ export default function Index() {
               )}
             </div>
 
-            <div className="mt-6 text-sm text-muted-foreground">
-              Friendly, courteous technicians — we treat your home with respect and leave the area cleaner than we found it.
-            </div>
+            <div className="mt-6 text-sm text-muted-foreground">Friendly technicians.</div>
           </div>
         </div>
       </section>
