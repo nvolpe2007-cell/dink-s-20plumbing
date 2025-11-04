@@ -5,7 +5,6 @@ import {
   Droplets,
   ShieldCheck,
   Wrench,
-  BookOpen,
   Phone,
 } from "lucide-react";
 import { useRef, useState } from "react";
