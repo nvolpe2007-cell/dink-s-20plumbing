@@ -113,6 +113,21 @@
     letter-spacing: -0.5px;
   }
 
+  /* Interactive brand styles */
+  .brand-interactive {
+    display: inline-block;
+    transition: transform 220ms cubic-bezier(.2,.8,.2,1), text-shadow 220ms ease, color 220ms ease;
+    cursor: pointer;
+  }
+  .brand-interactive:hover {
+    transform: translateY(-3px) scale(1.03);
+    text-shadow: 0 6px 18px rgba(16,24,40,0.12);
+    color: hsl(var(--primary));
+  }
+  .brand-interactive:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
   /* Pipe-style metallic brand font (uses Audiowide as base) */
   .pipe-font {
     font-family: 'Audiowide', 'Pacifico', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
