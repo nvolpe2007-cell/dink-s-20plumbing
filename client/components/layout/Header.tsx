@@ -1,6 +1,6 @@
 import { Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Clock, Phone, BookOpen } from "lucide-react";
+import { Clock, Phone } from "lucide-react";
 import { useState } from "react";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
