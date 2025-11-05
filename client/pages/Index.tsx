@@ -180,8 +180,24 @@ export default function Index() {
         <div className="mx-auto max-w-3xl">
           <ReviewsPanel ownerEmail={OWNER_EMAIL} />
         </div>
-      </section>
 
+        {/* Testimonials */}
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="p-4 bg-white rounded-lg shadow-sm">
+            <div className="font-semibold">Maria K.</div>
+            <div className="text-sm text-muted-foreground">"Fast, honest, and fixed my leak the same day."</div>
+          </div>
+          <div className="p-4 bg-white rounded-lg shadow-sm">
+            <div className="font-semibold">John O.</div>
+            <div className="text-sm text-muted-foreground">"Always on time and efficient — great service."</div>
+          </div>
+          <div className="p-4 bg-white rounded-lg shadow-sm">
+            <div className="font-semibold">Gerald C.</div>
+            <div className="text-sm text-muted-foreground">"Dependable and honest. Never disappointed."</div>
+          </div>
+        </div>
+
+      </section>
 
       <section className="border-t">
         <div className="container py-12 grid sm:grid-cols-3 gap-6">
@@ -202,6 +218,13 @@ export default function Index() {
           />
         </div>
       </section>
+
+      {/* Mobile sticky CTA */}
+      <div className="mobile-cta fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
+        <a href={`tel:+13103443833`} className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary text-primary-foreground shadow-lg phone-number">
+          <Phone className="h-5 w-5" /> Call or text us
+        </a>
+      </div>
     </div>
   );
 }
