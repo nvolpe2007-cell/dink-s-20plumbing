@@ -108,8 +108,8 @@ export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
             const BOOKING_URL = CALENDAR_URL ?? `https://calendar.google.com/calendar/u/0/r/eventedit?add=${encodeURIComponent(OWNER_EMAIL)}`;
             return (
               <div className="mx-auto inline-block">
-                <a href={BOOKING_URL} target="_blank" rel="noreferrer" className="cta-book inline-block rounded-full px-6 py-3">
-                  <Clock className="mr-2 inline-block h-4 w-4" /> Book now
+                <a href={`tel:+13103443833`} className="cta-book inline-block rounded-full px-6 py-3 phone-number">
+                  <Phone className="mr-2 inline-block h-4 w-4" /> Call Now
                 </a>
               </div>
             );
