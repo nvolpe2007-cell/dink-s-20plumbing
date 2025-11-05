@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   CheckCircle2,
   Clock,
@@ -7,8 +6,9 @@ import {
   Wrench,
   Phone,
 } from "lucide-react";
-import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useRef, useState } from "react";
+
 import ReviewsPanel from "./ReviewsPanel";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
