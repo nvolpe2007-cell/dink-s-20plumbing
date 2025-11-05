@@ -33,12 +33,15 @@ export default function BookingBar() {
   return (
     <div className="fixed bottom-4 left-1/2 z-50 transform -translate-x-1/2 sm:hidden">
       <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg">
-        {hasBooking ? (
-          <Button asChild size="sm" className="px-3 cta-book">
-            <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-              <Clock className="mr-2 h-4 w-4" /> Book now
-            </a>
-          </Button>
+        {hasPhone ? (
+          <>
+            <Button asChild size="sm" className="px-3 cta-book">
+              <a href={`tel:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Call Now</a>
+            </Button>
+            <Button asChild variant="secondary" size="sm" className="px-3">
+              <a href={`sms:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Text Us</a>
+            </Button>
+          </>
         ) : null}
 
         {hasEmail ? (
