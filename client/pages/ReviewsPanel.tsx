@@ -95,7 +95,7 @@ export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
       )}
 
       <div className="mt-3 text-right">
-        <a className="text-sm text-primary underline" href={`mailto:${ownerEmail}?subject=${encodeURIComponent("I want to leave a review for Dink's Plumbing")}`}>Leave us a review</a>
+        <a className="text-sm text-muted-foreground hover:text-primary no-underline" href={`mailto:${ownerEmail}?subject=${encodeURIComponent("I want to leave a review for Dink's Plumbing")}`}>Leave us a review</a>
       </div>
 
       {/* Book now CTA under reviews */}
