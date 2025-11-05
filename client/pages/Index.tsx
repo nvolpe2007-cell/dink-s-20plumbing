@@ -66,25 +66,8 @@ export default function Index() {
               </a>
             </div>
 
-            {/* small booking form above the fold */}
             <div className="mt-6 w-full max-w-lg">
-              <form id="quick-book" className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-white p-4 rounded-lg shadow-sm" onSubmit={(e) => {e.preventDefault(); const fd = new FormData(e.currentTarget as HTMLFormElement); fetch('/api/booking-webhook', {method: 'POST', body: JSON.stringify(Object.fromEntries(fd as any)), headers: { 'Content-Type': 'application/json' }}).then(()=> { const msg = document.getElementById('booking-msg'); if(msg) msg.textContent = 'Thanks — we received your request!'; }).catch(()=>{ const msg = document.getElementById('booking-msg'); if(msg) msg.textContent = 'Something went wrong. Try calling us.'; })}}>
-                <input name="name" placeholder="Your name" className="p-2 border rounded-md" required />
-                <input name="phone" placeholder="Phone" className="p-2 border rounded-md" required />
-                <input name="email" placeholder="Email (optional)" className="p-2 border rounded-md" />
-                <select name="service" className="p-2 border rounded-md">
-                  <option>Leak Repair</option>
-                  <option>Drain Cleaning</option>
-                  <option>Water Heater</option>
-                  <option>Emergency Service</option>
-                </select>
-                <input name="date" type="datetime-local" className="p-2 border rounded-md sm:col-span-2" />
-                <div className="sm:col-span-2 flex gap-2">
-                  <Button type="submit" className="w-full cta-book">Submit</Button>
-                  <Button asChild variant="outline" className="w-full sm:w-auto"><a href={`tel:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833</a></Button>
-                </div>
-              </form>
-              <div id="booking-msg" className="text-sm mt-2 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">For fast service, call or text: <a href={`tel:+13103443833`} className="phone-number">+1 (310)-344-3833</a></p>
             </div>
 
             {/* small team image for trust */}
