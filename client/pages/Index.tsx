@@ -114,34 +114,10 @@ export default function Index() {
                 </li>
               </ul>
 
-              {hasBooking || hasEmail || hasPhone ? (
-                <div className="mt-6 grid gap-2">
-                  {hasBooking ? (
-                    <Button asChild className="w-full cta-book">
-                      <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-                        <Clock className="mr-2 h-4 w-4" /> Book now
-                      </a>
-                    </Button>
-                  ) : null}
-                  {hasEmail ? (
-                    <Button asChild variant="secondary" className="w-full cta-book">
-                      <a href={`tel:+13103443833`} className="phone-number">
-                        <Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833
-                      </a>
-                    </Button>
-                  ) : null}
-                  {hasPhone ? (
-                    <Button asChild variant="outline" className="w-full">
-                      <a href={`tel:${OWNER_PHONE}`}>Call us</a>
-                    </Button>
-                  ) : null}
-                </div>
-              ) : (
-                <p className="mt-6 text-sm text-muted-foreground">
-                  Add VITE_CALENDAR_URL or VITE_OWNER_EMAIL to enable one‑click
-                  booking.
-                </p>
-              )}
+              <div className="mt-6 grid gap-2">
+                <a href={`tel:+13103443833`} className="cta-book inline-flex items-center justify-center px-4 py-3 rounded-md text-white w-full"><Phone className="mr-2 h-4 w-4" /> Call Now</a>
+                <a href={`sms:+13103443833`} className="inline-flex items-center justify-center px-4 py-3 rounded-md bg-secondary text-secondary-foreground w-full"><Phone className="mr-2 h-4 w-4" /> Text Us</a>
+              </div>
             </div>
 
             <div className="mt-4">
