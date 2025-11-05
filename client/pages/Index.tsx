@@ -57,15 +57,13 @@ export default function Index() {
             </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 items-center">
-              <Button asChild size="lg" className="px-8 w-full sm:w-auto cta-book">
-                <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-                  <Clock className="mr-2 h-4 w-4" /> Book an Appointment
-                </a>
-              </Button>
+              <a href={`tel:+13103443833`} className="cta-book inline-flex items-center px-6 py-3 rounded-full text-white">
+                <Phone className="mr-2 h-4 w-4" /> Call Now
+              </a>
 
-              <Button asChild variant="secondary" size="lg" className="px-6 w-full sm:w-auto">
-                <a href={`tel:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4 inline-block" /> Call now</a>
-              </Button>
+              <a href={`sms:+13103443833`} className="inline-flex items-center px-5 py-3 rounded-full bg-secondary text-secondary-foreground">
+                <Phone className="mr-2 h-4 w-4" /> Text Us
+              </a>
             </div>
 
             {/* small booking form above the fold */}
