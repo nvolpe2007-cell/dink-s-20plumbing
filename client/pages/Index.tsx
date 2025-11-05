@@ -8,6 +8,7 @@ import {
   Phone,
 } from "lucide-react";
 import { useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 import ReviewsPanel from "./ReviewsPanel";
 
 const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
