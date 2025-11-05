@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { useEffect, useRef, useState } from "react";
 import { Clock, Phone } from "lucide-react";
 
 export default function ReviewsPanel({ ownerEmail }: { ownerEmail: string }) {
