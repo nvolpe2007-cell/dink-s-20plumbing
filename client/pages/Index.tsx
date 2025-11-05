@@ -179,9 +179,14 @@ export default function Index() {
 
       {/* Mobile sticky CTA */}
       <div className="mobile-cta fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
-        <a href={`tel:+13103443833`} className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary text-primary-foreground shadow-lg phone-number">
-          <Phone className="h-5 w-5" /> Call or text us
-        </a>
+        <div className="flex gap-3 w-full max-w-md mx-auto px-4">
+          <a href={`tel:+13103443833`} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-primary text-primary-foreground shadow-lg phone-number">
+            <Phone className="h-5 w-5" /> Call Now
+          </a>
+          <a href={`sms:+13103443833`} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-secondary text-secondary-foreground shadow-lg phone-number">
+            <Phone className="h-5 w-5" /> Text Us
+          </a>
+        </div>
       </div>
     </div>
   );
