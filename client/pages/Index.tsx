@@ -46,59 +46,61 @@ export default function Index() {
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
-            <div className="mt-6">
-            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[60px] leading-tight md:leading-[60px] text-slate-900" style={{boxShadow: '0 20px 40px rgba(2,6,23,0.12), 0 8px 16px rgba(2,6,23,0.06)', wordBreak: 'keep-all', overflowWrap: 'normal', hyphens: 'none'}}>
-                      your plumbing problems fixed today
-                    </h1>
-                    </div>
-            <div className="text-base sm:text-lg max-w-xl" style={{color: 'rgb(0, 53, 53)', fontWeight: 400, textShadow: '0 3px 12px rgba(2,6,23,0.08)', boxShadow: '0 20px 40px rgba(2,6,23,0.08)', maxWidth: '576px'}}>
-                      Leaks, clogs, or no hot water, we arrive fast, fix it right, and leave your place cleaner than we found it.
-                    </div>
+
+            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[56px] leading-tight md:leading-[56px] text-slate-900" style={{wordBreak: 'keep-all'}}>
+              Friendly, Reliable Plumbing You Can Count On.
+            </h1>
+
+            <p className="text-base sm:text-lg max-w-xl text-muted-foreground" style={{maxWidth: '640px'}}>
+              Fast service, fair pricing, and quality work that lasts.
+            </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 items-center">
-              {hasBooking ? (
-                <Button asChild size="lg" className="px-8 w-full sm:w-auto cta-book">
-                  <a href={BOOKING_URL} target="_blank" rel="noreferrer">
-                    <Clock className="h-4 w-4" /> Book now
-                  </a>
-                </Button>
-              ) : null}
+              <Button asChild size="lg" className="px-8 w-full sm:w-auto cta-book">
+                <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+                  <Clock className="mr-2 h-4 w-4" /> Book an Appointment
+                </a>
+              </Button>
 
-              {hasEmail ? (
-                <Button asChild variant="secondary" size="lg" className="px-6 w-full sm:w-auto cta-book">
-                  <a href={`tel:+13103443833`} className="phone-number">
-                    <Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833
-                  </a>
-                </Button>
-              ) : null}
-
-              {hasPhone ? (
-                <Button asChild variant="outline" size="lg" className="px-6 w-full sm:w-auto">
-                  <a href={`tel:${OWNER_PHONE}`}>Call now</a>
-                </Button>
-              ) : null}
+              <Button asChild variant="secondary" size="lg" className="px-6 w-full sm:w-auto">
+                <a href={`tel:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4 inline-block" /> Call now</a>
+              </Button>
             </div>
 
-            <ul className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Leaks
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Clogs
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Water heaters
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Toilets
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Faucets
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Burst pipes
-              </li>
-            </ul>
+            {/* small booking form above the fold */}
+            <div className="mt-6 w-full max-w-lg">
+              <form id="quick-book" className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-white p-4 rounded-lg shadow-sm" onSubmit={(e) => {e.preventDefault(); const fd = new FormData(e.currentTarget as HTMLFormElement); fetch('/api/booking-webhook', {method: 'POST', body: JSON.stringify(Object.fromEntries(fd as any)), headers: { 'Content-Type': 'application/json' }}).then(()=> { const msg = document.getElementById('booking-msg'); if(msg) msg.textContent = 'Thanks — we received your request!'; }).catch(()=>{ const msg = document.getElementById('booking-msg'); if(msg) msg.textContent = 'Something went wrong. Try calling us.'; })}}>
+                <input name="name" placeholder="Your name" className="p-2 border rounded-md" required />
+                <input name="phone" placeholder="Phone" className="p-2 border rounded-md" required />
+                <input name="email" placeholder="Email (optional)" className="p-2 border rounded-md" />
+                <select name="service" className="p-2 border rounded-md">
+                  <option>Leak Repair</option>
+                  <option>Drain Cleaning</option>
+                  <option>Water Heater</option>
+                  <option>Emergency Service</option>
+                </select>
+                <input name="date" type="datetime-local" className="p-2 border rounded-md sm:col-span-2" />
+                <div className="sm:col-span-2 flex gap-2">
+                  <Button type="submit" className="w-full cta-book">Submit</Button>
+                  <Button asChild variant="outline" className="w-full sm:w-auto"><a href={`tel:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833</a></Button>
+                </div>
+              </form>
+              <div id="booking-msg" className="text-sm mt-2 text-muted-foreground" />
+            </div>
+
+            {/* small team image for trust */}
+            <div className="mt-6">
+              <img src="/placeholder.svg" alt="Dink's Plumbing team" className="rounded-lg shadow-md w-full max-w-xs" />
+            </div>
+
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Leak Repair</div>
+              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Drain Cleaning</div>
+              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Water Heater Installation</div>
+              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Emergency Service</div>
+              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Faucets</div>
+              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Toilet Repair</div>
+            </div>
           </div>
 
           <div className="relative z-10" style={{boxShadow: '0 30px 60px rgba(2,6,23,0.12)'}}>
