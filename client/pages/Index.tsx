@@ -210,8 +210,8 @@ function Stat({
   value: string;
 }) {
   return (
-    <div className="space-y-2 text-center bg-card p-6 rounded-xl shadow-sm">
-      <div className="mx-auto inline-flex items-center justify-center rounded-md bg-primary/10 p-2 text-primary">
+    <div className="space-y-2 text-center bg-card p-6 rounded-xl shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
+      <div className="mx-auto inline-flex items-center justify-center rounded-md bg-primary/10 p-2 text-primary hover:bg-primary/20 transition-colors duration-200">
         {icon}
       </div>
       <div className="text-2xl font-bold">{value}</div>
