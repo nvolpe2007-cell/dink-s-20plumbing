@@ -199,18 +199,22 @@
 
   /* Secondary button styling */
   a[href*="sms:"],
-  button.bg-secondary {
+  button[class*="bg-secondary"],
+  [class*="variant-secondary"] {
     transition: all 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   a[href*="sms:"]:hover,
-  button.bg-secondary:hover {
+  button[class*="bg-secondary"]:hover,
+  [class*="variant-secondary"]:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(210,210,210,0.4);
+    filter: brightness(0.95);
   }
 
   a[href*="sms:"]:active,
-  button.bg-secondary:active {
+  button[class*="bg-secondary"]:active,
+  [class*="variant-secondary"]:active {
     transform: translateY(-1px);
   }
 
