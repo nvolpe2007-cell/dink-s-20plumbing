@@ -41,9 +41,9 @@ export default function Index() {
   const [revealPhone, setRevealPhone] = useState(false);
 
   const PLUMBING_IMAGES = [
-    { src: "https://source.unsplash.com/800x600/?plumbing", alt: "Plumber fixing a pipe" },
-    { src: "https://source.unsplash.com/800x600/?plumber", alt: "Plumber tools and wrench" },
-    { src: "https://source.unsplash.com/800x600/?pipes", alt: "Pipes and fittings" },
+    { src: "https://picsum.photos/400/300?random=1", alt: "Plumber fixing a pipe" },
+    { src: "https://picsum.photos/400/300?random=2", alt: "Plumber tools and wrench" },
+    { src: "https://picsum.photos/400/300?random=3", alt: "Pipes and fittings" },
   ];
 
   return (
