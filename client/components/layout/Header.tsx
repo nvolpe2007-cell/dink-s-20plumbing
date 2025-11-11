@@ -43,15 +43,15 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <div>
               {hasPhone ? (
-                <a className="font-semibold underline phone-number" href={`tel:${OWNER_PHONE}`}>
+                <a className="font-semibold underline phone-number hover:text-white transition-colors duration-200" href={`tel:${OWNER_PHONE}`}>
                   Call now
                 </a>
               ) : hasBooking ? (
-                <a className="font-semibold underline cta-link phone-number" href={`tel:+13103443833`}>
+                <a className="font-semibold underline cta-link phone-number hover:text-white transition-colors duration-200" href={`tel:+13103443833`}>
                   <Phone className="mr-1 inline-block h-4 w-4" /> +1 (310)-344-3833
                 </a>
               ) : hasEmail ? (
-                <a className="font-semibold underline cta-link phone-number" href={`tel:+13103443833`}>
+                <a className="font-semibold underline cta-link phone-number hover:text-white transition-colors duration-200" href={`tel:+13103443833`}>
                   <Phone className="mr-1 inline-block h-4 w-4" /> +1 (310)-344-3833
                 </a>
               ) : null}
