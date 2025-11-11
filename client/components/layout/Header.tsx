@@ -35,10 +35,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 w-full">
       {/* Announcement bar */}
-      <div className="w-full bg-accent text-accent-foreground">
-        <div className="container flex items-center justify-between text-sm py-1">
+      <div className="w-full bg-gradient-to-r from-accent via-orange-500 to-amber-500 text-accent-foreground animate-pulse">
+        <div className="container flex items-center justify-between text-sm py-1.5">
           <div className="font-medium">
-            Emergency plumbing — we respond fast
+            🚨 Emergency plumbing — we respond fast
           </div>
           <div className="flex items-center gap-3">
             <div>
