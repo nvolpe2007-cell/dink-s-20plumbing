@@ -54,13 +54,13 @@ export default function Index() {
         <div className="hero-blob-secondary" aria-hidden />
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
-            <div className="ribbon">Same‑day • Local • Trusted</div>
+            <div className="ribbon animate-bounce" style={{animationDuration: '2s', animationDelay: '0s'}}>Same‑day • Local • Trusted</div>
 
-            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[56px] leading-tight md:leading-[56px] text-slate-900" style={{wordBreak: 'keep-all'}}>
+            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[56px] leading-tight md:leading-[56px] text-slate-900" style={{wordBreak: 'keep-all', animation: 'slide-up-fade 0.8s ease-out'}}>
               Friendly, Reliable Plumbing You Can Count On.
             </h1>
 
-            <p className="text-base sm:text-lg max-w-xl text-muted-foreground" style={{maxWidth: '640px'}}>
+            <p className="text-base sm:text-lg max-w-xl text-muted-foreground" style={{maxWidth: '640px', animation: 'slide-up-fade 0.8s ease-out 0.1s both'}}>
               Fast service, fair pricing, and quality work that lasts.
             </p>
 
