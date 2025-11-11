@@ -84,12 +84,12 @@ export default function Index() {
             </div>
 
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Leak Repair</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Drain Cleaning</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Water Heater Installation</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Emergency Service</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Faucets</div>
-              <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-primary" /> Toilet Repair</div>
+              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Leak Repair</div>
+              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Drain Cleaning</div>
+              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Water Heater Installation</div>
+              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Emergency Service</div>
+              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Faucets</div>
+              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Toilet Repair</div>
             </div>
           </div>
 
