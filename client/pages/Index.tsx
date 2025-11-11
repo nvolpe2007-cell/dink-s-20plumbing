@@ -41,9 +41,17 @@ export default function Index() {
   const [revealPhone, setRevealPhone] = useState(false);
 
   return (
-    <div className="bg-gradient-to-b from-sky-50 to-white dark:from-sidebar dark:to-background">
+    <div className="relative bg-gradient-to-br from-sky-50 via-blue-50 to-white dark:from-sidebar dark:via-slate-900 dark:to-background">
+      {/* Enhanced animated background blobs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20 bg-gradient-to-br from-blue-400 to-cyan-300 animate-pulse"></div>
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full filter blur-3xl opacity-15 bg-gradient-to-tr from-orange-400 to-yellow-300 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/3 w-72 h-72 rounded-full filter blur-3xl opacity-10 bg-gradient-to-br from-indigo-400 to-purple-300 animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
+
       <section className="relative overflow-hidden">
         <div className="hero-blob" aria-hidden />
+        <div className="hero-blob-secondary" aria-hidden />
         <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
           <div className="space-y-6 z-10">
             <div className="ribbon">Same‑day • Local • Trusted</div>
