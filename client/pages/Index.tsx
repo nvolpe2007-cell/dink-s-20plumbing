@@ -79,8 +79,8 @@ export default function Index() {
             </div>
 
             {/* small team image for trust */}
-            <div className="mt-6">
-              <img src="/placeholder.svg" alt="Dink's Plumbing team" className="rounded-lg shadow-md w-full max-w-xs" />
+            <div className="mt-6 animate-bounce" style={{animationDuration: '3s'}}>
+              <img src="/placeholder.svg" alt="Dink's Plumbing team" className="rounded-lg shadow-lg w-full max-w-xs hover:shadow-2xl transition-shadow duration-300" />
             </div>
 
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-muted-foreground">
