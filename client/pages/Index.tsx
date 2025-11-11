@@ -149,15 +149,15 @@ export default function Index() {
 
         {/* Testimonials */}
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="p-4 bg-white rounded-lg shadow-sm">
+          <div className="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
             <div className="font-semibold">Maria K.</div>
             <div className="text-sm text-muted-foreground">"Fast, honest, and fixed my leak the same day."</div>
           </div>
-          <div className="p-4 bg-white rounded-lg shadow-sm">
+          <div className="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
             <div className="font-semibold">John O.</div>
             <div className="text-sm text-muted-foreground">"Always on time and efficient — great service."</div>
           </div>
-          <div className="p-4 bg-white rounded-lg shadow-sm">
+          <div className="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
             <div className="font-semibold">Gerald C.</div>
             <div className="text-sm text-muted-foreground">"Dependable and honest. Never disappointed."</div>
           </div>
