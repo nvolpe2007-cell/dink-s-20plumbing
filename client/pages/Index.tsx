@@ -40,6 +40,12 @@ export default function Index() {
   const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
   const [revealPhone, setRevealPhone] = useState(false);
 
+  const PLUMBING_IMAGES = [
+    { src: "https://source.unsplash.com/800x600/?plumbing", alt: "Plumber fixing a pipe" },
+    { src: "https://source.unsplash.com/800x600/?plumber", alt: "Plumber tools and wrench" },
+    { src: "https://source.unsplash.com/800x600/?pipes", alt: "Pipes and fittings" },
+  ];
+
   return (
     <div className="relative bg-gradient-to-br from-sky-50 via-blue-50 to-white dark:from-sidebar dark:via-slate-900 dark:to-background">
       {/* Enhanced animated background blobs */}
@@ -78,9 +84,13 @@ export default function Index() {
               <p className="text-sm text-muted-foreground">For fast service, call or text: <a href={`tel:+13103443833`} className="phone-number">+1 (310)-344-3833</a></p>
             </div>
 
-            {/* small team image for trust */}
-            <div className="mt-6">
-              <img src="/placeholder.svg" alt="Dink's Plumbing team" className="rounded-lg shadow-lg w-full max-w-xs hover:shadow-2xl transition-shadow duration-300" />
+            {/* plumbing image gallery */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {PLUMBING_IMAGES.map((img) => (
+                <div key={img.src} className="rounded-lg overflow-hidden bg-gray-100">
+                  <img src={img.src} alt={img.alt} className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105" />
+                </div>
+              ))}
             </div>
 
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-muted-foreground">
