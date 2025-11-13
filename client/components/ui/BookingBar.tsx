@@ -23,11 +23,10 @@ const MAILTO_URL = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(
 )}&body=${encodeURIComponent(MAIL_BODY)}`;
 
 export default function BookingBar() {
-  const hasBooking = !!BOOKING_URL;
   const hasEmail = !!OWNER_EMAIL;
   const hasPhone = !!OWNER_PHONE;
 
-  if (!hasBooking && !hasEmail && !hasPhone) return null;
+  if (!hasEmail && !hasPhone) return null;
 
   return (
     <div className="fixed bottom-4 left-1/2 z-50 transform -translate-x-1/2 sm:hidden">
@@ -35,29 +34,22 @@ export default function BookingBar() {
         {hasPhone ? (
           <>
             <Button asChild size="sm" className="px-3 cta-book">
-              <a href={`tel:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Call Now</a>
+              <a href={`tel:${PHONE_NUMBER}`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Call Now</a>
             </Button>
             <Button asChild variant="secondary" size="sm" className="px-3">
-              <a href={`sms:+13103443833`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Text Us</a>
+              <a href={`sms:${PHONE_NUMBER}`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Text Us</a>
             </Button>
           </>
         ) : null}
 
         {hasEmail ? (
           <Button asChild variant="secondary" size="sm" className="px-3 cta-book">
-            <a href={`tel:+13103443833`} className="phone-number">
-              <Phone className="mr-2 h-4 w-4 inline-block" /> +1 (310)-344-3833
+            <a href={`mailto:${OWNER_EMAIL}`} className="phone-number">
+              <Phone className="mr-2 h-4 w-4 inline-block" /> Email
             </a>
           </Button>
         ) : null}
 
-        {hasPhone ? (
-          <Button asChild variant="outline" size="sm" className="px-3">
-            <a href={`tel:${OWNER_PHONE}`}>
-              <Phone className="mr-2 h-4 w-4" /> Call
-            </a>
-          </Button>
-        ) : null}
       </div>
     </div>
   );
