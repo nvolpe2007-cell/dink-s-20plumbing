@@ -260,7 +260,7 @@ export default function Index() {
       </section>
 
       {/* Mobile Sticky CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t shadow-lg" style={{paddingBottom: 'env(safe-area-inset-bottom)'}}>
         <div className="container px-4 py-3">
           <div className="flex gap-2">
             <a
@@ -268,14 +268,14 @@ export default function Index() {
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
             >
               <Phone className="h-5 w-5" />
-              Call Now
+              <span className="ml-2">Call Now</span>
             </a>
             <a
               href={`sms:${phoneNumber}`}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
             >
               <MessageSquare className="h-5 w-5" />
-              Text
+              <span className="ml-2">Text</span>
             </a>
           </div>
         </div>
