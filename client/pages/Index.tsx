@@ -262,7 +262,7 @@ export default function Index() {
           <div className="flex gap-2">
             <a
               href={`tel:${phoneNumber}`}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
+              className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
             >
               <Phone className="h-5 w-5" />
               Call Now
