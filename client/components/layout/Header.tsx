@@ -38,19 +38,19 @@ export default function Header() {
             <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href={`tel:${phoneNumber}`}
-                className="cta-shine inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+                aria-label={`Call ${phoneNumber}`}
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Call Now</span>
-                <span className="sm:hidden">Call</span>
               </a>
               <a
                 href={`sms:${phoneNumber}`}
-                className="cta-shine inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors"
+                aria-label="Text us"
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Text Us</span>
-                <span className="sm:hidden">Text</span>
               </a>
             </div>
           </div>
