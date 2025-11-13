@@ -2,6 +2,9 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Clock, Phone } from "lucide-react";
 
+// Prevent ReferenceError if BOOKING_URL was referenced elsewhere in old builds
+const BOOKING_URL: string | undefined = (typeof (globalThis as any).BOOKING_URL !== 'undefined') ? (globalThis as any).BOOKING_URL : undefined;
+
 const OWNER_EMAIL =
   (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
   "Plum4it2@yahoo.com";
