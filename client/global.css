@@ -160,6 +160,12 @@
     overflow: hidden;
   }
 
+  @keyframes shine-move {
+    0% { transform: translateX(-120%) skewX(-20deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(220%) skewX(-20deg); opacity: 0; }
+  }
+
   .cta-shine::after,
   a[href^="tel:"]::after,
   a[href^="sms:"]::after,
@@ -167,24 +173,29 @@
   button[class*="cta-book"]::after {
     content: "";
     position: absolute;
-    top: -50%;
+    top: -40%;
     left: -120%;
-    width: 40%;
-    height: 200%;
-    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
+    width: 36%;
+    height: 240%;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
     transform: skewX(-20deg) translateX(0);
-    transition: transform 600ms ease;
     pointer-events: none;
-    opacity: 0.9;
     mix-blend-mode: screen;
+    opacity: 0.6;
+    /* slow ambient shimmer */
+    animation: shine-move 4s linear infinite;
+    filter: blur(2px);
   }
 
+  /* Faster, stronger sweep on hover */
   .cta-shine:hover::after,
   a[href^="tel:"]:hover::after,
   a[href^="sms:"]:hover::after,
   a[class*="cta-book"]:hover::after,
   button[class*="cta-book"]:hover::after {
-    transform: translateX(320%) skewX(-20deg);
+    animation: shine-move 0.9s linear 1;
+    opacity: 1;
+    filter: blur(0.5px);
   }
 
   /* Slight glow on hover to emphasize CTA */
@@ -192,6 +203,10 @@
   a[href^="tel:"]:hover,
   a[href^="sms:"]:hover,
   a[class*="cta-book"]:hover {
-    filter: drop-shadow(0 10px 30px rgba(3,86,214,0.18));
+    filter: drop-shadow(0 12px 36px rgba(3,86,214,0.22));
+    transform: translateY(-2px);
   }
+
+  /* optional always-on subtle shine */
+  .cta-shine--always::after { animation-duration: 6s; opacity: 0.45; }
 }
