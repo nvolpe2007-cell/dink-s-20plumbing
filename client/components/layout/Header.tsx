@@ -31,7 +31,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <span className="pipe-logo pipe-logo--lg" aria-label="Dink's Plumbing">Dink's Plumbing</span>
+              <span className="pipe-logo pipe-logo--lg brand-interactive" aria-label="Dink's Plumbing">Dink's Plumbing</span>
             </a>
 
             {/* CTA Buttons */}
