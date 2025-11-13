@@ -2,12 +2,11 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Clock, Phone } from "lucide-react";
 
-const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL =
   (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
   "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const BOOKING_URL = CALENDAR_URL ?? `https://calendar.google.com/calendar/u/0/r/eventedit?add=${encodeURIComponent(OWNER_EMAIL)}`;
+const PHONE_NUMBER = OWNER_PHONE || "+1 (310)-344-3833";
 
 const MAIL_SUBJECT = "Booking request - Dink's Plumbing";
 const MAIL_BODY = `Hi Dink's Plumbing,
