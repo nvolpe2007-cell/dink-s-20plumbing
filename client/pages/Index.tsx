@@ -39,20 +39,20 @@ export default function Index() {
               </p>
 
               {/* Main CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 w-full">
                 <a
                   href={`tel:${phoneNumber}`}
-                  className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <Phone className="h-5 w-5" />
-                  Call {phoneNumber}
+                  <span className="ml-2">Call {phoneNumber}</span>
                 </a>
                 <a
                   href={`sms:${phoneNumber}`}
-                  className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <MessageSquare className="h-5 w-5" />
-                  Send a Text
+                  <span className="ml-2">Send a Text</span>
                 </a>
               </div>
 
