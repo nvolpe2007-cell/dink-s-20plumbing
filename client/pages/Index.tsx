@@ -83,9 +83,10 @@ export default function Index() {
                   className="rounded-lg shadow-md w-full h-48 sm:h-56 md:h-48 lg:h-56 object-cover"
                 />
                 <img
-                  src="https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                  src="https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
                   alt="Quality pipe installation"
-                  className="rounded-lg shadow-md w-full h-64 object-cover"
+                  loading="lazy"
+                  className="rounded-lg shadow-md w-full h-64 sm:h-72 md:h-64 lg:h-72 object-cover"
                 />
               </div>
               <div className="space-y-4 pt-8">
