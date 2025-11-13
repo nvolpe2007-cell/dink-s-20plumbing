@@ -38,7 +38,7 @@ export default function Header() {
             <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href={`tel:${phoneNumber}`}
-                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+                className="cta-shine inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Call Now</span>
