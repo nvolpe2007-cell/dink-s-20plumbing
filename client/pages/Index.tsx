@@ -1,232 +1,281 @@
 import {
   CheckCircle2,
   Clock,
-  Droplets,
-  ShieldCheck,
+  Shield,
+  Star,
   Wrench,
   Phone,
+  MessageSquare,
+  Award,
+  Users,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useRef, useState } from "react";
 
-import ReviewsPanel from "./ReviewsPanel";
-
-const CALENDAR_URL = import.meta.env.VITE_CALENDAR_URL as string | undefined;
 const OWNER_EMAIL =
   (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
   "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const BOOKING_URL =
-  CALENDAR_URL ??
-  `https://calendar.google.com/calendar/u/0/r/eventedit?add=${encodeURIComponent(OWNER_EMAIL)}`;
-
-const MAIL_SUBJECT = "Booking request - Dink's Plumbing";
-const MAIL_BODY = `Hi Dink's Plumbing,
-
-I'd like to book a service.
-Preferred date & time:
-Address:
-Phone:
-Details:
-
-Thanks,`;
-const MAILTO_URL = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(
-  MAIL_SUBJECT
-)}&body=${encodeURIComponent(MAIL_BODY)}`;
+const phoneNumber = OWNER_PHONE || "+1 (310)-344-3833";
 
 export default function Index() {
-  const hasBooking = typeof BOOKING_URL === "string" && BOOKING_URL.length > 0;
-  const hasEmail = typeof OWNER_EMAIL === "string" && OWNER_EMAIL.length > 0;
-  const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
-  const [revealPhone, setRevealPhone] = useState(false);
-
-  const PLUMBING_IMAGES = [
-    { src: "https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "Leaky pipe repair" },
-    { src: "https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "Main water pipes" },
-    { src: "https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "Modern kitchen faucet" },
-  ];
-
   return (
-    <div className="relative bg-gradient-to-br from-sky-50 via-blue-50 to-white dark:from-sidebar dark:via-slate-900 dark:to-background">
-      {/* Enhanced animated background blobs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20 bg-gradient-to-br from-blue-400 to-cyan-300 animate-pulse"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full filter blur-3xl opacity-15 bg-gradient-to-tr from-orange-400 to-yellow-300 animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-72 h-72 rounded-full filter blur-3xl opacity-10 bg-gradient-to-br from-indigo-400 to-purple-300 animate-pulse" style={{animationDelay: '2s'}}></div>
-      </div>
+    <div className="bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-blue-50 to-white py-12 sm:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Main Message */}
+            <div className="text-center lg:text-left">
+              <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
+                ⚡ Same-Day Service • Licensed & Insured
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Fast, Reliable Plumbing Services You Can Trust
+              </h1>
+              
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl">
+                Expert plumbing repairs and installations. No job too big or small. 
+                Same-day service available. Call now for a free estimate!
+              </p>
 
-      <section className="relative overflow-hidden">
-        <div className="hero-blob" aria-hidden />
-        <div className="hero-blob-secondary" aria-hidden />
-        <div className="container grid lg:grid-cols-2 gap-10 py-20 items-center">
-          <div className="space-y-6 z-10">
-            <div className="ribbon animate-bounce" style={{animationDuration: '2s', animationDelay: '0s'}}>Same‑day • Local • Trusted</div>
+              {/* Main CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                <a
+                  href={`tel:${phoneNumber}`}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  <Phone className="h-5 w-5" />
+                  Call {phoneNumber}
+                </a>
+                <a
+                  href={`sms:${phoneNumber}`}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  <MessageSquare className="h-5 w-5" />
+                  Send a Text
+                </a>
+              </div>
 
-            <h1 className="m-0 font-extrabold tracking-tight text-4xl sm:text-5xl md:text-[56px] leading-tight md:leading-[56px] text-slate-900" style={{wordBreak: 'keep-all', animation: 'slide-up-fade 0.8s ease-out'}}>
-              Friendly, Reliable Plumbing You Can Count On.
-            </h1>
-
-            <p className="text-base sm:text-lg max-w-xl text-muted-foreground" style={{maxWidth: '640px', animation: 'slide-up-fade 0.8s ease-out 0.1s both'}}>
-              Fast service, fair pricing, and quality work that lasts.
-            </p>
-
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 items-center">
-              <a href={`tel:+13103443833`} className="cta-book inline-flex items-center px-6 py-3 rounded-full text-white">
-                <Phone className="mr-2 h-4 w-4" /> Call Now
-              </a>
-
-              <a href={`sms:+13103443833`} className="inline-flex items-center px-5 py-3 rounded-full bg-secondary text-secondary-foreground">
-                <Phone className="mr-2 h-4 w-4" /> Text Us
-              </a>
-            </div>
-
-            <div className="mt-6 w-full max-w-lg">
-              <p className="text-sm text-muted-foreground">For fast service, call or text: <a href={`tel:+13103443833`} className="phone-number">+1 (310)-344-3833</a></p>
-            </div>
-
-            {/* plumbing image gallery */}
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {PLUMBING_IMAGES.map((img) => (
-                <div key={img.src} className="rounded-lg overflow-hidden bg-gray-100">
-                  <img src={img.src} alt={img.alt} className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105" />
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-6 justify-center lg:justify-start text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                  <span className="font-semibold">4.9/5 Rating</span>
                 </div>
+                <div className="flex items-center gap-2">
+                  <Award className="h-5 w-5 text-blue-600" />
+                  <span className="font-semibold">Licensed & Insured</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="h-5 w-5 text-green-600" />
+                  <span className="font-semibold">1000+ Happy Customers</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Images */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <img
+                  src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                  alt="Professional plumber fixing leak"
+                  className="rounded-lg shadow-md w-full h-48 object-cover"
+                />
+                <img
+                  src="https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                  alt="Quality pipe installation"
+                  className="rounded-lg shadow-md w-full h-64 object-cover"
+                />
+              </div>
+              <div className="space-y-4 pt-8">
+                <img
+                  src="https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                  alt="Modern faucet repair"
+                  className="rounded-lg shadow-md w-full h-64 object-cover"
+                />
+                <div className="bg-blue-600 text-white p-6 rounded-lg shadow-md">
+                  <div className="text-3xl font-bold mb-2">24/7</div>
+                  <div className="text-sm">Emergency Service Available</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Our Plumbing Services
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              From routine maintenance to emergency repairs, we handle it all with expertise and care.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { icon: Wrench, title: "Leak Repair", desc: "Fast detection and repair of all types of leaks" },
+              { icon: CheckCircle2, title: "Drain Cleaning", desc: "Professional clearing of clogged drains and pipes" },
+              { icon: Clock, title: "Water Heater Service", desc: "Installation, repair, and maintenance" },
+              { icon: Shield, title: "Emergency Repairs", desc: "24/7 availability for urgent plumbing issues" },
+              { icon: CheckCircle2, title: "Faucet Installation", desc: "Expert installation and repair of all fixtures" },
+              { icon: Wrench, title: "Toilet Repair", desc: "Quick fixes for running, leaking, or clogged toilets" },
+            ].map((service, i) => (
+              <div
+                key={i}
+                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              >
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg mb-4">
+                  <service.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600">{service.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Dink's Plumbing?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-4">
+                <Clock className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Same-Day Service</h3>
+              <p className="text-gray-600">Most repairs completed the same day. We respect your time and schedule.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4">
+                <Shield className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Upfront Pricing</h3>
+              <p className="text-gray-600">No hidden fees. You'll know the cost before we start any work.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 text-purple-600 rounded-full mb-4">
+                <Award className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Quality Guaranteed</h3>
+              <p className="text-gray-600">All work backed by our satisfaction guarantee and warranty.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              What Our Customers Say
+            </h2>
+            <div className="flex items-center justify-center gap-1 mb-2">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star key={star} className="h-6 w-6 text-yellow-500 fill-yellow-500" />
               ))}
             </div>
-
-            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Leak Repair</div>
-              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Drain Cleaning</div>
-              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Water Heater Installation</div>
-              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Emergency Service</div>
-              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Faucets</div>
-              <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200"><CheckCircle2 className="h-4 w-4 text-primary" /> Toilet Repair</div>
-            </div>
+            <p className="text-lg text-gray-600">Rated 4.9/5 from over 500 reviews</p>
           </div>
 
-          <div className="relative z-10" style={{boxShadow: '0 30px 60px rgba(2,6,23,0.12)'}}>
-            <div className="glass-card rounded-3xl border p-6 max-w-[456px] mx-auto" style={{boxShadow: '0 8px 24px rgba(2,6,23,0.08)'}}>
-              <div className="flex items-center gap-4">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <Wrench className="h-6 w-6" />
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                name: "Maria K.",
+                text: "Fast, honest, and fixed my leak the same day. The plumber was professional and cleaned up everything. Highly recommend Dink's Plumbing!",
+                rating: 5,
+              },
+              {
+                name: "John O.",
+                text: "Always on time and efficient. They've handled several jobs for me over the years. Great service every time, fair pricing too.",
+                rating: 5,
+              },
+              {
+                name: "Gerald C.",
+                text: "We've relied on Dink's for years. They're dependable, honest, and do excellent work. Never disappointed with their service.",
+                rating: 5,
+              },
+            ].map((review, i) => (
+              <div
+                key={i}
+                className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
+              >
+                <div className="flex gap-1 mb-3">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-yellow-500 fill-yellow-500" />
+                  ))}
                 </div>
-                <div>
-                  <div className="font-bold text-lg">Dink's Promise</div>
-                  <div className="text-sm text-muted-foreground">
-                    No-nonsense plumbing. Flat-rate quotes.
-                  </div>
-                </div>
+                <p className="text-gray-700 mb-4">"{review.text}"</p>
+                <div className="font-semibold text-gray-900">{review.name}</div>
               </div>
-
-              <ul className="mt-5 space-y-3 text-sm">
-                <li className="flex items-start gap-3">
-                  <Wrench className="mt-0.5 h-4 w-4 text-primary" /> Same-day
-                  service, on time
-                </li>
-                <li className="flex items-start gap-3">
-                  <ShieldCheck className="mt-0.5 h-4 w-4 text-primary" />{" "}
-                  Upfront pricing, guaranteed
-                </li>
-                <li className="flex items-start gap-3">
-                  <Droplets className="mt-0.5 h-4 w-4 text-primary" /> Clean
-                  workspace, zero mess
-                </li>
-              </ul>
-
-              <div className="mt-6 grid gap-2">
-                <a href={`tel:+13103443833`} className="cta-book inline-flex items-center justify-center px-4 py-3 rounded-md text-white w-full"><Phone className="mr-2 h-4 w-4" /> Call Now</a>
-                <a href={`sms:+13103443833`} className="inline-flex items-center justify-center px-4 py-3 rounded-md bg-secondary text-secondary-foreground w-full"><Phone className="mr-2 h-4 w-4" /> Text Us</a>
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <button type="button" onClick={() => setRevealPhone(r => !r)} className="inline-flex items-center gap-2 text-sm text-primary">
-                <Phone className="h-4 w-4" />
-                {revealPhone ? <span className="font-medium">+1 (310)-344-3833</span> : <span className="sr-only">Show phone</span>}
-              </button>
-            </div>
-
-            <div className="mt-6 text-sm text-muted-foreground">Friendly technicians.</div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="container py-12">
-        <h2 className="text-2xl font-bold mb-6">Customer reviews</h2>
-
-        <div className="mx-auto max-w-3xl">
-          <ReviewsPanel ownerEmail={OWNER_EMAIL} />
-        </div>
-
-        {/* Testimonials */}
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
-            <div className="font-semibold">Maria K.</div>
-            <div className="text-sm text-muted-foreground">"Fast, honest, and fixed my leak the same day."</div>
+      {/* Final CTA Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Ready to Fix Your Plumbing Problem?
+          </h2>
+          <p className="text-xl mb-8 opacity-90">
+            Call now for fast, professional service. We're here to help!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={`tel:${phoneNumber}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
+            >
+              <Phone className="h-5 w-5" />
+              Call {phoneNumber}
+            </a>
+            <a
+              href={`sms:${phoneNumber}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
+            >
+              <MessageSquare className="h-5 w-5" />
+              Send a Text
+            </a>
           </div>
-          <div className="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
-            <div className="font-semibold">John O.</div>
-            <div className="text-sm text-muted-foreground">"Always on time and efficient — great service."</div>
-          </div>
-          <div className="p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
-            <div className="font-semibold">Gerald C.</div>
-            <div className="text-sm text-muted-foreground">"Dependable and honest. Never disappointed."</div>
-          </div>
-        </div>
-
-      </section>
-
-      <section className="border-t">
-        <div className="container py-12 grid sm:grid-cols-3 gap-6">
-          <Stat
-            icon={<Clock className="h-5 w-5" />}
-            label="Response"
-            value="Under 60 min"
-          />
-          <Stat
-            icon={<ShieldCheck className="h-5 w-5" />}
-            label="Warranty"
-            value="1 year"
-          />
-          <Stat
-            icon={<Droplets className="h-5 w-5" />}
-            label="Happy homeowners"
-            value="Thousands"
-          />
         </div>
       </section>
 
-      {/* Mobile sticky CTA */}
-      <div className="mobile-cta fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
-        <div className="flex gap-3 w-full max-w-md mx-auto px-4">
-          <a href={`tel:+13103443833`} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-primary text-primary-foreground shadow-lg phone-number">
-            <Phone className="h-5 w-5" /> Call Now
-          </a>
-          <a href={`sms:+13103443833`} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-secondary text-secondary-foreground shadow-lg phone-number">
-            <Phone className="h-5 w-5" /> Text Us
-          </a>
+      {/* Mobile Sticky CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t shadow-lg">
+        <div className="container px-4 py-3">
+          <div className="flex gap-2">
+            <a
+              href={`tel:${phoneNumber}`}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
+            >
+              <Phone className="h-5 w-5" />
+              Call Now
+            </a>
+            <a
+              href={`sms:${phoneNumber}`}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
+            >
+              <MessageSquare className="h-5 w-5" />
+              Text
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function Stat({
-  icon,
-  label,
-  value,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="space-y-2 text-center bg-card p-6 rounded-xl shadow-sm hover:shadow-xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20">
-      <div className="mx-auto inline-flex items-center justify-center rounded-md bg-primary/10 p-2 text-primary hover:bg-primary/20 transition-colors duration-200">
-        {icon}
-      </div>
-      <div className="text-2xl font-bold">{value}</div>
-      <div className="text-xs uppercase tracking-wide text-muted-foreground">
-        {label}
       </div>
     </div>
   );
