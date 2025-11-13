@@ -3,14 +3,6 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleBooking } from "./routes/booking";
-import {
-  handleAuthRedirect,
-  handleOAuthCallback,
-  handleCreateEvent,
-  handleCheckAvailability,
-  handleAvailableSlots,
-  handleSimulateOwner,
-} from "./routes/google";
 
 export function createServer() {
   const app = express();
