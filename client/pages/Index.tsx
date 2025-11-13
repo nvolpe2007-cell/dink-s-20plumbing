@@ -77,9 +77,10 @@ export default function Index() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <img
-                  src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                  src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
                   alt="Professional plumber fixing leak"
-                  className="rounded-lg shadow-md w-full h-48 object-cover"
+                  loading="lazy"
+                  className="rounded-lg shadow-md w-full h-48 sm:h-56 md:h-48 lg:h-56 object-cover"
                 />
                 <img
                   src="https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
