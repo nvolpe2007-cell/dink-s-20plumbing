@@ -91,9 +91,10 @@ export default function Index() {
               </div>
               <div className="space-y-4 pt-8">
                 <img
-                  src="https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                  src="https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
                   alt="Modern faucet repair"
-                  className="rounded-lg shadow-md w-full h-64 object-cover"
+                  loading="lazy"
+                  className="rounded-lg shadow-md w-full h-64 sm:h-72 md:h-64 lg:h-72 object-cover"
                 />
                 <div className="bg-blue-600 text-white p-6 rounded-lg shadow-md">
                   <div className="text-3xl font-bold mb-2">24/7</div>
