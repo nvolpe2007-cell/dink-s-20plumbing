@@ -247,7 +247,7 @@ export default function Index() {
             </a>
             <a
               href={`sms:${phoneNumber}`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
+              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
             >
               <MessageSquare className="h-5 w-5" />
               Send a Text
