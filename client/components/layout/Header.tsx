@@ -46,7 +46,7 @@ export default function Header() {
               </a>
               <a
                 href={`sms:${phoneNumber}`}
-                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+                className="cta-shine inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Text Us</span>
