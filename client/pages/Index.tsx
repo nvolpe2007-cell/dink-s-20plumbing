@@ -16,7 +16,27 @@ const OWNER_EMAIL =
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 const phoneNumber = OWNER_PHONE || "+1 (310)-344-3833";
 
+import React, { useEffect } from "react";
+import LeadForm from "@/components/LeadForm";
+
 export default function Index() {
+  useEffect(() => {
+    // Mount lead form into the placeholder to avoid hydration mismatch and keep it modular
+    const root = document.getElementById("lead-form-root");
+    if (root && root.childElementCount === 0) {
+      const el = document.createElement("div");
+      root.appendChild(el);
+      // render with React in-place
+      // dynamic import not necessary here; render directly
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      import("react-dom/client").then((ReactDOM) => {
+        const rc = (ReactDOM as any).createRoot(el);
+        rc.render(React.createElement(LeadForm, {}));
+      });
+    }
+  }, []);
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
