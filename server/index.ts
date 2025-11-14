@@ -26,7 +26,6 @@ export function createServer() {
   app.post("/api/booking-webhook", handleBooking);
 
   // Analytics/tracking endpoint (lightweight)
-  const { handleTrack } = await import("./routes/analytics");
   app.post("/api/track", handleTrack);
 
   // No calendar integrations: removed Google Calendar endpoints per request.
