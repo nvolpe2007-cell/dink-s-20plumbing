@@ -303,6 +303,7 @@ export default function Index() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${phoneNumber}`}
+              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
               className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
             >
               <Phone className="h-5 w-5" />
