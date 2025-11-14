@@ -1,5 +1,6 @@
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
 
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 
