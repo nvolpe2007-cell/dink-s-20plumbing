@@ -20,7 +20,7 @@ if (import.meta.env.VITE_SENTRY_DSN) {
     const _sentryMod = "@sentry/react";
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    import(_sentryMod).then((Sentry) => {
+    import(/* @vite-ignore */ _sentryMod).then((Sentry) => {
       Sentry.init({ dsn: import.meta.env.VITE_SENTRY_DSN });
     }).catch(() => {
       // package not installed or failed to load, ignore in dev
