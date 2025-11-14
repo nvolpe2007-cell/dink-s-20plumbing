@@ -13,6 +13,19 @@ import Layout from "@/components/layout/Layout";
 
 const queryClient = new QueryClient();
 
+// Initialize Sentry if provided
+if (import.meta.env.VITE_SENTRY_DSN) {
+  try {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    import("@sentry/react").then((Sentry) => {
+      Sentry.init({ dsn: import.meta.env.VITE_SENTRY_DSN });
+    });
+  } catch (e) {
+    // ignore
+  }
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
