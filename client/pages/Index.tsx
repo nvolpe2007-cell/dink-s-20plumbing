@@ -94,6 +94,7 @@ export default function Index() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 w-full">
                 <a
                   href={`tel:${phoneNumber}`}
+                  onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <Phone className="h-5 w-5" />
