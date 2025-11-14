@@ -48,6 +48,7 @@ export default function Header() {
               </a>
               <a
                 href={`sms:${phoneNumber}`}
+                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors"
                 aria-label="Text us"
               >
