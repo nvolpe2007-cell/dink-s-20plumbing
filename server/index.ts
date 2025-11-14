@@ -24,6 +24,10 @@ export function createServer() {
   // Configure external calendar to POST to /api/booking-webhook with booking details.
   app.post("/api/booking-webhook", handleBooking);
 
+  // Analytics/tracking endpoint (lightweight)
+  const { handleTrack } = await import("./routes/analytics");
+  app.post("/api/track", handleTrack);
+
   // No calendar integrations: removed Google Calendar endpoints per request.
 
   return app;
