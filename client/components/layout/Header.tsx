@@ -38,6 +38,7 @@ export default function Header() {
             <div className="flex items-center gap-2 sm:gap-3">
               <a
                 href={`tel:${phoneNumber}`}
+                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
                 aria-label={`Call ${phoneNumber}`}
               >
