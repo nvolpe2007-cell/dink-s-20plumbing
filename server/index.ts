@@ -26,6 +26,9 @@ export function createServer() {
   // Configure external calendar to POST to /api/booking-webhook with booking details.
   app.post("/api/booking-webhook", handleBooking);
 
+  // Twilio inbound SMS webhook - Twilio posts form-encoded data (Body, From)
+  app.post("/api/twilio-inbound", handleTwilioInbound);
+
   // Analytics/tracking endpoint (lightweight)
   app.post("/api/track", handleTrack);
 
