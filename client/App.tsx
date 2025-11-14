@@ -16,10 +16,14 @@ const queryClient = new QueryClient();
 // Initialize Sentry if provided
 if (import.meta.env.VITE_SENTRY_DSN) {
   try {
+    // Dynamic module name avoids static analysis by bundlers when the package is not installed
+    const _sentryMod = "@sentry/react";
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    import("@sentry/react").then((Sentry) => {
+    import(_sentryMod).then((Sentry) => {
       Sentry.init({ dsn: import.meta.env.VITE_SENTRY_DSN });
+    }).catch(() => {
+      // package not installed or failed to load, ignore in dev
     });
   } catch (e) {
     // ignore
