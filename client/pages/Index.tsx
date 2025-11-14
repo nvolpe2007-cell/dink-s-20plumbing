@@ -71,6 +71,13 @@ export default function Index() {
                   <span className="font-semibold">1000+ Happy Customers</span>
                 </div>
               </div>
+
+              {/* Lead form (mobile-first) */}
+              <div className="mt-6 lg:mt-8">
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                {/* @ts-ignore */}
+                <div id="lead-form-root"></div>
+              </div>
             </div>
 
             {/* Right Column - Images */}
