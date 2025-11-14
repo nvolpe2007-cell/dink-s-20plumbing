@@ -39,6 +39,38 @@ export default function Index() {
 
   return (
     <div className="bg-white">
+      {/* LocalBusiness structured data for SEO */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Plumber",
+        "name": "Dink's Plumbing",
+        "url": window.location.origin,
+        "telephone": (import.meta.env.VITE_OWNER_PHONE as string | undefined) || "+1 (310)-344-3833",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "",
+          "addressLocality": "",
+          "addressRegion": "",
+          "postalCode": "",
+          "addressCountry": "US"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "500"
+        },
+        "priceRange": "$$",
+      }) }} />
+
+      {/* Reviews structured data example */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": { "@type": "Service", "name": "Dink's Plumbing" },
+        "author": { "@type": "Person", "name": "Maria K." },
+        "reviewBody": "Fast, honest, and fixed my leak the same day.",
+        "reviewRating": { "@type": "Rating", "ratingValue": 5 }
+      }) }} />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-50 to-white py-12 sm:py-20">
         <div className="container mx-auto px-4">
