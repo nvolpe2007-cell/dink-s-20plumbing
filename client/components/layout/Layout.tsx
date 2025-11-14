@@ -1,13 +1,9 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
-import BookingBar from "@/components/ui/BookingBar";
-
 import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import BookingBar from "@/components/ui/BookingBar";
-import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   useEffect(() => {
