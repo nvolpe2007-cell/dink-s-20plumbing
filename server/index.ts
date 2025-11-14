@@ -4,6 +4,7 @@ import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleBooking } from "./routes/booking";
 import { handleTrack } from "./routes/analytics";
+import { handleTwilioInbound } from "./routes/twilio";
 
 export function createServer() {
   const app = express();
