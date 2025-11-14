@@ -335,6 +335,7 @@ export default function Index() {
             </a>
             <a
               href={`sms:${phoneNumber}`}
+              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
             >
               <MessageSquare className="h-5 w-5" />
