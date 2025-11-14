@@ -37,10 +37,10 @@ export default function BookingBar() {
         {hasPhone ? (
           <>
             <Button asChild size="sm" className="px-3 cta-book">
-              <a href={`tel:${PHONE_NUMBER}`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Call Now</a>
+              <a href={`tel:${PHONE_NUMBER}`} onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: PHONE_NUMBER, url: window.location.href})); } catch(e){} }} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Call Now</a>
             </Button>
             <Button asChild variant="secondary" size="sm" className="px-3">
-              <a href={`sms:${PHONE_NUMBER}`} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Text Us</a>
+              <a href={`sms:${PHONE_NUMBER}`} onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: PHONE_NUMBER, url: window.location.href})); } catch(e){} }} className="phone-number"><Phone className="mr-2 h-4 w-4" /> Text Us</a>
             </Button>
           </>
         ) : null}
