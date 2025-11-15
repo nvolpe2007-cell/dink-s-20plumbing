@@ -1,7 +1,9 @@
 import { Phone } from "lucide-react";
 import { type MouseEvent } from "react";
 
-import { navigateToPhoneAction, normalizeToE164 } from "@/lib/utils";
+import { normalizeToE164 } from "@/lib/utils";
+
+declare const navigator: any;
 
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 
@@ -15,25 +17,31 @@ export default function Header() {
   const handleCallClick = (
     event: MouseEvent<HTMLAnchorElement>,
   ) => {
-    event.preventDefault();
-    navigateToPhoneAction({
-      scheme: "tel",
-      phoneNumber,
-      eventName: "click-to-call",
-      phoneDisplay,
-    });
+    try {
+      navigator.sendBeacon(
+        "/api/track",
+        JSON.stringify({
+          event: "click-to-call",
+          phone: phoneDisplay,
+          url: window.location.href,
+        }),
+      );
+    } catch (e) {}
   };
 
   const handleTextClick = (
     event: MouseEvent<HTMLAnchorElement>,
   ) => {
-    event.preventDefault();
-    navigateToPhoneAction({
-      scheme: "sms",
-      phoneNumber,
-      eventName: "click-to-sms",
-      phoneDisplay,
-    });
+    try {
+      navigator.sendBeacon(
+        "/api/track",
+        JSON.stringify({
+          event: "click-to-sms",
+          phone: phoneDisplay,
+          url: window.location.href,
+        }),
+      );
+    } catch (e) {}
   };
 
   return (
