@@ -3,8 +3,6 @@ import { type MouseEvent } from "react";
 
 import { normalizeToE164 } from "@/lib/utils";
 
-declare const navigator: any;
-
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 
 export default function Header() {
