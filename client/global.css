@@ -167,7 +167,22 @@
   a[class*="cta-book"],
   button[class*="cta-book"] {
     position: relative;
+    pointer-events: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: default;
+  }
+
+  .cta-shine::before,
+  a[href^="tel:"]::before,
+  a[href^="sms:"]::before,
+  a[class*="cta-book"]::before,
+  button[class*="cta-book"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     overflow: hidden;
+    pointer-events: none;
   }
 
   @keyframes shine-move {
