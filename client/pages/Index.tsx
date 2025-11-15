@@ -152,7 +152,7 @@ export default function Index() {
                   <span className="ml-2">Call {phoneDisplay}</span>
                 </a>
                 <a
-                  href={`sms:${phoneHref}`}
+                  href={textHref}
                   onClick={() => {
                     try {
                       navigator.sendBeacon(
@@ -435,7 +435,7 @@ export default function Index() {
               Call {phoneDisplay}
             </a>
             <a
-              href={`sms:${phoneHref}`}
+              href={textHref}
               onClick={() => {
                 try {
                   navigator.sendBeacon(
@@ -472,7 +472,7 @@ export default function Index() {
               <span className="ml-2">Call Now</span>
             </a>
             <a
-              href={`sms:${phoneHref}`}
+              href={textHref}
               onClick={() => {
                 try {
                   navigator.sendBeacon(
