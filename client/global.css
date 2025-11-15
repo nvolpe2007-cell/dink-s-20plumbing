@@ -186,9 +186,11 @@
   }
 
   @keyframes shine-move {
-    0% { transform: translateX(-140%) skewX(-22deg); opacity: 0; }
-    35% { opacity: 0.95; }
-    100% { transform: translateX(240%) skewX(-22deg); opacity: 0; }
+    0% { transform: translateX(-140%) skewX(-20deg); opacity: 0; }
+    25% { opacity: 0.4; }
+    50% { opacity: 1; }
+    75% { opacity: 0.6; }
+    100% { transform: translateX(240%) skewX(-20deg); opacity: 0; }
   }
 
   .cta-shine::after,
