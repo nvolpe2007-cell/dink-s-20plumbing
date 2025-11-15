@@ -34,6 +34,9 @@ const handlePhoneText = (e: React.MouseEvent) => {
   window.location.href = textHref;
 };
 
+const handleCallClick = handlePhoneCall;
+const handleTextClick = handlePhoneText;
+
 export default function Index() {
   useEffect(() => {
     // Mount lead form into the placeholder to avoid hydration mismatch and keep it modular
