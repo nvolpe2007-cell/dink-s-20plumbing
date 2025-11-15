@@ -122,6 +122,7 @@ export default function Index() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 w-full">
                 <a
                   href={callHref}
+                  onClick={handlePhoneCall}
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <Phone className="h-5 w-5" />
@@ -129,6 +130,7 @@ export default function Index() {
                 </a>
                 <a
                   href={textHref}
+                  onClick={handlePhoneText}
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <MessageSquare className="h-5 w-5" />
