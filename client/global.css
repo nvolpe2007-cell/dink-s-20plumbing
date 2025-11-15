@@ -221,9 +221,9 @@
   a[href^="sms:"]:hover::after,
   a[class*="cta-book"]:hover::after,
   button[class*="cta-book"]:hover::after {
-    animation: shine-move 0.5s linear 1;
+    animation: shine-move 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1;
     opacity: 1;
-    filter: blur(0.2px);
+    filter: blur(0.4px);
   }
 
   /* Stronger glow on hover to emphasize CTA */
