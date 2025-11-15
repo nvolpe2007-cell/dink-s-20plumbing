@@ -1,12 +1,40 @@
-import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
+import { type MouseEvent } from "react";
+
+import { navigateToPhoneAction, normalizeToE164 } from "@/lib/utils";
 
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 
 export default function Header() {
   const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
   const phoneDisplay = hasPhone ? OWNER_PHONE : "+1 (310)-344-3833";
-  const phoneHref = `+1${phoneDisplay.replace(/[^0-9]/g, "").slice(-10)}`;
+  const phoneNumber = normalizeToE164(phoneDisplay);
+  const callHref = `tel:${phoneNumber}`;
+  const textHref = `sms:${phoneNumber}`;
+
+  const handleCallClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+  ) => {
+    event.preventDefault();
+    navigateToPhoneAction({
+      scheme: "tel",
+      phoneNumber,
+      eventName: "click-to-call",
+      phoneDisplay,
+    });
+  };
+
+  const handleTextClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+  ) => {
+    event.preventDefault();
+    navigateToPhoneAction({
+      scheme: "sms",
+      phoneNumber,
+      eventName: "click-to-sms",
+      phoneDisplay,
+    });
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
@@ -18,7 +46,8 @@ export default function Header() {
             <span>24/7 Emergency Service Available</span>
           </div>
           <a
-            href={`tel:${phoneHref}`}
+            href={callHref}
+            onClick={handleCallClick}
             className="hover:underline font-bold hidden sm:inline"
           >
             {phoneDisplay}
@@ -32,30 +61,14 @@ export default function Header() {
           <div className="flex items-center justify-center sm:justify-between">
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <span
-                className="pipe-logo pipe-logo--lg brand-interactive text-3xl sm:text-5xl font-black text-blue-400 drop-shadow-lg"
-                aria-label="Dink's Plumbing"
-              >
-                Dink's Plumbing
-              </span>
+              <span className="pipe-logo pipe-logo--lg brand-interactive text-3xl sm:text-5xl font-black text-blue-400 drop-shadow-lg" aria-label="Dink's Plumbing">Dink's Plumbing</span>
             </a>
 
             {/* CTA Buttons - hidden on mobile */}
             <div className="hidden sm:flex items-center gap-2 sm:gap-3">
               <a
-                href={`tel:${phoneHref}`}
-                onClick={() => {
-                  try {
-                    navigator.sendBeacon(
-                      "/api/track",
-                      JSON.stringify({
-                        event: "click-to-call",
-                        phone: phoneDisplay,
-                        url: window.location.href,
-                      }),
-                    );
-                  } catch (e) {}
-                }}
+                href={callHref}
+                onClick={handleCallClick}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
                 aria-label={`Call ${phoneDisplay}`}
               >
@@ -63,19 +76,8 @@ export default function Header() {
                 <span className="hidden sm:inline">Call Now</span>
               </a>
               <a
-                href={`sms:${phoneHref}`}
-                onClick={() => {
-                  try {
-                    navigator.sendBeacon(
-                      "/api/track",
-                      JSON.stringify({
-                        event: "click-to-sms",
-                        phone: phoneDisplay,
-                        url: window.location.href,
-                      }),
-                    );
-                  } catch (e) {}
-                }}
+                href={textHref}
+                onClick={handleTextClick}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors"
                 aria-label="Text us"
               >
