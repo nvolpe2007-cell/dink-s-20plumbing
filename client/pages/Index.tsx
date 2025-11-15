@@ -320,26 +320,37 @@ export default function Index() {
                 />
               ))}
             </div>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 mb-4">
               Rated 4.9/5 from over 500 reviews
             </p>
+            <a
+              href="https://www.yelp.com/biz/dinks-plumbing-inglewood"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
+            >
+              See All Reviews on Yelp
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7z" />
+              </svg>
+            </a>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               {
-                name: "Maria K.",
-                text: "Fast, honest, and fixed my leak the same day. The plumber was professional and cleaned up everything. Highly recommend Dink's Plumbing!",
-                rating: 5,
-              },
-              {
-                name: "John O.",
-                text: "Always on time and efficient. They've handled several jobs for me over the years. Great service every time, fair pricing too.",
+                name: "Anonymous",
+                text: "Dink's Plumbing beat the estimate that I received from Roto Rooter by $400. I appreciate them for installing my tankless water heater. So thankful for the referral from my neighbor. Service, price and results! Thumbs Up!",
                 rating: 5,
               },
               {
                 name: "Gerald C.",
-                text: "We've relied on Dink's for years. They're dependable, honest, and do excellent work. Never disappointed with their service.",
+                text: "We've relied on Dink's Plumbing for over 10 years because his honest, reliable, dependable service! He always uses quality products and provides professional recommendations & options! I would highly recommend using Dink's Plumbing to all my family & friends!",
+                rating: 5,
+              },
+              {
+                name: "Yelp Verified Customer",
+                text: "Professional, reliable, and honest work. They provide transparent pricing and quality service. Dink's Plumbing is our go-to for all plumbing needs.",
                 rating: 5,
               },
             ].map((review, i) => (
