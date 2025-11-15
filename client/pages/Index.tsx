@@ -41,37 +41,49 @@ export default function Index() {
   return (
     <div className="bg-white">
       {/* LocalBusiness structured data for SEO */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Plumber",
-        "name": "Dink's Plumbing",
-        "url": window.location.origin,
-        "telephone": (import.meta.env.VITE_OWNER_PHONE as string | undefined) || "+1 (310)-344-3833",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "",
-          "addressLocality": "",
-          "addressRegion": "",
-          "postalCode": "",
-          "addressCountry": "US"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "500"
-        },
-        "priceRange": "$$",
-      }) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Plumber",
+            name: "Dink's Plumbing",
+            url: window.location.origin,
+            telephone:
+              (import.meta.env.VITE_OWNER_PHONE as string | undefined) ||
+              "+1 (310)-344-3833",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "",
+              addressLocality: "",
+              addressRegion: "",
+              postalCode: "",
+              addressCountry: "US",
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.9",
+              reviewCount: "500",
+            },
+            priceRange: "$$",
+          }),
+        }}
+      />
 
       {/* Reviews structured data example */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Review",
-        "itemReviewed": { "@type": "Service", "name": "Dink's Plumbing" },
-        "author": { "@type": "Person", "name": "Maria K." },
-        "reviewBody": "Fast, honest, and fixed my leak the same day.",
-        "reviewRating": { "@type": "Rating", "ratingValue": 5 }
-      }) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Review",
+            itemReviewed: { "@type": "Service", name: "Dink's Plumbing" },
+            author: { "@type": "Person", name: "Maria K." },
+            reviewBody: "Fast, honest, and fixed my leak the same day.",
+            reviewRating: { "@type": "Rating", ratingValue: 5 },
+          }),
+        }}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-50 to-white py-12 sm:py-20">
         <div className="container mx-auto px-4">
@@ -81,21 +93,32 @@ export default function Index() {
               <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
                 ⚡ Same-Day Service • Licensed & Insured
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Fast, Reliable Plumbing Services You Can Trust
               </h1>
-              
+
               <p className="text-xl text-gray-600 mb-8 max-w-2xl">
-                Expert plumbing repairs and installations. No job too big or small. 
-                Same-day service available. Call now for a free estimate!
+                Expert plumbing repairs and installations. No job too big or
+                small. Same-day service available. Call now for a free estimate!
               </p>
 
               {/* Main CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 w-full">
                 <a
                   href={`tel:${phoneHref}`}
-                  onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
+                  onClick={() => {
+                    try {
+                      navigator.sendBeacon(
+                        "/api/track",
+                        JSON.stringify({
+                          event: "click-to-call",
+                          phone: phoneDisplay,
+                          url: window.location.href,
+                        }),
+                      );
+                    } catch (e) {}
+                  }}
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <Phone className="h-5 w-5" />
@@ -103,7 +126,18 @@ export default function Index() {
                 </a>
                 <a
                   href={`sms:${phoneHref}`}
-                  onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
+                  onClick={() => {
+                    try {
+                      navigator.sendBeacon(
+                        "/api/track",
+                        JSON.stringify({
+                          event: "click-to-sms",
+                          phone: phoneDisplay,
+                          url: window.location.href,
+                        }),
+                      );
+                    } catch (e) {}
+                  }}
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <MessageSquare className="h-5 w-5" />
@@ -111,7 +145,17 @@ export default function Index() {
                 </a>
                 <a
                   href="/book"
-                  onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-book', url: window.location.href})); } catch(e){} }}
+                  onClick={() => {
+                    try {
+                      navigator.sendBeacon(
+                        "/api/track",
+                        JSON.stringify({
+                          event: "click-to-book",
+                          url: window.location.href,
+                        }),
+                      );
+                    } catch (e) {}
+                  }}
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-green-600 text-white text-lg font-bold rounded-lg hover:bg-green-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
                 >
                   <Clock className="h-5 w-5" />
@@ -134,7 +178,6 @@ export default function Index() {
                   <span className="font-semibold">1000+ Happy Customers</span>
                 </div>
               </div>
-
             </div>
 
             {/* Right Column - Images */}
@@ -178,18 +221,43 @@ export default function Index() {
               Our Plumbing Services
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From routine maintenance to emergency repairs, we handle it all with expertise and care.
+              From routine maintenance to emergency repairs, we handle it all
+              with expertise and care.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { icon: Wrench, title: "Leak Repair", desc: "Fast detection and repair of all types of leaks" },
-              { icon: CheckCircle2, title: "Drain Cleaning", desc: "Professional clearing of clogged drains and pipes" },
-              { icon: Clock, title: "Water Heater Service", desc: "Installation, repair, and maintenance" },
-              { icon: Shield, title: "Emergency Repairs", desc: "24/7 availability for urgent plumbing issues" },
-              { icon: CheckCircle2, title: "Faucet Installation", desc: "Expert installation and repair of all fixtures" },
-              { icon: Wrench, title: "Toilet Repair", desc: "Quick fixes for running, leaking, or clogged toilets" },
+              {
+                icon: Wrench,
+                title: "Leak Repair",
+                desc: "Fast detection and repair of all types of leaks",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Drain Cleaning",
+                desc: "Professional clearing of clogged drains and pipes",
+              },
+              {
+                icon: Clock,
+                title: "Water Heater Service",
+                desc: "Installation, repair, and maintenance",
+              },
+              {
+                icon: Shield,
+                title: "Emergency Repairs",
+                desc: "24/7 availability for urgent plumbing issues",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Faucet Installation",
+                desc: "Expert installation and repair of all fixtures",
+              },
+              {
+                icon: Wrench,
+                title: "Toilet Repair",
+                desc: "Quick fixes for running, leaking, or clogged toilets",
+              },
             ].map((service, i) => (
               <div
                 key={i}
@@ -223,7 +291,10 @@ export default function Index() {
                 <Clock className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Same-Day Service</h3>
-              <p className="text-gray-600">Most repairs completed the same day. We respect your time and schedule.</p>
+              <p className="text-gray-600">
+                Most repairs completed the same day. We respect your time and
+                schedule.
+              </p>
             </div>
 
             <div className="text-center">
@@ -231,7 +302,9 @@ export default function Index() {
                 <Shield className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Upfront Pricing</h3>
-              <p className="text-gray-600">No hidden fees. You'll know the cost before we start any work.</p>
+              <p className="text-gray-600">
+                No hidden fees. You'll know the cost before we start any work.
+              </p>
             </div>
 
             <div className="text-center">
@@ -239,7 +312,9 @@ export default function Index() {
                 <Award className="h-8 w-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Quality Guaranteed</h3>
-              <p className="text-gray-600">All work backed by our satisfaction guarantee and warranty.</p>
+              <p className="text-gray-600">
+                All work backed by our satisfaction guarantee and warranty.
+              </p>
             </div>
           </div>
         </div>
@@ -254,10 +329,15 @@ export default function Index() {
             </h2>
             <div className="flex items-center justify-center gap-1 mb-2">
               {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="h-6 w-6 text-yellow-500 fill-yellow-500" />
+                <Star
+                  key={star}
+                  className="h-6 w-6 text-yellow-500 fill-yellow-500"
+                />
               ))}
             </div>
-            <p className="text-lg text-gray-600">Rated 4.9/5 from over 500 reviews</p>
+            <p className="text-lg text-gray-600">
+              Rated 4.9/5 from over 500 reviews
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -284,7 +364,10 @@ export default function Index() {
               >
                 <div className="flex gap-1 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-500 fill-yellow-500" />
+                    <Star
+                      key={i}
+                      className="h-4 w-4 text-yellow-500 fill-yellow-500"
+                    />
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4">"{review.text}"</p>
@@ -307,7 +390,18 @@ export default function Index() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${phoneHref}`}
-              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
+              onClick={() => {
+                try {
+                  navigator.sendBeacon(
+                    "/api/track",
+                    JSON.stringify({
+                      event: "click-to-call",
+                      phone: phoneDisplay,
+                      url: window.location.href,
+                    }),
+                  );
+                } catch (e) {}
+              }}
               className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
             >
               <Phone className="h-5 w-5" />
@@ -315,7 +409,18 @@ export default function Index() {
             </a>
             <a
               href={`sms:${phoneHref}`}
-              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
+              onClick={() => {
+                try {
+                  navigator.sendBeacon(
+                    "/api/track",
+                    JSON.stringify({
+                      event: "click-to-sms",
+                      phone: phoneDisplay,
+                      url: window.location.href,
+                    }),
+                  );
+                } catch (e) {}
+              }}
               className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
             >
               <MessageSquare className="h-5 w-5" />
@@ -326,7 +431,10 @@ export default function Index() {
       </section>
 
       {/* Mobile Sticky CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t shadow-lg" style={{paddingBottom: 'env(safe-area-inset-bottom)'}}>
+      <div
+        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t shadow-lg"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
         <div className="container px-4 py-3">
           <div className="flex gap-2">
             <a
@@ -338,7 +446,18 @@ export default function Index() {
             </a>
             <a
               href={`sms:${phoneHref}`}
-              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
+              onClick={() => {
+                try {
+                  navigator.sendBeacon(
+                    "/api/track",
+                    JSON.stringify({
+                      event: "click-to-sms",
+                      phone: phoneDisplay,
+                      url: window.location.href,
+                    }),
+                  );
+                } catch (e) {}
+              }}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
             >
               <MessageSquare className="h-5 w-5" />

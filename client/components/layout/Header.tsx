@@ -32,14 +32,30 @@ export default function Header() {
           <div className="flex items-center justify-center sm:justify-between">
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <span className="pipe-logo pipe-logo--lg brand-interactive text-3xl sm:text-5xl font-black text-blue-400 drop-shadow-lg" aria-label="Dink's Plumbing">Dink's Plumbing</span>
+              <span
+                className="pipe-logo pipe-logo--lg brand-interactive text-3xl sm:text-5xl font-black text-blue-400 drop-shadow-lg"
+                aria-label="Dink's Plumbing"
+              >
+                Dink's Plumbing
+              </span>
             </a>
 
             {/* CTA Buttons - hidden on mobile */}
             <div className="hidden sm:flex items-center gap-2 sm:gap-3">
               <a
                 href={`tel:${phoneHref}`}
-                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
+                onClick={() => {
+                  try {
+                    navigator.sendBeacon(
+                      "/api/track",
+                      JSON.stringify({
+                        event: "click-to-call",
+                        phone: phoneDisplay,
+                        url: window.location.href,
+                      }),
+                    );
+                  } catch (e) {}
+                }}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
                 aria-label={`Call ${phoneDisplay}`}
               >
@@ -48,7 +64,18 @@ export default function Header() {
               </a>
               <a
                 href={`sms:${phoneHref}`}
-                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
+                onClick={() => {
+                  try {
+                    navigator.sendBeacon(
+                      "/api/track",
+                      JSON.stringify({
+                        event: "click-to-sms",
+                        phone: phoneDisplay,
+                        url: window.location.href,
+                      }),
+                    );
+                  } catch (e) {}
+                }}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors"
                 aria-label="Text us"
               >
