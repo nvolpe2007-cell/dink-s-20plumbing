@@ -369,20 +369,20 @@ export default function Index() {
             Call now for fast, professional service. We're here to help!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={handleCallClick}
-              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg cursor-pointer border-none"
+            <a
+              href={callHref}
+              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
             >
               <Phone className="h-5 w-5" />
               Call {phoneDisplay}
-            </button>
-            <button
-              onClick={handleTextClick}
-              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg cursor-pointer border-none"
+            </a>
+            <a
+              href={textHref}
+              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
             >
               <MessageSquare className="h-5 w-5" />
               Send a Text
-            </button>
+            </a>
           </div>
         </div>
       </section>
