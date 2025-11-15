@@ -1,5 +1,6 @@
 import { Phone } from "lucide-react";
 
+import React from "react";
 import { normalizeToE164 } from "@/lib/utils";
 
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
