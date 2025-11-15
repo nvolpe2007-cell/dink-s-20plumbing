@@ -69,20 +69,35 @@ export const handleBooking: RequestHandler = async (req, res) => {
     // Send SMS via Twilio if credentials present
     const twilioSid = process.env.TWILIO_ACCOUNT_SID;
     const twilioAuth = process.env.TWILIO_AUTH_TOKEN;
+    const twilioMessagingServiceSid =
+      process.env.TWILIO_MESSAGING_SERVICE_SID;
     const twilioFrom = process.env.TWILIO_FROM;
 
-    if (twilioSid && twilioAuth && twilioFrom) {
+    if (twilioSid && twilioAuth) {
       try {
         const body = new URLSearchParams();
         body.append("To", notifyPhone);
-        body.append("From", twilioFrom);
+
+        // Use MessagingServiceSid if available (recommended for A2P), otherwise fall back to From
+        if (twilioMessagingServiceSid) {
+          body.append("MessagingServiceSid", twilioMessagingServiceSid);
+        } else if (twilioFrom) {
+          body.append("From", twilioFrom);
+        } else {
+          console.log(
+            "Booking: Neither TWILIO_MESSAGING_SERVICE_SID nor TWILIO_FROM is set, skipping SMS",
+          );
+          res.status(200).json({ ok: true });
+          return;
+        }
+
         body.append(
           "Body",
           `New booking: ${name ?? "Unknown"} at ${time ?? "unspecified"}. Contact: ${phone ?? email ?? "-"}`,
         );
 
         const url = `https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`;
-        await fetch(url, {
+        const response = await fetch(url, {
           method: "POST",
           headers: {
             Authorization: `Basic ${Buffer.from(`${twilioSid}:${twilioAuth}`).toString("base64")}`,
@@ -90,7 +105,17 @@ export const handleBooking: RequestHandler = async (req, res) => {
           },
           body: body.toString(),
         });
-        console.log("Booking: SMS sent via Twilio to", notifyPhone);
+
+        const responseData = await response.json() as Record<string, unknown>;
+        if (response.ok) {
+          console.log("Booking: SMS sent via Twilio to", notifyPhone);
+        } else {
+          console.error(
+            "Booking: Twilio SMS error",
+            (responseData as Record<string, unknown>).code,
+            (responseData as Record<string, unknown>).message,
+          );
+        }
       } catch (err) {
         console.error("Booking: failed to send Twilio SMS", err);
       }
