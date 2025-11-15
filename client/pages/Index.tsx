@@ -42,35 +42,6 @@ export default function Index() {
     }
   }, []);
 
-  const handleCallClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-  ) => {
-    try {
-      navigator.sendBeacon(
-        "/api/track",
-        JSON.stringify({
-          event: "click-to-call",
-          phone: phoneDisplay,
-          url: window.location.href,
-        }),
-      );
-    } catch (e) {}
-  };
-
-  const handleTextClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-  ) => {
-    try {
-      navigator.sendBeacon(
-        "/api/track",
-        JSON.stringify({
-          event: "click-to-sms",
-          phone: phoneDisplay,
-          url: window.location.href,
-        }),
-      );
-    } catch (e) {}
-  };
 
   return (
     <div className="bg-white">
