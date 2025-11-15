@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, MessageSquare } from "lucide-react";
 
 const OWNER_EMAIL =
   (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
@@ -24,19 +24,19 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <div className="space-y-3 text-gray-400">
-              <a 
-                href={`tel:${phoneNumber}`} 
+              <a
+                href={`tel:${phoneNumber}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                {phoneNumber}
+                Call {phoneNumber}
               </a>
-              <a 
-                href={`mailto:${OWNER_EMAIL}`} 
+              <a
+                href={`sms:${phoneNumber}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <Mail className="h-4 w-4" />
-                {OWNER_EMAIL}
+                <MessageSquare className="h-4 w-4" />
+                Text {phoneNumber}
               </a>
             </div>
           </div>
