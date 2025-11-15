@@ -14,7 +14,8 @@ const OWNER_EMAIL =
   (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
   "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const phoneNumber = OWNER_PHONE || "+1 (310)-344-3833";
+const phoneDisplay = OWNER_PHONE || "+1 (310)-344-3833";
+const phoneHref = `+1${phoneDisplay.replace(/[^0-9]/g, "").slice(-10)}`;
 
 import React, { useEffect } from "react";
 import LeadForm from "@/components/LeadForm";
