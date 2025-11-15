@@ -28,14 +28,14 @@ export default function Header() {
       {/* Main Header */}
       <div className="bg-white">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center sm:justify-between">
             {/* Logo */}
             <a href="/" className="flex items-center">
               <span className="pipe-logo pipe-logo--lg brand-interactive" aria-label="Dink's Plumbing">Dink's Plumbing</span>
             </a>
 
-            {/* CTA Buttons */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            {/* CTA Buttons - hidden on mobile */}
+            <div className="hidden sm:flex items-center gap-2 sm:gap-3">
               <a
                 href={`tel:${phoneNumber}`}
                 onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
