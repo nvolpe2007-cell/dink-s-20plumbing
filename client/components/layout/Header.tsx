@@ -11,6 +11,16 @@ export default function Header() {
   const callHref = `tel:${phoneNumber}`;
   const textHref = `sms:${phoneNumber}`;
 
+  const handlePhoneCall = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.href = callHref;
+  };
+
+  const handlePhoneText = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.href = textHref;
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
       {/* Top Emergency Bar */}
