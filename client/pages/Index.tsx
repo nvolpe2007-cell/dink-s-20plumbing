@@ -112,14 +112,18 @@ export default function Index() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 w-full">
                 <a
                   href={callHref}
-                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
+                  role="button"
+                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer"
+                  style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
                 >
                   <Phone className="h-5 w-5" />
                   <span className="ml-2">Call {phoneDisplay}</span>
                 </a>
                 <a
                   href={textHref}
-                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center"
+                  role="button"
+                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer"
+                  style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
                 >
                   <MessageSquare className="h-5 w-5" />
                   <span className="ml-2">Send a Text</span>
