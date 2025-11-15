@@ -410,6 +410,7 @@ export default function Index() {
           <div className="flex gap-2">
             <a
               href={callHref}
+              onClick={handlePhoneCall}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
             >
               <Phone className="h-5 w-5" />
@@ -417,6 +418,7 @@ export default function Index() {
             </a>
             <a
               href={textHref}
+              onClick={handlePhoneText}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
             >
               <MessageSquare className="h-5 w-5" />
