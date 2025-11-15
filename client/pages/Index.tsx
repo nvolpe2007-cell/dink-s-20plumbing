@@ -133,7 +133,7 @@ export default function Index() {
               {/* Main CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 w-full">
                 <a
-                  href={`tel:${phoneHref}`}
+                  href={callHref}
                   onClick={() => {
                     try {
                       navigator.sendBeacon(
@@ -416,7 +416,7 @@ export default function Index() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`tel:${phoneHref}`}
+              href={callHref}
               onClick={() => {
                 try {
                   navigator.sendBeacon(
@@ -465,7 +465,7 @@ export default function Index() {
         <div className="container px-4 py-3">
           <div className="flex gap-2">
             <a
-              href={`tel:${phoneHref}`}
+              href={callHref}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
             >
               <Phone className="h-5 w-5" />
