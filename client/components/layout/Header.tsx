@@ -5,7 +5,8 @@ const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 
 export default function Header() {
   const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
-  const phoneNumber = hasPhone ? OWNER_PHONE : "+1 (310)-344-3833";
+  const phoneDisplay = hasPhone ? OWNER_PHONE : "+1 (310)-344-3833";
+  const phoneHref = `+1${phoneDisplay.replace(/[^0-9]/g, "").slice(-10)}`;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
@@ -16,11 +17,11 @@ export default function Header() {
             <span className="text-lg">🚨</span>
             <span>24/7 Emergency Service Available</span>
           </div>
-          <a 
-            href={`tel:${phoneNumber}`} 
+          <a
+            href={`tel:${phoneHref}`}
             className="hover:underline font-bold hidden sm:inline"
           >
-            {phoneNumber}
+            {phoneDisplay}
           </a>
         </div>
       </div>
@@ -37,17 +38,17 @@ export default function Header() {
             {/* CTA Buttons - hidden on mobile */}
             <div className="hidden sm:flex items-center gap-2 sm:gap-3">
               <a
-                href={`tel:${phoneNumber}`}
-                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
+                href={`tel:${phoneHref}`}
+                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
-                aria-label={`Call ${phoneNumber}`}
+                aria-label={`Call ${phoneDisplay}`}
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Call Now</span>
               </a>
               <a
-                href={`sms:${phoneNumber}`}
-                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
+                href={`sms:${phoneHref}`}
+                onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
                 className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors"
                 aria-label="Text us"
               >
