@@ -12,7 +12,7 @@ import {
 import React, { useEffect } from "react";
 
 import LeadForm from "@/components/LeadForm";
-import { navigateToPhoneAction, normalizeToE164 } from "@/lib/utils";
+import { normalizeToE164 } from "@/lib/utils";
 
 const OWNER_EMAIL =
   (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
@@ -23,14 +23,6 @@ const phoneNumber = normalizeToE164(phoneDisplay);
 const callHref = `tel:${phoneNumber}`;
 const textHref = `sms:${phoneNumber}`;
 const phoneHref = callHref;
-
-const handleCallClick = () => {
-  window.location.href = callHref;
-};
-
-const handleTextClick = () => {
-  window.location.href = textHref;
-};
 
 export default function Index() {
   useEffect(() => {
