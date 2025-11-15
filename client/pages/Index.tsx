@@ -402,20 +402,20 @@ export default function Index() {
       >
         <div className="container px-4 py-3">
           <div className="flex gap-2">
-            <a
-              href={callHref}
-              className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
+            <button
+              onClick={handleCallClick}
+              className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg cursor-pointer border-none"
             >
               <Phone className="h-5 w-5" />
               <span className="ml-2">Call Now</span>
-            </a>
-            <a
-              href={textHref}
-              className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
+            </button>
+            <button
+              onClick={handleTextClick}
+              className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg cursor-pointer border-none"
             >
               <MessageSquare className="h-5 w-5" />
               <span className="ml-2">Text</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
