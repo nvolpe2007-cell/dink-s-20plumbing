@@ -375,14 +375,18 @@ export default function Index() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={callHref}
-              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
+              role="button"
+              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg cursor-pointer"
+              style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
             >
               <Phone className="h-5 w-5" />
               Call {phoneDisplay}
             </a>
             <a
               href={textHref}
-              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
+              role="button"
+              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg cursor-pointer"
+              style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
             >
               <MessageSquare className="h-5 w-5" />
               Send a Text
