@@ -217,5 +217,8 @@
   }
 
   /* optional always-on subtle shine */
-  .cta-shine--always::after { animation-duration: 3s; opacity: 0.6; }
+  .cta-shine--always::after {
+    animation-duration: 3s;
+    opacity: 0.6;
+  }
 }
