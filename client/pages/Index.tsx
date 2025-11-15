@@ -41,6 +41,30 @@ export default function Index() {
     }
   }, []);
 
+  const handleCallClick = (
+    event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  ) => {
+    event.preventDefault();
+    navigateToPhoneAction({
+      scheme: "tel",
+      phoneNumber,
+      eventName: "click-to-call",
+      phoneDisplay,
+    });
+  };
+
+  const handleTextClick = (
+    event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  ) => {
+    event.preventDefault();
+    navigateToPhoneAction({
+      scheme: "sms",
+      phoneNumber,
+      eventName: "click-to-sms",
+      phoneDisplay,
+    });
+  };
+
   return (
     <div className="bg-white">
       {/* LocalBusiness structured data for SEO */}
