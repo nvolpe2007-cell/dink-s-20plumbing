@@ -1,8 +1,5 @@
 import { Phone, MessageSquare } from "lucide-react";
 
-const OWNER_EMAIL =
-  (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
-  "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 const phoneNumber = OWNER_PHONE || "+1 (310)-344-3833";
 
