@@ -185,11 +185,7 @@
     100% { transform: translateX(240%) skewX(-20deg); opacity: 0; }
   }
 
-  .cta-shine::after,
-  a[href^="tel:"]::after,
-  a[href^="sms:"]::after,
-  a[class*="cta-book"]::after,
-  button[class*="cta-book"]::after {
+  .cta-shine::after {
     content: "";
     position: absolute;
     top: -40%;
