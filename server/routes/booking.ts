@@ -106,14 +106,21 @@ export const handleBooking: RequestHandler = async (req, res) => {
           body: body.toString(),
         });
 
-        const responseData = await response.json() as Record<string, unknown>;
+        const responseText = await response.text();
+        let responseData: unknown;
+        try {
+          responseData = JSON.parse(responseText);
+        } catch {
+          responseData = { raw: responseText };
+        }
+
         if (response.ok) {
-          console.log("Booking: SMS sent via Twilio to", notifyPhone);
+          console.log("Booking: SMS sent via Twilio to", notifyPhone, responseData);
         } else {
           console.error(
             "Booking: Twilio SMS error",
-            (responseData as Record<string, unknown>).code,
-            (responseData as Record<string, unknown>).message,
+            response.status,
+            responseData,
           );
         }
       } catch (err) {
