@@ -24,6 +24,16 @@ const callHref = `tel:${phoneNumber}`;
 const textHref = `sms:${phoneNumber}`;
 const phoneHref = callHref;
 
+const handlePhoneCall = (e: React.MouseEvent) => {
+  e.preventDefault();
+  window.location.href = callHref;
+};
+
+const handlePhoneText = (e: React.MouseEvent) => {
+  e.preventDefault();
+  window.location.href = textHref;
+};
+
 export default function Index() {
   useEffect(() => {
     // Mount lead form into the placeholder to avoid hydration mismatch and keep it modular
