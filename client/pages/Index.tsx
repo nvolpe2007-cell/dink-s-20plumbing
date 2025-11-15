@@ -422,6 +422,7 @@ export default function Index() {
           <div className="flex gap-2">
             <a
               href={callHref}
+              onClick={handleCallClick}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
             >
               <Phone className="h-5 w-5" />
@@ -429,18 +430,7 @@ export default function Index() {
             </a>
             <a
               href={textHref}
-              onClick={() => {
-                try {
-                  navigator.sendBeacon(
-                    "/api/track",
-                    JSON.stringify({
-                      event: "click-to-sms",
-                      phone: phoneDisplay,
-                      url: window.location.href,
-                    }),
-                  );
-                } catch (e) {}
-              }}
+              onClick={handleTextClick}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
             >
               <MessageSquare className="h-5 w-5" />
