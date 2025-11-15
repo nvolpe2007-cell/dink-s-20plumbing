@@ -43,16 +43,20 @@ export default function Header() {
             <div className="hidden sm:flex items-center gap-2 sm:gap-3">
               <a
                 href={callHref}
-                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+                role="button"
+                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer"
                 aria-label={`Call ${phoneDisplay}`}
+                style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Call Now</span>
               </a>
               <a
                 href={textHref}
-                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors"
+                role="button"
+                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
                 aria-label="Text us"
+                style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Text Us</span>
