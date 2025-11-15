@@ -167,6 +167,7 @@
     -webkit-user-select: none;
     user-select: none;
     -webkit-touch-callout: default;
+    overflow: hidden;
   }
 
   .cta-shine::before {
