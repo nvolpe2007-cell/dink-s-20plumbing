@@ -23,7 +23,6 @@ export default function Header() {
           </div>
           <a
             href={callHref}
-            onClick={handleCallClick}
             className="hover:underline font-bold hidden sm:inline"
           >
             {phoneDisplay}
