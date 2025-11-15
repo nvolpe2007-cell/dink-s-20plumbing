@@ -231,8 +231,8 @@
   a[href^="tel:"]:hover,
   a[href^="sms:"]:hover,
   a[class*="cta-book"]:hover {
-    filter: drop-shadow(0 18px 48px rgba(3,86,214,0.30));
-    transform: translateY(-3px) scale(1.01);
+    filter: drop-shadow(0 20px 60px rgba(3,86,214,0.35)) brightness(1.05);
+    transform: translateY(-4px) scale(1.02);
   }
 
   /* optional always-on subtle shine */
