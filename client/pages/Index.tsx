@@ -22,6 +22,7 @@ const phoneDisplay = OWNER_PHONE || "+1 (310)-344-3833";
 const phoneNumber = normalizeToE164(phoneDisplay);
 const callHref = `tel:${phoneNumber}`;
 const textHref = `sms:${phoneNumber}`;
+const phoneHref = callHref;
 
 export default function Index() {
   useEffect(() => {
