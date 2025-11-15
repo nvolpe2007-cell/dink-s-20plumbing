@@ -11,6 +11,14 @@ export default function Header() {
   const callHref = `tel:${phoneNumber}`;
   const textHref = `sms:${phoneNumber}`;
 
+  const handleCallClick = () => {
+    window.location.href = callHref;
+  };
+
+  const handleTextClick = () => {
+    window.location.href = textHref;
+  };
+
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
@@ -21,12 +29,12 @@ export default function Header() {
             <span className="text-lg">🚨</span>
             <span>24/7 Emergency Service Available</span>
           </div>
-          <a
-            href={callHref}
-            className="hover:underline font-bold hidden sm:inline"
+          <button
+            onClick={handleCallClick}
+            className="hover:underline font-bold hidden sm:inline bg-transparent border-none cursor-pointer text-white"
           >
             {phoneDisplay}
-          </a>
+          </button>
         </div>
       </div>
 
@@ -41,22 +49,22 @@ export default function Header() {
 
             {/* CTA Buttons - hidden on mobile */}
             <div className="hidden sm:flex items-center gap-2 sm:gap-3">
-              <a
-                href={callHref}
-                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+              <button
+                onClick={handleCallClick}
+                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white font-semibold rounded-full sm:rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer border-none"
                 aria-label={`Call ${phoneDisplay}`}
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Call Now</span>
-              </a>
-              <a
-                href={textHref}
-                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors"
+              </button>
+              <button
+                onClick={handleTextClick}
+                className="cta-shine inline-flex items-center gap-2 px-3 sm:px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-900 font-semibold rounded-full sm:rounded-lg hover:bg-gray-200 transition-colors cursor-pointer border-none"
                 aria-label="Text us"
               >
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">Text Us</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
