@@ -1,5 +1,4 @@
 import { Phone } from "lucide-react";
-import { type MouseEvent } from "react";
 
 import { normalizeToE164 } from "@/lib/utils";
 
@@ -12,35 +11,6 @@ export default function Header() {
   const callHref = `tel:${phoneNumber}`;
   const textHref = `sms:${phoneNumber}`;
 
-  const handleCallClick = (
-    event: MouseEvent<HTMLAnchorElement>,
-  ) => {
-    try {
-      navigator.sendBeacon(
-        "/api/track",
-        JSON.stringify({
-          event: "click-to-call",
-          phone: phoneDisplay,
-          url: window.location.href,
-        }),
-      );
-    } catch (e) {}
-  };
-
-  const handleTextClick = (
-    event: MouseEvent<HTMLAnchorElement>,
-  ) => {
-    try {
-      navigator.sendBeacon(
-        "/api/track",
-        JSON.stringify({
-          event: "click-to-sms",
-          phone: phoneDisplay,
-          url: window.location.href,
-        }),
-      );
-    } catch (e) {}
-  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
