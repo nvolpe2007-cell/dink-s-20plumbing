@@ -161,11 +161,7 @@
   @media (min-width: 1024px) { .pipe-logo--lg { font-size: 4.25rem; } }
 
   /* Shimmer / shine effect for call-to-action buttons and links (faster & brighter) */
-  .cta-shine,
-  a[href^="tel:"],
-  a[href^="sms:"],
-  a[class*="cta-book"],
-  button[class*="cta-book"] {
+  .cta-shine {
     position: relative;
     pointer-events: auto;
     -webkit-user-select: none;
@@ -173,11 +169,7 @@
     -webkit-touch-callout: default;
   }
 
-  .cta-shine::before,
-  a[href^="tel:"]::before,
-  a[href^="sms:"]::before,
-  a[class*="cta-book"]::before,
-  button[class*="cta-book"]::before {
+  .cta-shine::before {
     content: "";
     position: absolute;
     inset: 0;
