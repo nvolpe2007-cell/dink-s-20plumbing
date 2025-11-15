@@ -306,16 +306,16 @@ export default function Index() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`tel:${phoneNumber}`}
-              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
+              href={`tel:${phoneHref}`}
+              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-call', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
               className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg"
             >
               <Phone className="h-5 w-5" />
-              Call {phoneNumber}
+              Call {phoneDisplay}
             </a>
             <a
-              href={`sms:${phoneNumber}`}
-              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
+              href={`sms:${phoneHref}`}
+              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
               className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg"
             >
               <MessageSquare className="h-5 w-5" />
@@ -330,15 +330,15 @@ export default function Index() {
         <div className="container px-4 py-3">
           <div className="flex gap-2">
             <a
-              href={`tel:${phoneNumber}`}
+              href={`tel:${phoneHref}`}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg"
             >
               <Phone className="h-5 w-5" />
               <span className="ml-2">Call Now</span>
             </a>
             <a
-              href={`sms:${phoneNumber}`}
-              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneNumber, url: window.location.href})); } catch(e){} }}
+              href={`sms:${phoneHref}`}
+              onClick={() => { try { navigator.sendBeacon('/api/track', JSON.stringify({event: 'click-to-sms', phone: phoneDisplay, url: window.location.href})); } catch(e){} }}
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg"
             >
               <MessageSquare className="h-5 w-5" />
