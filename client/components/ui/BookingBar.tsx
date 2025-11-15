@@ -14,13 +14,17 @@ export default function BookingBar() {
       <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg">
         <a
           href={callHref}
-          className="inline-flex items-center px-3 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors shadow-md"
+          role="button"
+          className="inline-flex items-center px-3 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors shadow-md cursor-pointer"
+          style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
         >
           <Phone className="mr-2 h-4 w-4" /> Call Now
         </a>
         <a
           href={textHref}
-          className="inline-flex items-center px-3 py-2 bg-gray-100 text-gray-900 font-semibold rounded-full hover:bg-gray-200 transition-colors"
+          role="button"
+          className="inline-flex items-center px-3 py-2 bg-gray-100 text-gray-900 font-semibold rounded-full hover:bg-gray-200 transition-colors cursor-pointer"
+          style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
         >
           <MessageSquare className="mr-2 h-4 w-4" /> Text Us
         </a>
