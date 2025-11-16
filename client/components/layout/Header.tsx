@@ -14,38 +14,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
-      {/* Top Emergency Bar */}
-      <div className="w-full bg-red-600 text-white">
-        <div className="container flex flex-col sm:flex-row items-start sm:items-center justify-between py-2 text-sm font-medium gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">🚨</span>
-            <span>24/7 Emergency Service Available</span>
-          </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <a
-              href={callHref}
-              className="hover:underline font-bold"
-            >
-              {phoneDisplay}
-            </a>
-            <span className="hidden sm:inline">•</span>
-            <a
-              href="mailto:Plum4it2@yahoo.com"
-              className="hover:underline font-bold"
-            >
-              Plum4it2@yahoo.com
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
       <div className="bg-white">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-center sm:justify-between">
+          <div className="flex items-center justify-center sm:justify-between flex-wrap gap-4">
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <span className="pipe-logo pipe-logo--lg brand-interactive text-3xl sm:text-5xl font-black text-blue-400 drop-shadow-lg" aria-label="Dink's Plumbing">Dink's Plumbing</span>
+              <span className="pipe-logo pipe-logo--lg brand-interactive text-5xl sm:text-6xl lg:text-7xl font-black text-blue-400 drop-shadow-lg" aria-label="Dink's Plumbing">Dink's Plumbing</span>
             </a>
 
             {/* CTA Buttons - hidden on mobile */}
