@@ -151,8 +151,8 @@ export default function Index() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <img
-                  src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
-                  alt="Professional plumber fixing leak"
+                  src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2Fac7cc7a74679414cb03a25810c57deef?format=webp&width=800"
+                  alt="Professional bathroom renovation"
                   loading="lazy"
                   className="rounded-lg shadow-md w-full h-48 sm:h-56 md:h-48 lg:h-56 object-cover"
                 />
