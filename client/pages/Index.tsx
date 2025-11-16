@@ -165,8 +165,8 @@ export default function Index() {
               </div>
               <div className="space-y-4 pt-8">
                 <img
-                  src="https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
-                  alt="Modern faucet repair"
+                  src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F0ca09b896fe44f0f9fb9aca7d1c39fc0?format=webp&width=800"
+                  alt="Modern shower installation and bathroom design"
                   loading="lazy"
                   className="rounded-lg shadow-md w-full h-64 sm:h-72 md:h-64 lg:h-72 object-cover"
                 />
