@@ -157,8 +157,8 @@ export default function Index() {
                   className="rounded-lg shadow-md w-full h-48 sm:h-56 md:h-48 lg:h-56 object-cover"
                 />
                 <img
-                  src="https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
-                  alt="Quality pipe installation"
+                  src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F16179b399fc84907a66c72deca2321bd?format=webp&width=800"
+                  alt="Professional pipe installation and plumbing work"
                   loading="lazy"
                   className="rounded-lg shadow-md w-full h-64 sm:h-72 md:h-64 lg:h-72 object-cover"
                 />
