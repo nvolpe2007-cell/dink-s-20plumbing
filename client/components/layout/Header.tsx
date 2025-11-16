@@ -13,14 +13,14 @@ export default function Header() {
   const textHref = `sms:${phoneNumber}`;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-md">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-md" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       {/* Main Header */}
       <div className="bg-white">
         <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-4">
           <div className="flex items-center justify-between sm:justify-between gap-2 sm:gap-4 flex-wrap">
             {/* Logo - Mobile optimized */}
-            <a href="/" className="flex items-center flex-1 sm:flex-none">
-              <span className="pipe-logo pipe-logo--lg brand-interactive text-4xl sm:text-5xl lg:text-7xl font-black text-blue-400 drop-shadow-lg truncate" aria-label="Dink's Plumbing">Dink's Plumbing</span>
+            <a href="/" className="flex items-center flex-1 justify-center sm:flex-none sm:justify-start">
+              <span className="pipe-logo pipe-logo--lg brand-interactive text-4xl sm:text-5xl lg:text-7xl font-black text-blue-400 drop-shadow-lg w-full text-center" aria-label="Dink's Plumbing">Dink's Plumbing</span>
             </a>
 
             {/* Contact Info & CTA Buttons - Hidden on mobile, visible on desktop */}
