@@ -112,26 +112,26 @@ export default function Index() {
                 <a
                   href={callHref}
                   role="button"
-                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer"
+                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-4 bg-blue-600 text-white text-base sm:text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer min-h-12"
                   style={{
                     WebkitTouchCallout: "default",
                     WebkitUserSelect: "none",
                   }}
                 >
                   <Phone className="h-5 w-5" />
-                  <span className="ml-2">Call {phoneDisplay}</span>
+                  <span className="ml-2">Call Now</span>
                 </a>
                 <a
                   href={textHref}
                   role="button"
-                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer"
+                  className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-4 bg-gray-900 text-white text-base sm:text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer min-h-12"
                   style={{
                     WebkitTouchCallout: "default",
                     WebkitUserSelect: "none",
                   }}
                 >
                   <MessageSquare className="h-5 w-5" />
-                  <span className="ml-2">Send a Text</span>
+                  <span className="ml-2">Send Text</span>
                 </a>
               </div>
 
