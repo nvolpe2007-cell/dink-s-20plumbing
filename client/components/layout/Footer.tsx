@@ -12,9 +12,13 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-4">Dink's Plumbing</h3>
             <p className="text-gray-400 mb-4">
-              Professional plumbing services for residential and commercial properties. 
+              Professional plumbing services for residential and commercial properties.
               Licensed, insured, and trusted by the community.
             </p>
+            <p className="text-gray-400">
+              321 E Fairview Blvd, Inglewood, CA 90302
+            </p>
+            <p className="text-gray-400 mt-2">Serving Inglewood, Los Angeles County &amp; the Greater Los Angeles area</p>
           </div>
 
           {/* Contact Info */}
@@ -25,16 +29,17 @@ export default function Footer() {
                 href={`tel:${phoneNumber}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <Phone className="h-4 w-4" />
                 Call {phoneNumber}
               </a>
               <a
                 href={`sms:${phoneNumber}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <MessageSquare className="h-4 w-4" />
                 Text {phoneNumber}
               </a>
+              <div className="text-gray-400">
+                321 E Fairview Blvd, Inglewood, CA 90302
+              </div>
             </div>
           </div>
 
