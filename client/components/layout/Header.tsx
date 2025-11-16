@@ -13,24 +13,19 @@ export default function Header() {
   const textHref = `sms:${phoneNumber}`;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-md">
       {/* Main Header */}
       <div className="bg-white">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-center sm:justify-between flex-wrap gap-4">
-            {/* Logo */}
-            <a href="/" className="flex items-center">
-              <span
-                className="pipe-logo pipe-logo--lg brand-interactive text-5xl sm:text-6xl lg:text-7xl font-black text-blue-400 drop-shadow-lg"
-                aria-label="Dink's Plumbing"
-              >
-                Dink's Plumbing
-              </span>
+        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-4">
+          <div className="flex items-center justify-between sm:justify-between gap-2 sm:gap-4 flex-wrap">
+            {/* Logo - Mobile optimized */}
+            <a href="/" className="flex items-center flex-1 sm:flex-none">
+              <span className="pipe-logo pipe-logo--lg brand-interactive text-4xl sm:text-5xl lg:text-7xl font-black text-blue-400 drop-shadow-lg truncate" aria-label="Dink's Plumbing">Dink's Plumbing</span>
             </a>
 
-            {/* Contact Info & CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <div className="flex flex-col items-center sm:items-end gap-1">
+            {/* Contact Info & CTA Buttons - Hidden on mobile, visible on desktop */}
+            <div className="hidden sm:flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex flex-col items-end gap-1">
                 <a
                   href={callHref}
                   className="text-lg font-bold text-blue-600 hover:text-blue-700"
@@ -49,12 +44,9 @@ export default function Header() {
                 role="button"
                 className="cta-shine inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer"
                 aria-label={`Call ${phoneDisplay}`}
-                style={{
-                  WebkitTouchCallout: "default",
-                  WebkitUserSelect: "none",
-                }}
+                style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
               >
-                <Phone className="h-4 w-4" />
+                <Phone className="h-5 w-5" />
                 <span>Call Now</span>
               </a>
             </div>
