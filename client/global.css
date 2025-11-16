@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Audiowide&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Audiowide&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -108,7 +108,8 @@
   }
 
   /* Improve touch targets */
-  a, button {
+  a,
+  button {
     min-height: 44px;
   }
 
@@ -125,40 +126,76 @@
 
   /* Reduce heavy shadows on mobile for performance */
   @media (max-width: 640px) {
-    .shadow-lg { box-shadow: 0 6px 18px rgba(2,6,23,0.08) !important; }
-    .shadow-md { box-shadow: 0 4px 12px rgba(2,6,23,0.06) !important; }
+    .shadow-lg {
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08) !important;
+    }
+    .shadow-md {
+      box-shadow: 0 4px 12px rgba(2, 6, 23, 0.06) !important;
+    }
   }
 }
 
 @layer components {
   .pipe-logo {
-    font-family: 'Audiowide', 'Pacifico', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-family:
+      "Audiowide",
+      "Pacifico",
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial;
     display: inline-block;
     /* Use theme colors for a cohesive look */
-    background: linear-gradient(180deg, hsl(var(--primary) / 0.95), hsl(var(--primary) / 0.65));
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.95),
+      hsl(var(--primary) / 0.65)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    text-shadow: 0 8px 20px rgba(2,6,23,0.12), 0 2px 6px rgba(2,6,23,0.06);
-    -webkit-text-stroke: 0.8px rgba(2,6,23,0.12);
+    text-shadow:
+      0 8px 20px rgba(2, 6, 23, 0.12),
+      0 2px 6px rgba(2, 6, 23, 0.06);
+    -webkit-text-stroke: 0.8px rgba(2, 6, 23, 0.12);
     letter-spacing: 0.8px;
     transform: translateZ(0);
-    transition: transform 220ms cubic-bezier(.2,.8,.2,1), text-shadow 220ms ease, filter 220ms ease;
+    transition:
+      transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      text-shadow 220ms ease,
+      filter 220ms ease;
     cursor: pointer;
   }
 
   .pipe-logo:hover {
     transform: translateY(-3px) scale(1.03);
-    text-shadow: 0 12px 36px rgba(2,6,23,0.18);
-    filter: drop-shadow(0 8px 20px rgba(3,86,214,0.12));
+    text-shadow: 0 12px 36px rgba(2, 6, 23, 0.18);
+    filter: drop-shadow(0 8px 20px rgba(3, 86, 214, 0.12));
   }
 
   /* Responsive sizing helpers for the pipe logo */
-  .pipe-logo--lg { font-size: 1.75rem; font-weight: 800; }
-  @media (min-width: 640px) { .pipe-logo--lg { font-size: 2.5rem; } }
-  @media (min-width: 768px) { .pipe-logo--lg { font-size: 3.5rem; } }
-  @media (min-width: 1024px) { .pipe-logo--lg { font-size: 4.25rem; } }
+  .pipe-logo--lg {
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+  @media (min-width: 640px) {
+    .pipe-logo--lg {
+      font-size: 2.5rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .pipe-logo--lg {
+      font-size: 3.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .pipe-logo--lg {
+      font-size: 4.25rem;
+    }
+  }
 
   /* Shimmer / shine effect for call-to-action buttons and links (faster & brighter) */
   .cta-shine {
@@ -179,11 +216,23 @@
   }
 
   @keyframes shine-move {
-    0% { transform: translateX(-140%) skewX(-20deg); opacity: 0; }
-    25% { opacity: 0.4; }
-    50% { opacity: 1; }
-    75% { opacity: 0.6; }
-    100% { transform: translateX(240%) skewX(-20deg); opacity: 0; }
+    0% {
+      transform: translateX(-140%) skewX(-20deg);
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateX(240%) skewX(-20deg);
+      opacity: 0;
+    }
   }
 
   .cta-shine::after {
@@ -193,7 +242,14 @@
     left: -100%;
     width: 50%;
     height: 280%;
-    background: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 20%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0.4) 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
     transform: skewX(-15deg) translateX(0);
     pointer-events: none !important;
     -webkit-pointer-events: none;
@@ -213,7 +269,7 @@
 
   /* Stronger glow on hover to emphasize CTA */
   .cta-shine:hover {
-    filter: drop-shadow(0 20px 60px rgba(3,86,214,0.35)) brightness(1.05);
+    filter: drop-shadow(0 20px 60px rgba(3, 86, 214, 0.35)) brightness(1.05);
     transform: translateY(-4px) scale(1.02);
   }
 

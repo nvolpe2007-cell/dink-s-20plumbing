@@ -42,7 +42,6 @@ export default function Index() {
     }
   }, []);
 
-
   return (
     <div className="bg-white">
       {/* LocalBusiness structured data for SEO */}
@@ -114,7 +113,10 @@ export default function Index() {
                   href={callHref}
                   role="button"
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer"
-                  style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
+                  style={{
+                    WebkitTouchCallout: "default",
+                    WebkitUserSelect: "none",
+                  }}
                 >
                   <Phone className="h-5 w-5" />
                   <span className="ml-2">Call {phoneDisplay}</span>
@@ -123,7 +125,10 @@ export default function Index() {
                   href={textHref}
                   role="button"
                   className="cta-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-center cursor-pointer"
-                  style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
+                  style={{
+                    WebkitTouchCallout: "default",
+                    WebkitUserSelect: "none",
+                  }}
                 >
                   <MessageSquare className="h-5 w-5" />
                   <span className="ml-2">Send a Text</span>
@@ -370,7 +375,10 @@ export default function Index() {
               href={callHref}
               role="button"
               className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg cursor-pointer"
-              style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
+              style={{
+                WebkitTouchCallout: "default",
+                WebkitUserSelect: "none",
+              }}
             >
               <Phone className="h-5 w-5" />
               Call {phoneDisplay}
@@ -379,7 +387,10 @@ export default function Index() {
               href={textHref}
               role="button"
               className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white text-lg font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg cursor-pointer"
-              style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
+              style={{
+                WebkitTouchCallout: "default",
+                WebkitUserSelect: "none",
+              }}
             >
               <MessageSquare className="h-5 w-5" />
               Send a Text
@@ -399,7 +410,10 @@ export default function Index() {
               href={callHref}
               role="button"
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg cursor-pointer"
-              style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
+              style={{
+                WebkitTouchCallout: "default",
+                WebkitUserSelect: "none",
+              }}
             >
               <Phone className="h-5 w-5" />
               <span className="ml-2">Call Now</span>
@@ -408,7 +422,10 @@ export default function Index() {
               href={textHref}
               role="button"
               className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg cursor-pointer"
-              style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
+              style={{
+                WebkitTouchCallout: "default",
+                WebkitUserSelect: "none",
+              }}
             >
               <MessageSquare className="h-5 w-5" />
               <span className="ml-2">Text</span>

@@ -20,7 +20,12 @@ export default function Header() {
           <div className="flex items-center justify-center sm:justify-between flex-wrap gap-4">
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <span className="pipe-logo pipe-logo--lg brand-interactive text-5xl sm:text-6xl lg:text-7xl font-black text-blue-400 drop-shadow-lg" aria-label="Dink's Plumbing">Dink's Plumbing</span>
+              <span
+                className="pipe-logo pipe-logo--lg brand-interactive text-5xl sm:text-6xl lg:text-7xl font-black text-blue-400 drop-shadow-lg"
+                aria-label="Dink's Plumbing"
+              >
+                Dink's Plumbing
+              </span>
             </a>
 
             {/* Contact Info & CTA Buttons */}
@@ -44,7 +49,10 @@ export default function Header() {
                 role="button"
                 className="cta-shine inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer"
                 aria-label={`Call ${phoneDisplay}`}
-                style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
+                style={{
+                  WebkitTouchCallout: "default",
+                  WebkitUserSelect: "none",
+                }}
               >
                 <Phone className="h-4 w-4" />
                 <span>Call Now</span>

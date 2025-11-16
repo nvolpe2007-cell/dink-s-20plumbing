@@ -24,7 +24,10 @@ function toE164(candidate: string | undefined) {
   return DEFAULT_PHONE_NUMBER;
 }
 
-export function normalizeToE164(phoneInput?: string, fallbackNumber = DEFAULT_PHONE_NUMBER) {
+export function normalizeToE164(
+  phoneInput?: string,
+  fallbackNumber = DEFAULT_PHONE_NUMBER,
+) {
   const fallbackNormalized = toE164(fallbackNumber);
   if (!phoneInput) {
     return fallbackNormalized;
@@ -61,7 +64,11 @@ export function navigateToPhoneAction({
   phoneDisplay,
   trackUrl = "/api/track",
 }: PhoneNavigationOptions) {
-  if (eventName && typeof navigator !== "undefined" && "sendBeacon" in navigator) {
+  if (
+    eventName &&
+    typeof navigator !== "undefined" &&
+    "sendBeacon" in navigator
+  ) {
     try {
       navigator.sendBeacon(
         trackUrl,
