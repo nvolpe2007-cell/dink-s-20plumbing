@@ -43,7 +43,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pb-24 sm:pb-0">
       {/* LocalBusiness structured data for SEO */}
       <script
         type="application/ld+json"
