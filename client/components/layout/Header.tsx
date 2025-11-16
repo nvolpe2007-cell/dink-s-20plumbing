@@ -16,17 +16,26 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
       {/* Top Emergency Bar */}
       <div className="w-full bg-red-600 text-white">
-        <div className="container flex items-center justify-between py-2 text-sm font-medium">
+        <div className="container flex flex-col sm:flex-row items-start sm:items-center justify-between py-2 text-sm font-medium gap-2">
           <div className="flex items-center gap-2">
             <span className="text-lg">🚨</span>
             <span>24/7 Emergency Service Available</span>
           </div>
-          <a
-            href={callHref}
-            className="hover:underline font-bold hidden sm:inline"
-          >
-            {phoneDisplay}
-          </a>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <a
+              href={callHref}
+              className="hover:underline font-bold"
+            >
+              {phoneDisplay}
+            </a>
+            <span className="hidden sm:inline">•</span>
+            <a
+              href="mailto:Plum4it2@yahoo.com"
+              className="hover:underline font-bold"
+            >
+              Plum4it2@yahoo.com
+            </a>
+          </div>
         </div>
       </div>
 
