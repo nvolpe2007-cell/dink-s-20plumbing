@@ -98,11 +98,11 @@ export default function Index() {
                 ⚡ Same-Day Service • Licensed & Insured
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Fast, Reliable Plumbing Services You Can Trust
               </h1>
 
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0">
                 Expert plumbing repairs and installations. No job too big or
                 small. Same-day service available. Call now for a free estimate!
               </p>
