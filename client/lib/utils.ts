@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const DEFAULT_PHONE_NUMBER = "+1 (310)-344-3833";
+const DEFAULT_PHONE_NUMBER = "+1 (310) 344-3833";
 
 function toE164(candidate: string | undefined) {
   const digits = (candidate ?? "").replace(/[^0-9]/g, "");
