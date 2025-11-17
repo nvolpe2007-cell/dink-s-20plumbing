@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Phone, MessageSquare } from "lucide-react";
+import { normalizeToE164 } from "@/lib/utils";
 
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const PHONE_NUMBER = OWNER_PHONE || "+1 (310)-344-3833";
+const PHONE_DISPLAY = OWNER_PHONE || "+1 (310)-344-3833";
+const PHONE_NUMBER = normalizeToE164(PHONE_DISPLAY);
 
 export default function ReviewsPanel() {
   const reviews = [
