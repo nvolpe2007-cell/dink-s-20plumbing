@@ -14,7 +14,10 @@ export const handleBooking: RequestHandler = async (req, res) => {
       (process.env.VITE_OWNER_EMAIL as string) ||
       (process.env.OWNER_EMAIL as string) ||
       "Plum4it2@yahoo.com";
-    const notifyPhone = process.env.NOTIFY_PHONE || process.env.VITE_OWNER_PHONE || "+13103443833"; // fallback to owner phone if NOTIFY_PHONE not set
+    const notifyPhone =
+      process.env.NOTIFY_PHONE ||
+      process.env.VITE_OWNER_PHONE ||
+      "+13103443833"; // fallback to owner phone if NOTIFY_PHONE not set
 
     // Build a friendly message
     const subject = `New booking: ${name ?? "Unknown"} - ${time ?? "unspecified"}`;
@@ -69,8 +72,7 @@ export const handleBooking: RequestHandler = async (req, res) => {
     // Send SMS via Twilio if credentials present
     const twilioSid = process.env.TWILIO_ACCOUNT_SID;
     const twilioAuth = process.env.TWILIO_AUTH_TOKEN;
-    const twilioMessagingServiceSid =
-      process.env.TWILIO_MESSAGING_SERVICE_SID;
+    const twilioMessagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
     const twilioFrom = process.env.TWILIO_FROM;
 
     if (twilioSid && twilioAuth) {
@@ -115,7 +117,11 @@ export const handleBooking: RequestHandler = async (req, res) => {
         }
 
         if (response.ok) {
-          console.log("Booking: SMS sent via Twilio to", notifyPhone, responseData);
+          console.log(
+            "Booking: SMS sent via Twilio to",
+            notifyPhone,
+            responseData,
+          );
         } else {
           console.error(
             "Booking: Twilio SMS error",

@@ -8,9 +8,27 @@ const PHONE_NUMBER = normalizeToE164(PHONE_DISPLAY);
 
 export default function ReviewsPanel() {
   const reviews = [
-    { id: 1, name: "Maria K.", date: "Apr 7, 2022", excerpt: "Fast, honest, and fixed my leak the same day.", full: "Fast, honest, and fixed my leak the same day. Highly recommend Dink's Plumbing." },
-    { id: 2, name: "John O.", date: "Mar 7, 2022", excerpt: "Always on time and efficient — great service.", full: "Always on time and efficient — great service. Dink's crew were professional and quick." },
-    { id: 3, name: "Gerald C.", date: "Jul 29, 2021", excerpt: "We've relied on Dink's for years — dependable and honest.", full: "We've relied on Dink's for years — dependable and honest. Never disappointed." },
+    {
+      id: 1,
+      name: "Maria K.",
+      date: "Apr 7, 2022",
+      excerpt: "Fast, honest, and fixed my leak the same day.",
+      full: "Fast, honest, and fixed my leak the same day. Highly recommend Dink's Plumbing.",
+    },
+    {
+      id: 2,
+      name: "John O.",
+      date: "Mar 7, 2022",
+      excerpt: "Always on time and efficient — great service.",
+      full: "Always on time and efficient — great service. Dink's crew were professional and quick.",
+    },
+    {
+      id: 3,
+      name: "Gerald C.",
+      date: "Jul 29, 2021",
+      excerpt: "We've relied on Dink's for years — dependable and honest.",
+      full: "We've relied on Dink's for years — dependable and honest. Never disappointed.",
+    },
   ];
 
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -59,7 +77,10 @@ export default function ReviewsPanel() {
           <div className="elfsight-app-7637e8fe-79b3-4a63-9d9e-ca81911779c1" />
         </div>
       ) : (
-        <div ref={scrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4">
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4"
+        >
           {reviews.map((r) => (
             <article
               key={r.id}
@@ -73,7 +94,9 @@ export default function ReviewsPanel() {
                 </div>
                 <div className="text-primary">★</div>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">{expanded === r.id ? r.full : r.excerpt}</p>
+              <p className="mt-3 text-sm text-muted-foreground">
+                {expanded === r.id ? r.full : r.excerpt}
+              </p>
             </article>
           ))}
         </div>
@@ -87,7 +110,11 @@ export default function ReviewsPanel() {
             try {
               navigator.sendBeacon(
                 "/api/track",
-                JSON.stringify({ event: "click-to-sms", phone: PHONE_NUMBER, url: window.location.href }),
+                JSON.stringify({
+                  event: "click-to-sms",
+                  phone: PHONE_NUMBER,
+                  url: window.location.href,
+                }),
               );
             } catch (e) {
               // ignore
@@ -106,7 +133,11 @@ export default function ReviewsPanel() {
               try {
                 navigator.sendBeacon(
                   "/api/track",
-                  JSON.stringify({ event: "click-to-call", phone: PHONE_NUMBER, url: window.location.href }),
+                  JSON.stringify({
+                    event: "click-to-call",
+                    phone: PHONE_NUMBER,
+                    url: window.location.href,
+                  }),
                 );
               } catch (e) {
                 // ignore
