@@ -7,7 +7,7 @@ const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
 
 export default function Header() {
   const hasPhone = typeof OWNER_PHONE === "string" && OWNER_PHONE.length > 0;
-  const phoneDisplay = hasPhone ? OWNER_PHONE : "+1 (310) 344-3833";
+  const phoneDisplay = hasPhone ? OWNER_PHONE : "(310) 344-3833";
   const phoneNumber = normalizeToE164(phoneDisplay);
   const callHref = `tel:${phoneNumber}`;
   const textHref = `sms:${phoneNumber}`;
