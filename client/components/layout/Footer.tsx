@@ -3,7 +3,7 @@ import { Phone, MessageSquare } from "lucide-react";
 import { normalizeToE164 } from "@/lib/utils";
 
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const phoneDisplay = OWNER_PHONE || "+1 (310)-344-3833";
+const phoneDisplay = OWNER_PHONE || "+1 (310) 344-3833";
 const phoneNumber = normalizeToE164(phoneDisplay);
 
 export default function Footer() {
