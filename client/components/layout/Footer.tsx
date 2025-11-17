@@ -35,13 +35,13 @@ export default function Footer() {
                 href={`tel:${phoneNumber}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                Call {phoneNumber}
+                Call {phoneDisplay}
               </a>
               <a
                 href={`sms:${phoneNumber}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                Text {phoneNumber}
+                Text {phoneDisplay}
               </a>
               <div className="text-gray-400">
                 321 E Fairview Blvd, Inglewood, CA 90302
