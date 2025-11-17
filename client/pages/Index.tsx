@@ -18,7 +18,7 @@ const OWNER_EMAIL =
   (import.meta.env.VITE_OWNER_EMAIL as string | undefined) ??
   "Plum4it2@yahoo.com";
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
-const phoneDisplay = OWNER_PHONE || "+1 (310) 344-3833";
+const phoneDisplay = OWNER_PHONE || "(310) 344-3833";
 const phoneNumber = normalizeToE164(phoneDisplay);
 const callHref = `tel:${phoneNumber}`;
 const textHref = `sms:${phoneNumber}`;
