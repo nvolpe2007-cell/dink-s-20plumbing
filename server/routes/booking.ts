@@ -14,7 +14,7 @@ export const handleBooking: RequestHandler = async (req, res) => {
       (process.env.VITE_OWNER_EMAIL as string) ||
       (process.env.OWNER_EMAIL as string) ||
       "Plum4it2@yahoo.com";
-    const notifyPhone = process.env.NOTIFY_PHONE || "+13103443833"; // user provided 310-344-3833
+    const notifyPhone = process.env.NOTIFY_PHONE || process.env.VITE_OWNER_PHONE || "+13103443833"; // fallback to owner phone if NOTIFY_PHONE not set
 
     // Build a friendly message
     const subject = `New booking: ${name ?? "Unknown"} - ${time ?? "unspecified"}`;
