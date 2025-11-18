@@ -11,10 +11,13 @@ const textHref = `sms:${phoneNumber}`;
 export default function BookingBar() {
   return (
     <div
-      className="fixed left-0 right-0 z-40 sm:hidden"
-      style={{ bottom: "calc(1rem + 10px)" }}
+      className="fixed left-0 right-0 z-40 sm:hidden bg-white border-t border-gray-200 shadow-lg"
+      style={{
+        bottom: 0,
+        paddingBottom: "env(safe-area-inset-bottom)",
+      }}
     >
-      <div className="bg-white border-t border-gray-200 shadow-lg">
+      <div className="bg-white">
         <div className="container mx-auto px-4 py-3 flex gap-2">
           <a
             href={callHref}
