@@ -98,7 +98,7 @@ export default function Index() {
                 ⚡ Same-Day Service • Licensed & Insured
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-600 mb-4 sm:mb-6 leading-tight">
                 Fast, Reliable Plumbing Services You Can Trust
               </h1>
 
