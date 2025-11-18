@@ -147,20 +147,6 @@
       "Helvetica Neue",
       Arial;
     display: inline-block;
-    /* Use theme colors for a cohesive look */
-    background: linear-gradient(
-      180deg,
-      hsl(var(--primary) / 0.95),
-      hsl(var(--primary) / 0.65)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    text-shadow:
-      0 8px 20px rgba(2, 6, 23, 0.12),
-      0 2px 6px rgba(2, 6, 23, 0.06);
-    -webkit-text-stroke: 0.8px rgba(2, 6, 23, 0.12);
     letter-spacing: 0.8px;
     transform: translateZ(0);
     transition:
