@@ -381,7 +381,7 @@ export default function Index() {
               }}
             >
               <Phone className="h-5 w-5" />
-              Call {phoneDisplay}
+              Call Now
             </a>
             <a
               href={textHref}
