@@ -145,7 +145,7 @@ export default function ReviewsPanel() {
             }}
             className="cta-shine cta-book inline-block rounded-full px-6 py-3 phone-number"
           >
-            <Phone className="mr-2 inline-block h-4 w-4" /> Call {PHONE_DISPLAY}
+            <Phone className="mr-2 inline-block h-4 w-4" /> Call Now
           </a>
         </div>
       </div>

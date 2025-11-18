@@ -35,7 +35,7 @@ export default function Footer() {
                 href={`tel:${phoneNumber}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                Call {phoneDisplay}
+                Call Now
               </a>
               <a
                 href={`sms:${phoneNumber}`}
