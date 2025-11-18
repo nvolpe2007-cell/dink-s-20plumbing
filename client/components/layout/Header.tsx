@@ -27,7 +27,7 @@ export default function Header() {
               className="flex items-center flex-1 justify-center sm:flex-none sm:justify-start"
             >
               <span
-                className="pipe-logo pipe-logo--lg brand-interactive text-4xl sm:text-5xl lg:text-7xl font-black drop-shadow-lg w-full text-center"
+                className="pipe-logo pipe-logo--lg brand-interactive text-4xl sm:text-5xl lg:text-7xl font-black w-full text-center"
                 aria-label="Dink's Plumbing"
                 style={{ color: "rgba(65, 147, 252, 1)" }}
               >
