@@ -374,7 +374,7 @@ export default function Index() {
             <a
               href={callHref}
               role="button"
-              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg cursor-pointer"
+              className="cta-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white text-lg font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg cursor-pointer"
               style={{
                 WebkitTouchCallout: "default",
                 WebkitUserSelect: "none",
