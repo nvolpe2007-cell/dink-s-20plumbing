@@ -378,6 +378,7 @@ export default function Index() {
               style={{
                 WebkitTouchCallout: "default",
                 WebkitUserSelect: "none",
+                backgroundColor: "rgba(37, 60, 234, 1)",
               }}
             >
               <Phone className="h-5 w-5" />
