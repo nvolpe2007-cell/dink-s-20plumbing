@@ -401,7 +401,7 @@ export default function Index() {
 
       {/* Mobile Sticky CTA */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t shadow-lg"
+        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-gray-200 shadow-lg"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
         <div className="container px-4 py-3">
