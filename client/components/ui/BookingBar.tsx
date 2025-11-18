@@ -22,7 +22,7 @@ export default function BookingBar() {
           <a
             href={callHref}
             role="button"
-            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-md cursor-pointer text-base"
+            className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-md cursor-pointer text-base"
             style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
           >
             <Phone className="h-5 w-5" />
@@ -31,7 +31,7 @@ export default function BookingBar() {
           <a
             href={textHref}
             role="button"
-            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-colors shadow-md cursor-pointer text-base"
+            className="cta-shine flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-colors shadow-md cursor-pointer text-base"
             style={{ WebkitTouchCallout: "default", WebkitUserSelect: "none" }}
           >
             <MessageSquare className="h-5 w-5" />
