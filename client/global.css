@@ -245,7 +245,6 @@
     z-index: -1;
   }
 
-
   /* optional always-on subtle shine */
   .cta-shine--always::after {
     animation-duration: 3s;
