@@ -89,7 +89,7 @@ export default function Index() {
         }}
       />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-white py-12 sm:py-20">
+      <section className="relative bg-gradient-to-br from-blue-50 to-white py-6 sm:py-10 -mt-2 sm:-mt-4">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Main Message */}
