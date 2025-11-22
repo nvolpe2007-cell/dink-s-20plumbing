@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { normalizeToE164 } from "@/lib/utils";
 
 const OWNER_PHONE = import.meta.env.VITE_OWNER_PHONE as string | undefined;
@@ -11,6 +11,43 @@ export default function Header() {
   const phoneNumber = normalizeToE164(phoneDisplay);
   const callHref = `tel:${phoneNumber}`;
   const textHref = `sms:${phoneNumber}`;
+
+  const [logoScale, setLogoScale] = useState(1);
+  const scrollVelocityRef = useRef(0);
+  const lastScrollRef = useRef(0);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      const velocity = Math.abs(currentScroll - lastScrollRef.current);
+      lastScrollRef.current = currentScroll;
+
+      // Calculate scale based on velocity (0 - 100px/frame)
+      // Max velocity = 100, at which scale = 0.7 (min)
+      // No velocity = scale of 1 (max)
+      const scale = Math.max(0.7, 1 - (velocity / 150) * 0.3);
+      setLogoScale(scale);
+
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // Reset to full size after scrolling stops (300ms delay)
+      scrollTimeoutRef.current = setTimeout(() => {
+        setLogoScale(1);
+      }, 300);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <header
