@@ -77,8 +77,24 @@ export default function Header() {
     >
       {/* Main Header */}
       <div className="bg-transparent w-full">
-        <div className="w-full px-3 sm:px-4 py-1 sm:py-2 flex justify-center">
+        <div className="w-full px-3 sm:px-4 py-1 sm:py-2 flex justify-center relative">
           <div className="flex items-center justify-center gap-4 flex-wrap">
+            {/* Desktop contact info floating right */}
+            <div className="hidden sm:flex flex-col sm:items-end gap-1 absolute top-1 right-4">
+              <a
+                href={callHref}
+                className="text-lg font-bold text-blue-600 hover:text-blue-700"
+              >
+                {phoneDisplay}
+              </a>
+              <a
+                href="mailto:Plum4it2@yahoo.com"
+                className="text-sm text-gray-600 hover:text-gray-900"
+              >
+                Plum4it2@yahoo.com
+              </a>
+            </div>
+
             {/* Logo - Mobile optimized */}
             <a
               href="/"
