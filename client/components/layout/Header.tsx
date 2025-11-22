@@ -80,21 +80,13 @@ export default function Header() {
         <div className="w-full px-3 sm:px-4 py-1 sm:py-1.5 lg:py-1 flex justify-center relative">
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {/* Desktop contact info floating right */}
-            <div className="hidden sm:flex flex-col items-end gap-2 absolute top-1 right-4 text-right">
-              <div className="flex flex-col items-end gap-1">
-                <a
-                  href={callHref}
-                  className="text-lg font-bold text-blue-600 hover:text-blue-700"
-                >
-                  {phoneDisplay}
-                </a>
-                <a
-                  href="mailto:Plum4it2@yahoo.com"
-                  className="text-sm text-gray-600 hover:text-gray-900"
-                >
-                  Plum4it2@yahoo.com
-                </a>
-              </div>
+            <div className="hidden sm:flex flex-col items-end gap-2 absolute top-2 right-4 text-right">
+              <a
+                href={callHref}
+                className="text-lg font-bold text-blue-600 hover:text-blue-700"
+              >
+                {phoneDisplay}
+              </a>
               <a
                 href={callHref}
                 role="button"
