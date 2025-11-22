@@ -59,15 +59,15 @@ export default function Header() {
       {/* Main Header */}
       <div className="bg-transparent">
         <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
-          <div className="flex items-center justify-between gap-4 flex-wrap">
+          <div className="flex items-center justify-center w-full gap-4 flex-wrap">
             {/* Logo - Mobile optimized */}
             <a
               href="/"
               className="floating-logo flex items-center gap-3 justify-center"
               style={{
                 transform: `scale(${logoScale})`,
-                transformOrigin: "center",
-                transition: "transform 0.15s ease-out",
+                transformOrigin: "center center",
+                transition: "transform 0.2s ease-out",
               }}
             >
               <img
