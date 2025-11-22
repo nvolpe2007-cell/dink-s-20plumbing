@@ -250,4 +250,18 @@
     animation-duration: 3s;
     opacity: 0.6;
   }
+
+  .floating-logo {
+    position: relative;
+    z-index: 51;
+  }
+
+  @media (max-width: 640px) {
+    .floating-logo {
+      position: sticky;
+      top: calc(env(safe-area-inset-top, 0px) + 0.5rem);
+      left: 1rem;
+      background: transparent;
+    }
+  }
 }
