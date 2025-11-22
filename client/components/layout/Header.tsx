@@ -83,21 +83,21 @@ export default function Header() {
             <div className="hidden sm:flex flex-col items-end gap-1 md:gap-1 absolute top-2 md:top-1.5 right-4 text-right">
               <a
                 href={callHref}
-                className="text-lg font-bold text-blue-600 hover:text-blue-700"
+                className="text-base md:text-sm lg:text-lg font-bold text-blue-600 hover:text-blue-700"
               >
                 {phoneDisplay}
               </a>
               <a
                 href={callHref}
                 role="button"
-                className="cta-shine inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                className="cta-shine inline-flex items-center gap-2 px-4 md:px-4 lg:px-6 py-2 md:py-2 lg:py-3 bg-blue-600 text-white font-semibold text-sm md:text-sm lg:text-base rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer"
                 aria-label={`Call ${phoneDisplay}`}
                 style={{
                   WebkitTouchCallout: "default",
                   WebkitUserSelect: "none",
                 }}
               >
-                <Phone className="h-5 w-5" />
+                <Phone className="h-4 md:h-4 lg:h-5 w-4 md:w-4 lg:w-5" />
                 <span>Call Now</span>
               </a>
             </div>
