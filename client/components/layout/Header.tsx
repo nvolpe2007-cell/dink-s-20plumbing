@@ -14,8 +14,8 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-md"
-      style={{ paddingTop: "env(safe-area-inset-top)" }}
+      className="sticky top-0 z-50 w-full bg-transparent border-0 shadow-none backdrop-blur-sm"
+      style={{ paddingTop: "env(safe-area-inset-top)", transition: "background 0.3s ease" }}
     >
       {/* Main Header */}
       <div className="bg-transparent">
