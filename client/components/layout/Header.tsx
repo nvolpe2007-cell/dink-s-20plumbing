@@ -133,36 +133,6 @@ export default function Header() {
               </span>
             </a>
 
-            {/* Contact Info & CTA Buttons - Hidden on mobile, visible on desktop */}
-            <div className="hidden sm:flex flex-col sm:flex-row items-center gap-4">
-              <div className="flex flex-col items-end gap-1">
-                <a
-                  href={callHref}
-                  className="text-lg font-bold text-blue-600 hover:text-blue-700"
-                >
-                  {phoneDisplay}
-                </a>
-                <a
-                  href="mailto:Plum4it2@yahoo.com"
-                  className="text-sm text-gray-600 hover:text-gray-900"
-                >
-                  Plum4it2@yahoo.com
-                </a>
-              </div>
-              <a
-                href={callHref}
-                role="button"
-                className="cta-shine inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer"
-                aria-label={`Call ${phoneDisplay}`}
-                style={{
-                  WebkitTouchCallout: "default",
-                  WebkitUserSelect: "none",
-                }}
-              >
-                <Phone className="h-5 w-5" />
-                <span>Call Now</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>
