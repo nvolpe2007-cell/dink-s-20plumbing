@@ -77,7 +77,7 @@ export default function Header() {
     >
       {/* Main Header */}
       <div className="bg-transparent w-full">
-        <div className="w-full px-3 sm:px-4 py-1 sm:py-2 flex justify-center relative">
+        <div className="w-full px-3 sm:px-4 py-1 sm:py-1.5 lg:py-1 flex justify-center relative">
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {/* Desktop contact info floating right */}
             <div className="hidden sm:flex flex-col items-end gap-2 absolute top-1 right-4 text-right">
