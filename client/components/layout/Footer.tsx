@@ -48,6 +48,12 @@ export default function Footer() {
               >
                 Text {phoneDisplay}
               </a>
+              <a
+                href="mailto:Plum4it2@yahoo.com"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                Plum4it2@yahoo.com
+              </a>
               <div className="text-gray-400">
                 321 E Fairview Blvd, Inglewood, CA 90302
               </div>
