@@ -24,10 +24,10 @@ export default function Header() {
             {/* Logo - Mobile optimized */}
             <a
               href="/"
-              className="floating-logo flex items-center gap-3 justify-start"
+              className="floating-logo flex items-center gap-3 justify-center"
             >
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F831d1a3998354903877cdecdb0c255cc?format=webp&width=800"
+                src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2Ff18c2ccd1b7c4b7f9548b56fda44bd46?format=webp&width=800"
                 alt="Dink's Plumbing"
                 className="h-24 sm:h-32 lg:h-40 w-auto"
               />
