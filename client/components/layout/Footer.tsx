@@ -13,6 +13,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F831d1a3998354903877cdecdb0c255cc?format=webp&width=800"
+              alt="Dink's Plumbing"
+              className="h-20 w-auto mb-4"
+            />
             <h3 className="text-2xl font-bold mb-4">Dink's Plumbing</h3>
             <p className="text-gray-400 mb-4">
               Professional plumbing services for residential and commercial
