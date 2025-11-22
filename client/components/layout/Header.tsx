@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full bg-transparent border-0 shadow-none backdrop-blur-sm"
+      className="sticky top-0 z-50 w-full bg-transparent border-0 shadow-none"
       style={{ paddingTop: "env(safe-area-inset-top)", transition: "background 0.3s ease" }}
     >
       {/* Main Header */}
@@ -27,12 +27,12 @@ export default function Header() {
               className="floating-logo flex items-center gap-3 justify-center"
             >
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2Ff18c2ccd1b7c4b7f9548b56fda44bd46?format=webp&width=800"
+                src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2Ffed4a654c08b4c7aa4bc83e951acdd96?format=webp&width=800"
                 alt="Dink's Plumbing"
-                className="h-24 sm:h-32 lg:h-40 w-auto"
+                className="h-32 sm:h-40 lg:h-48 w-auto"
               />
               <span
-                className="pipe-logo pipe-logo--lg brand-interactive text-4xl sm:text-5xl lg:text-7xl font-black text-blue-600 hidden sm:inline"
+                className="pipe-logo pipe-logo--lg brand-interactive text-5xl sm:text-6xl lg:text-8xl font-black text-blue-600 hidden sm:inline"
                 aria-label="Dink's Plumbing"
               >
                 Dink's Plumbing
