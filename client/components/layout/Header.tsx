@@ -123,10 +123,10 @@ export default function Header() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2Ffed4a654c08b4c7aa4bc83e951acdd96?format=webp&width=800"
                 alt="Dink's Plumbing"
-                className="h-28 sm:h-40 lg:h-56 w-auto"
+                className="h-28 sm:h-40 lg:h-48 w-auto"
               />
               <span
-                className="pipe-logo pipe-logo--lg brand-interactive text-6xl sm:text-7xl lg:text-9xl font-black text-blue-600 hidden sm:inline"
+                className="pipe-logo pipe-logo--lg brand-interactive text-6xl sm:text-7xl lg:text-8xl font-black text-blue-600 hidden sm:inline"
                 aria-label="Dink's Plumbing"
               >
                 Dink's Plumbing
