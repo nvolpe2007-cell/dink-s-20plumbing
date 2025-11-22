@@ -34,12 +34,12 @@ export default function Header() {
         clearTimeout(scrollTimeoutRef.current);
       }
 
-      // Reset to full size after scrolling stops (400ms delay)
+      // Reset to full size after scrolling stops (150ms delay)
       scrollTimeoutRef.current = setTimeout(() => {
         if (window.scrollY === lastScrollRef.current) {
           setLogoScale(1);
         }
-      }, 400);
+      }, 150);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
