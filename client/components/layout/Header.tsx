@@ -80,18 +80,33 @@ export default function Header() {
         <div className="w-full px-3 sm:px-4 py-1 sm:py-2 flex justify-center relative">
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {/* Desktop contact info floating right */}
-            <div className="hidden sm:flex flex-col sm:items-end gap-1 absolute top-1 right-4">
+            <div className="hidden sm:flex flex-col items-end gap-2 absolute top-1 right-4 text-right">
+              <div className="flex flex-col items-end gap-1">
+                <a
+                  href={callHref}
+                  className="text-lg font-bold text-blue-600 hover:text-blue-700"
+                >
+                  {phoneDisplay}
+                </a>
+                <a
+                  href="mailto:Plum4it2@yahoo.com"
+                  className="text-sm text-gray-600 hover:text-gray-900"
+                >
+                  Plum4it2@yahoo.com
+                </a>
+              </div>
               <a
                 href={callHref}
-                className="text-lg font-bold text-blue-600 hover:text-blue-700"
+                role="button"
+                className="cta-shine inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                aria-label={`Call ${phoneDisplay}`}
+                style={{
+                  WebkitTouchCallout: "default",
+                  WebkitUserSelect: "none",
+                }}
               >
-                {phoneDisplay}
-              </a>
-              <a
-                href="mailto:Plum4it2@yahoo.com"
-                className="text-sm text-gray-600 hover:text-gray-900"
-              >
-                Plum4it2@yahoo.com
+                <Phone className="h-5 w-5" />
+                <span>Call Now</span>
               </a>
             </div>
 
