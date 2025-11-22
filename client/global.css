@@ -254,13 +254,16 @@
   .floating-logo {
     position: relative;
     z-index: 51;
+    margin: 0 auto;
+    justify-content: center;
   }
 
   @media (max-width: 640px) {
     .floating-logo {
       position: sticky;
       top: calc(env(safe-area-inset-top, 0px) + 0.5rem);
-      left: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
       background: transparent;
     }
   }
