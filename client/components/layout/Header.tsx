@@ -29,7 +29,7 @@ export default function Header() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2Ffed4a654c08b4c7aa4bc83e951acdd96?format=webp&width=800"
                 alt="Dink's Plumbing"
-                className="h-32 sm:h-40 lg:h-48 w-auto"
+                className="h-20 sm:h-32 lg:h-48 w-auto"
               />
               <span
                 className="pipe-logo pipe-logo--lg brand-interactive text-5xl sm:text-6xl lg:text-8xl font-black text-blue-600 hidden sm:inline"
