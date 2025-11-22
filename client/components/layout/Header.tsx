@@ -67,7 +67,7 @@ export default function Header() {
               style={{
                 transform: `scale(${logoScale})`,
                 transformOrigin: "center center",
-                transition: "transform 0.2s ease-out",
+                transition: "transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
               }}
             >
               <img
