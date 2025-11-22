@@ -18,13 +18,13 @@ export default function Header() {
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
       {/* Main Header */}
-      <div className="bg-white">
-        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-4">
-          <div className="flex items-center justify-between sm:justify-between gap-2 sm:gap-4 flex-wrap">
+      <div className="bg-transparent">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
             {/* Logo - Mobile optimized */}
             <a
               href="/"
-              className="flex items-center flex-1 justify-center sm:flex-none sm:justify-start gap-3"
+              className="floating-logo flex items-center gap-3 justify-start"
             >
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F831d1a3998354903877cdecdb0c255cc?format=webp&width=800"
