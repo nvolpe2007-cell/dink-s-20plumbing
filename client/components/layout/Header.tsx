@@ -29,10 +29,10 @@ export default function Header() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F831d1a3998354903877cdecdb0c255cc?format=webp&width=800"
                 alt="Dink's Plumbing"
-                className="h-12 sm:h-16 lg:h-20 w-auto"
+                className="h-24 sm:h-32 lg:h-40 w-auto"
               />
               <span
-                className="pipe-logo pipe-logo--lg brand-interactive text-2xl sm:text-3xl lg:text-4xl font-black text-blue-600 hidden sm:inline"
+                className="pipe-logo pipe-logo--lg brand-interactive text-4xl sm:text-5xl lg:text-7xl font-black text-blue-600 hidden sm:inline"
                 aria-label="Dink's Plumbing"
               >
                 Dink's Plumbing
