@@ -57,9 +57,9 @@ export default function Header() {
       style={{ paddingTop: "env(safe-area-inset-top)", transition: "background 0.3s ease" }}
     >
       {/* Main Header */}
-      <div className="bg-transparent">
-        <div className="container mx-auto px-3 sm:px-4 py-1 sm:py-2">
-          <div className="flex items-center justify-center w-full gap-4 flex-wrap">
+      <div className="bg-transparent w-full">
+        <div className="w-full px-3 sm:px-4 py-1 sm:py-2 flex justify-center">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
             {/* Logo - Mobile optimized */}
             <a
               href="/"
