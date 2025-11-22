@@ -84,7 +84,7 @@ export default function Header() {
               href="/"
               className="floating-logo flex items-center gap-3 justify-center"
               style={{
-                transform: `scale(${logoScale})`,
+                transform: isMobile ? `scale(${logoScale})` : "scale(1)",
                 transformOrigin: "center center",
                 transition: "transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
               }}
