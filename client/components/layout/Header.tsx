@@ -13,14 +13,22 @@ export default function Header() {
   const textHref = `sms:${phoneNumber}`;
 
   const [logoScale, setLogoScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth <= 640;
+  });
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastScrollRef = useRef(0);
 
   useEffect(() => {
+    if (!isMobile) {
+      setLogoScale(1);
+      return;
+    }
+
     const handleScroll = () => {
       const currentScroll = window.scrollY;
 
-      // If scrolled at all, make it small immediately
       if (currentScroll > 0) {
         setLogoScale(0.4);
       } else {
@@ -29,12 +37,10 @@ export default function Header() {
 
       lastScrollRef.current = currentScroll;
 
-      // Clear existing timeout
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
 
-      // Reset to full size after scrolling stops (150ms delay)
       scrollTimeoutRef.current = setTimeout(() => {
         if (window.scrollY === lastScrollRef.current) {
           setLogoScale(1);
@@ -49,6 +55,19 @@ export default function Header() {
         clearTimeout(scrollTimeoutRef.current);
       }
     };
+  }, [isMobile]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 640;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setLogoScale(1);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
