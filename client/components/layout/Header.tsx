@@ -13,31 +13,33 @@ export default function Header() {
   const textHref = `sms:${phoneNumber}`;
 
   const [logoScale, setLogoScale] = useState(1);
-  const scrollVelocityRef = useRef(0);
-  const lastScrollRef = useRef(0);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastScrollRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-      const velocity = Math.abs(currentScroll - lastScrollRef.current);
-      lastScrollRef.current = currentScroll;
 
-      // Calculate scale based on velocity (0 - 100px/frame)
-      // Max velocity = 100, at which scale = 0.7 (min)
-      // No velocity = scale of 1 (max)
-      const scale = Math.max(0.7, 1 - (velocity / 150) * 0.3);
-      setLogoScale(scale);
+      // If scrolled at all, make it small immediately
+      if (currentScroll > 0) {
+        setLogoScale(0.4);
+      } else {
+        setLogoScale(1);
+      }
+
+      lastScrollRef.current = currentScroll;
 
       // Clear existing timeout
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
 
-      // Reset to full size after scrolling stops (300ms delay)
+      // Reset to full size after scrolling stops (400ms delay)
       scrollTimeoutRef.current = setTimeout(() => {
-        setLogoScale(1);
-      }, 300);
+        if (window.scrollY === lastScrollRef.current) {
+          setLogoScale(1);
+        }
+      }, 400);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
