@@ -2,7 +2,7 @@ name: Build and commit dist/spa to repo
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch: {}
 
 jobs:

@@ -29,6 +29,7 @@ If you prefer to build locally and push the built files yourself, follow these s
 5. On GreenGeeks cPanel (Git Version Control or FTP), connect the repository and set the deployment branch to `main`. The `.cpanel.yml` at the repo root will run the build and copy `dist/spa` to `public_html` if you choose to have the server build instead.
 
 Notes:
+
 - The GitHub Action above will automate building and committing the `public_html` folder for you when you push to `main`.
 - If your repository uses pnpm or yarn, adjust the install steps accordingly.
 - If you want to exclude large generated assets from git, consider using a separate branch for built artifacts.
