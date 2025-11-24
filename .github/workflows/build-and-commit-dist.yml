@@ -32,9 +32,25 @@ jobs:
           node-version: 20
 
       - name: Setup pnpm & Install dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enable Corepack & Setup pnpm
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install Dependencies (pnpm)
+        run: |
           pnpm install --frozen-lockfile
 
       - name: Build client (vite)
