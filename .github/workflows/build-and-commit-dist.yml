@@ -5,8 +5,12 @@ on:
     branches: [main]
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   build-and-commit:
+    if: github.actor != 'github-actions'
     runs-on: ubuntu-latest
 
     steps:
