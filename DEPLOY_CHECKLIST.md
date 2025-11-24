@@ -10,6 +10,7 @@ Your code is ready to deploy to GreenGeeks. Follow these steps:
 ✅ .github/workflows/build-and-commit-dist.yml configured (auto-builds on GitHub)
 
 ## Step 1: Push to GitHub (if not already done)
+
 ```bash
 git push origin main
 ```
@@ -26,7 +27,7 @@ git push origin main
 ## What .cpanel.yml Does
 
 - **pre_deploy**: Installs pnpm and dependencies with `pnpm install --frozen-lockfile`
-- **post_deploy**: 
+- **post_deploy**:
   - Builds the client with `pnpm run build:client`
   - Copies built files from `dist/spa/` to `public_html/`
   - Your site is now live at `dinksplumbing.us`
