@@ -8,11 +8,13 @@ version: 1.0
 hooks:
   pre_deploy:
     - echo "Running pre-deploy tasks"
-    - npm ci --prefer-offline --no-audit --progress=false
+    - corepack enable
+    - corepack prepare pnpm@latest --activate
+    - pnpm install --frozen-lockfile
 
   post_deploy:
     - echo "Running build"
-    - npm run build
+    - pnpm run build:client
     - echo "Copying build output to public_html"
     - mkdir -p "$HOME/public_html"
     - rm -rf "$HOME/public_html"/* || true
