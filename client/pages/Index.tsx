@@ -95,7 +95,8 @@ export default function Index() {
             {/* Left Column - Main Message */}
             <div className="text-center lg:text-left">
               <div className="inline-block mb-4 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
-                <span style={{ color: "#22c55e" }}>✔</span> Trust worthy • Licensed & Insured
+                <span style={{ color: "#22c55e" }}>✔</span> Trust worthy •
+                Licensed & Insured
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-600 mb-4 sm:mb-6 leading-tight">
@@ -176,7 +177,9 @@ export default function Index() {
                   className="rounded-lg shadow-md w-full h-64 sm:h-72 md:h-64 lg:h-72 object-cover"
                 />
                 <div className="bg-blue-600 text-white p-6 rounded-lg shadow-md">
-                  <div className="text-3xl font-bold mb-2">GREAT QUALITY WORK!</div>
+                  <div className="text-3xl font-bold mb-2">
+                    GREAT QUALITY WORK!
+                  </div>
                   <div className="text-sm">BEST FOR THE JOB!</div>
                 </div>
               </div>
