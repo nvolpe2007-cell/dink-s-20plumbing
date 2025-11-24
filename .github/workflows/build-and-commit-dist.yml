@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - 'public_html/**'
+      - "public_html/**"
   workflow_dispatch: {}
 
 permissions:
