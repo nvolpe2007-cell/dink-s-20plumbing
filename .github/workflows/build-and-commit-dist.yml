@@ -21,13 +21,15 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Setup pnpm & Install dependencies
         run: |
-          npm ci
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm install --frozen-lockfile
 
       - name: Build client (vite)
         run: |
-          npm run build:client
+          pnpm run build:client
 
       - name: Copy build output to public_html
         run: |
