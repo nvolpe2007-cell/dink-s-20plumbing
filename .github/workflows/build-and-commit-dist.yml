@@ -54,6 +54,8 @@ jobs:
           cp -R dist/spa/. public_html/
 
       - name: Commit and push public_html
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -62,5 +64,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: add/update built static site in public_html [skip ci]"
+            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
             git push origin HEAD:main
           fi
