@@ -1,0 +1,20 @@
+version: 1.0
+
+# cPanel Git deployment hooks
+# This file runs on cPanel's Git Version Control deploy hooks.
+# It will install dependencies, build the project, and copy the built
+# output from `dist/spa` into the site's public_html directory.
+
+hooks:
+  pre_deploy:
+    - echo "Running pre-deploy tasks"
+    - npm ci --prefer-offline --no-audit --progress=false
+
+  post_deploy:
+    - echo "Running build"
+    - npm run build
+    - echo "Copying build output to public_html"
+    - mkdir -p "$HOME/public_html"
+    - rm -rf "$HOME/public_html"/* || true
+    - cp -R dist/spa/. "$HOME/public_html/"
+    - echo "Deployment complete"
