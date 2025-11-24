@@ -3,14 +3,20 @@ name: Build and commit dist/spa to repo
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'public_html/**'
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
+concurrency:
+  group: build-and-commit-dist
+  cancel-in-progress: true
+
 jobs:
   build-and-commit:
-    if: github.actor != 'github-actions'
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     steps:
