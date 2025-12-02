@@ -1,45 +1,40 @@
-# Deployment Checklist for GreenGeeks
+# Deployment Checklist — Netlify
 
-Your code is ready to deploy to GreenGeeks. Follow these steps:
+This project is configured to deploy on Netlify. Remove GreenGeeks-specific deployment configs and follow the steps below.
 
-## Pre-Deployment Checklist
+1) Netlify site
+- Connect your GitHub repository to Netlify (Site settings → Build & deploy → Continuous Deployment → Link to Git provider).
+- In Netlify build settings use:
+  - Build command: pnpm run build:client
+  - Publish directory: dist/spa
+  - Base directory: (root of repo)
+- Ensure Netlify detects packageManager = pnpm in package.json. If not, set it manually in the Netlify UI.
 
-✅ .cpanel.yml exists and is configured (uses pnpm install + pnpm run build:client)
-✅ package.json has build:client script (pnpm run build:client)
-✅ All code changes committed and pushed to GitHub
-✅ .github/workflows/build-and-commit-dist.yml configured (auto-builds on GitHub)
+2) Environment variables
+- Add any runtime environment variables in Netlify (Site settings → Build & deploy → Environment).
+- Do NOT commit secrets to the repo. Use Netlify UI to add them.
 
-## Step 1: Push to GitHub (if not already done)
+3) Custom domain (dinksplumbing.us)
+- In Netlify → Domain management → Add custom domain: dinksplumbing.us and also add www.dinksplumbing.us.
+- Keep nameservers pointed to GreenGeeks (ns1.greengeeks.net / ns2.greengeeks.net) and edit DNS records in GreenGeeks DNS zone:
+  - A record for @ → 75.2.60.5
+  - A record for @ → 99.83.190.102
+  - CNAME for www → dinks-plumbing.netlify.app
+  - Remove any conflicting A/CNAME records for @ or www.
+- After DNS changes, in Netlify mark preferred domain and allow Netlify to provision HTTPS.
 
-```bash
-git push origin main
-```
+4) Testing & troubleshooting
+- Trigger a deploy in Netlify (Deploys → Trigger deploy) or push to main branch to auto-deploy.
+- Check Netlify deploy logs for build errors.
+- If DNS doesn’t resolve, verify records in GreenGeeks and wait for propagation (minutes–48h).
 
-## Step 2: In GreenGeeks cPanel
+5) Cleanup
+- The repository no longer needs the following files for Netlify deployment; they have been removed or archived:
+  - .cpanel.yml
+  - .github/workflows/deploy-to-greengeeks.yml
+  - .github/workflows/build-and-commit-dist.yml
+  - GREEN_GEEKS_DEPLOY.md
 
-1. Go to **Git Version Control**
-2. Click **Clone a Repository**
-3. Paste your GitHub repo URL: `https://github.com/nvolpe2007-cell/dink-s-20plumbing.git`
-4. Set **Clone into**: `/home/dinksplu/repositories/dink-s-20plumbing` (or your repo path)
-5. Click **Clone**
-6. After cloning, cPanel will detect `.cpanel.yml` and run the deployment hooks automatically
-
-## What .cpanel.yml Does
-
-- **pre_deploy**: Installs pnpm and dependencies with `pnpm install --frozen-lockfile`
-- **post_deploy**:
-  - Builds the client with `pnpm run build:client`
-  - Copies built files from `dist/spa/` to `public_html/`
-  - Your site is now live at `dinksplumbing.us`
-
-## Troubleshooting
-
-- If deployment fails, check `/home/dinksplu/repositories/dink-s-20plumbing/` for error logs
-- Ensure `public_html` exists and is writable
-- Verify GitHub repo is accessible from GreenGeeks
-
-## After Deployment
-
-- Visit **dinksplumbing.us** to verify the site is live
-- All future pushes to GitHub's `main` branch will trigger the GitHub Action (builds + commits public_html)
-- GreenGeeks Git Version Control can pull updates automatically or manually via the cPanel UI
+If you want, I can:
+- Trigger a fresh Netlify deploy from the latest main branch.
+- Verify DNS records and HTTPS once you update GreenGeeks DNS.
