@@ -1,69 +1,39 @@
 name: Build and commit public_html (GreenGeeks)
 
 on:
+  workflow_dispatch:
   push:
-    branches: [main]
-    paths-ignore:
-      - "public_html/**"
-  workflow_dispatch: {}
-
-permissions:
-  contents: write
-
-concurrency:
-  group: build-and-commit-dist
-  cancel-in-progress: true
+    branches: [ "main" ]
 
 jobs:
-  build-and-commit:
-    if: github.actor != 'github-actions[bot]'
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Check out repo
+        uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          persist-credentials: true
-          fetch-depth: 0
+          node-version: 18
 
-      - name: Enable Corepack & Setup pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+      - name: Install dependencies
+        run: npm install
 
-      - name: Cache pnpm store
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
+      - name: Build the site
+        run: npm run build
 
-      - name: Install Dependencies (pnpm)
-        run: |
-          pnpm install --frozen-lockfile
-
-      - name: Build client (vite)
-        run: |
-          pnpm run build:client
-
-      - name: Copy build output to public_html
+      - name: Move build into public_html
         run: |
           rm -rf public_html || true
           mkdir -p public_html
-          cp -R dist/spa/. public_html/
+          cp -R dist/* public_html/
 
-      - name: Commit and push public_html (optional)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and push public_html
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
           git add public_html
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: add/update built static site in public_html [skip ci]"
-            git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
-            git push origin HEAD:main
-          fi
+          git commit -m "Auto-build public_html" || echo "No changes to commit"
+          git push || true
+        continue-on-error: true
