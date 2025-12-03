@@ -1,46 +1,44 @@
-# Deployment Checklist — Netlify
+# Deployment Checklist — GreenGeeks cPanel (Static Export)
 
-This project is configured to deploy on Netlify. Remove GreenGeeks-specific deployment configs and follow the steps below.
+This repository now provides a fully static export suitable for shared cPanel hosting (GreenGeeks). Follow these steps to deploy the site by uploading the prebuilt static files to public_html.
 
-1. Netlify site
+1) Use the prebuilt public_html folder
+- The repository contains a ready-to-upload `public_html/` directory with compiled HTML, CSS, JS, and assets.
+- Upload the contents of `public_html/` directly into the site's `/public_html` root directory via cPanel File Manager or SFTP.
 
-- Connect your GitHub repository to Netlify (Site settings → Build & deploy → Continuous Deployment → Link to Git provider).
-- In Netlify build settings use:
-  - Build command: pnpm run build:client
-  - Publish directory: dist/spa
-  - Base directory: (root of repo)
-- Ensure Netlify detects packageManager = pnpm in package.json. If not, set it manually in the Netlify UI.
+2) DNS / domain settings (GreenGeeks nameservers)
+- Keep nameservers pointed at ns1.greengeeks.net / ns2.greengeeks.net and manage DNS in GreenGeeks.
+- Ensure the domain's root (@) and www records do not conflict. If you want Netlify-style IPs, use A records; otherwise point www to the apex.
 
-2. Environment variables
+3) Remove server-side features
+- All server and serverless code has been removed from the build. This export is purely static and requires no Node.js runtime.
 
-- Add any runtime environment variables in Netlify (Site settings → Build & deploy → Environment).
-- Do NOT commit secrets to the repo. Use Netlify UI to add them.
+4) Caching & headers
+- Configure caching in cPanel or via .htaccess in /public_html:
+  - Cache static assets (CSS/JS/images) for 30 days or more
+  - Set HTML to a short cache or use etags
+  - Example .htaccess snippet (place in public_html):
 
-3. Custom domain (dinksplumbing.us)
+  <IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+    ExpiresByType image/* "access plus 30 days"
+  </IfModule>
 
-- In Netlify → Domain management → Add custom domain: dinksplumbing.us and also add www.dinksplumbing.us.
-- Keep nameservers pointed to GreenGeeks (ns1.greengeeks.net / ns2.greengeeks.net) and edit DNS records in GreenGeeks DNS zone:
-  - A record for @ → 75.2.60.5
-  - A record for @ → 99.83.190.102
-  - CNAME for www → dinks-plumbing.netlify.app
-  - Remove any conflicting A/CNAME records for @ or www.
-- After DNS changes, in Netlify mark preferred domain and allow Netlify to provision HTTPS.
+5) HTTPS
+- Use GreenGeeks SSL (cPanel) to provision a certificate for your domain, or use Let's Encrypt via cPanel if available.
 
-4. Testing & troubleshooting
+6) Testing
+- After uploading, visit https://yourdomain to verify the site loads and that assets are served.
+- Check robots/meta tags and sitemap (public_html/sitemap.xml) for correct URLs.
 
-- Trigger a deploy in Netlify (Deploys → Trigger deploy) or push to main branch to auto-deploy.
-- Check Netlify deploy logs for build errors.
-- If DNS doesn’t resolve, verify records in GreenGeeks and wait for propagation (minutes–48h).
+7) Troubleshooting
+- If paths break, ensure files are uploaded preserving the directory structure and that the site is served from the domain root.
+- If you prefer automatic deployments, use GreenGeeks Git Version Control to pull from this repository after pushing built files to `public_html` branch.
 
-5. Cleanup
-
-- The repository no longer needs the following files for Netlify deployment; they have been removed or archived:
-  - .cpanel.yml
-  - .github/workflows/deploy-to-greengeeks.yml
-  - .github/workflows/build-and-commit-dist.yml
-  - GREEN_GEEKS_DEPLOY.md
 
 If you want, I can:
-
-- Trigger a fresh Netlify deploy from the latest main branch.
-- Verify DNS records and HTTPS once you update GreenGeeks DNS.
+- Trigger a fresh build locally and update the `public_html/` folder with the latest compiled assets (requires a build run).
+- Provide the exact .htaccess snippet customized for your caching/security preferences.
