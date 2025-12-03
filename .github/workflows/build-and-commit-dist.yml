@@ -3,7 +3,7 @@ name: Build and commit public_html (GreenGeeks)
 on:
   workflow_dispatch:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
