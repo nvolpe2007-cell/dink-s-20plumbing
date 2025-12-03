@@ -1,0 +1,37 @@
+# Rewrite everything to index.html for client-side routing
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  # Serve existing files directly
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.html [L,QSA]
+</IfModule>
+
+# Expires headers for caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType image/* "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "no-referrer-when-downgrade"
+  Header set X-XSS-Protection "1; mode=block"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# Cache-Control for HTML
+<FilesMatch "\.(html|htm)$">
+  Header set Cache-Control "public, max-age=3600"
+</FilesMatch>
