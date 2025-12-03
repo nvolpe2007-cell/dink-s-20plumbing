@@ -1,0 +1,22 @@
+version: 1.0
+
+# cPanel Git deployment hooks tailored for GreenGeeks
+# Installs dependencies with pnpm, builds the client, and copies the static
+# output from dist/spa into the user's public_html directory.
+
+hooks:
+  pre_deploy:
+    - echo "Running pre-deploy tasks"
+    - corepack enable
+    - corepack prepare pnpm@latest --activate
+    - pnpm install --frozen-lockfile
+
+  post_deploy:
+    - echo "Running build"
+    - pnpm run build:client
+    - echo "Preparing public_html"
+    - mkdir -p "$HOME/public_html"
+    - rm -rf "$HOME/public_html"/* || true
+    - cp -R dist/spa/. "$HOME/public_html/"
+    - chmod -R 755 "$HOME/public_html"
+    - echo "Deployment complete"
