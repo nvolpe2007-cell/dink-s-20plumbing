@@ -12,8 +12,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm run build:client",
-    "build:client": "vite build",
+    "build": "vite build",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
     "typecheck": "tsc"
