@@ -21,9 +21,10 @@ type LeadPayload = {
   utm?: Record<string, string | null>;
 };
 
-export default async function handler(req: Request): Promise<Response> {
-  if (req.method !== "POST") return json({ ok: false, error: "Method not allowed" }, 405);
-
+// Named HTTP method export (Web fetch-style). Vercel ignores the return value of a
+// `export default` function on the Node runtime, so this MUST be `export async function POST`.
+// Other methods automatically receive 405.
+export async function POST(req: Request): Promise<Response> {
   let payload: LeadPayload = {};
   try { payload = (await req.json()) as LeadPayload; }
   catch { return json({ ok: false, error: "Invalid JSON body" }, 400); }
