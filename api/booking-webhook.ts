@@ -90,13 +90,18 @@ export async function POST(req: Request): Promise<Response> {
   } else { errors.push("Twilio credentials not set"); }
 
   // If every channel failed, this log is the only remaining record of the lead.
+  // Report the failure to the client too: both LeadForm.tsx and Book.tsx branch on
+  // `json.ok`, so returning ok:true here showed the visitor a success message while
+  // the lead was silently dropped.
   if (!delivered.email && !delivered.sms) {
     console.error("LEAD NOT DELIVERED - no channel succeeded. Payload:",
       JSON.stringify(payload), "Errors:", errors.join(" | "));
-  } else {
-    console.log("Lead delivered", delivered, "payload:", JSON.stringify(payload));
+    // `errors` holds raw SendGrid/Twilio response bodies — logged above, but not
+    // returned to the browser.
+    return json({ ok: false, error: "lead_not_delivered", delivered }, 502);
   }
 
+  console.log("Lead delivered", delivered, "payload:", JSON.stringify(payload));
   return json({ ok: true, delivered });
 }
 
