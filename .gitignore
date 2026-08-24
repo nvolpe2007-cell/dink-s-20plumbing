@@ -24,4 +24,11 @@ dist-ssr
 *.sw?
 
 .config/
-!.env
+
+# A previous commit removed a real .env that had been committed here, but
+# left this negation rule in place -- meaning a locally recreated .env
+# would get force-added right back into this public repo on the next
+# `git add -A`. Ignore it properly instead.
+.env
+.env.*
+!.env.example

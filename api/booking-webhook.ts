@@ -10,24 +10,70 @@
 //   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN,
 //   TWILIO_MESSAGING_SERVICE_SID (preferred) or TWILIO_FROM, NOTIFY_PHONE
 
+import { z } from "zod";
+
 export const config = { runtime: "nodejs" };
 
 const DEFAULT_OWNER_EMAIL = "Plum4it2@yahoo.com";
 const DEFAULT_NOTIFY_PHONE = "+13103443833";
 
-type LeadPayload = {
-  name?: string; email?: string; phone?: string; time?: string;
-  notes?: string; service?: string; address?: string; source?: string;
-  utm?: Record<string, string | null>;
-};
+// Every submission triggers a billable SendGrid email and Twilio SMS, with
+// no auth in front of this endpoint (it's a public lead form). Without a
+// limit, a scripted burst runs up real billing and floods the owner's
+// inbox/phone with attacker-controlled content. This is a per-instance,
+// in-memory limiter: on Vercel each cold-started function instance gets
+// its own empty map, so it isn't a durable cap across scale-out, but it
+// does stop the single-instance flood a load test would produce, and
+// costs nothing to run. A shared store (e.g. Upstash) would make it
+// durable if abuse becomes a real problem.
+const WINDOW_MS = 15 * 60 * 1000;
+const MAX_PER_WINDOW = 5;
+const hits = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  timestamps.push(now);
+  hits.set(ip, timestamps);
+  return timestamps.length > MAX_PER_WINDOW;
+}
+
+// Loose caps on field length rather than strict format validation: this is
+// a lead form, not an auth boundary, so the goal is bounding payload size
+// and cost (huge fields blow up the SendGrid/Twilio request bodies), not
+// rejecting real-world messy input.
+const leadPayloadSchema = z.object({
+  name: z.string().max(200).optional(),
+  email: z.string().max(200).optional(),
+  phone: z.string().max(50).optional(),
+  time: z.string().max(200).optional(),
+  notes: z.string().max(2000).optional(),
+  service: z.string().max(200).optional(),
+  address: z.string().max(500).optional(),
+  source: z.string().max(200).optional(),
+  utm: z.record(z.string(), z.string().nullable()).optional(),
+});
+
+type LeadPayload = z.infer<typeof leadPayloadSchema>;
 
 // Named HTTP method export (Web fetch-style). Vercel ignores the return value of a
 // `export default` function on the Node runtime, so this MUST be `export async function POST`.
 // Other methods automatically receive 405.
 export async function POST(req: Request): Promise<Response> {
-  let payload: LeadPayload = {};
-  try { payload = (await req.json()) as LeadPayload; }
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  if (isRateLimited(ip)) {
+    return json({ ok: false, error: "rate_limited" }, 429);
+  }
+
+  let rawPayload: unknown;
+  try { rawPayload = await req.json(); }
   catch { return json({ ok: false, error: "Invalid JSON body" }, 400); }
+
+  const parsed = leadPayloadSchema.safeParse(rawPayload);
+  if (!parsed.success) {
+    return json({ ok: false, error: "Invalid payload", issues: parsed.error.issues }, 400);
+  }
+  const payload: LeadPayload = parsed.data;
 
   const { name, email, phone, time, notes, service, address, source, utm } = payload;
   const ownerEmail = process.env.OWNER_EMAIL || DEFAULT_OWNER_EMAIL;
