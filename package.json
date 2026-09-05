@@ -15,7 +15,8 @@
     "build": "vite build",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "seo-check": "tsx scripts/seo-check.ts"
   },
   "dependencies": {
     "dotenv": "^17.2.1",
