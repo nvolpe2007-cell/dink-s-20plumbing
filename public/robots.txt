@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://dinksplumbing.us/sitemap.xml
+Sitemap: https://www.dinksplumbing.us/sitemap.xml
