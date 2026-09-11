@@ -115,9 +115,17 @@ export default function Header() {
                 transition: "transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
               }}
             >
+              {/* Self-hosted. This was loading from the Builder.io CDN, which
+                  made a third party a single point of failure for the client's
+                  own brand mark. public/dinks-logo.png holds the full-resolution
+                  original (1179x1500); this webp is sized for the largest render
+                  (h-40 = 160px) at ~3x DPI. width/height are set to reserve the
+                  box and stop the header shifting as it loads. */}
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2Ffed4a654c08b4c7aa4bc83e951acdd96?format=webp&width=800"
+                src="/dinks-logo.webp"
                 alt="Dink's Plumbing"
+                width={500}
+                height={636}
                 className="h-28 sm:h-36 md:h-32 lg:h-40 w-auto"
               />
               <span
