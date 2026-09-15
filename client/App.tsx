@@ -10,6 +10,10 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Book from "./pages/Book";
 import Layout from "@/components/layout/Layout";
+import { initAnalytics } from "@/lib/analytics";
+
+// Pageviews + call/text taps. See client/lib/analytics.ts for where they go.
+initAnalytics();
 
 const queryClient = new QueryClient();
 
