@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function Book() {
+  usePageMeta({
+    title: "Book a Plumbing Appointment | Dink's Plumbing",
+    description:
+      "Schedule plumbing service online with Dink's Plumbing — licensed, insured, same-day service in Inglewood, CA. Call (310) 344-3833.",
+    path: "/book",
+  });
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -43,7 +51,7 @@ export default function Book() {
   return (
     <section className="container py-12">
       <div className="mx-auto max-w-lg">
-        <h2 className="text-2xl font-bold mb-4">Book an appointment</h2>
+        <h1 className="text-2xl font-bold mb-4">Book an appointment</h1>
         <form onSubmit={handleSubmit} className="space-y-4 bg-card p-6 rounded-lg">
           <label className="block">
             <div className="text-sm font-medium">Your name</div>
