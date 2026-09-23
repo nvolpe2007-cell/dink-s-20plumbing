@@ -58,12 +58,17 @@ export default function Index() {
               "+13103443833",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "",
-              addressLocality: "",
-              addressRegion: "",
-              postalCode: "",
+              streetAddress: "321 E Fairview Blvd",
+              addressLocality: "Inglewood",
+              addressRegion: "CA",
+              postalCode: "90302",
               addressCountry: "US",
             },
+            areaServed: [
+              "Inglewood",
+              "Los Angeles County",
+              "Greater Los Angeles",
+            ],
             aggregateRating: {
               "@type": "AggregateRating",
               ratingValue: "4.9",
@@ -74,7 +79,9 @@ export default function Index() {
         }}
       />
 
-      {/* Reviews structured data example */}
+      {/* Review structured data — mirrors the Gerald C. testimonial rendered
+          in the Testimonials section below, so the schema matches what's
+          actually on the page. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -82,8 +89,9 @@ export default function Index() {
             "@context": "https://schema.org",
             "@type": "Review",
             itemReviewed: { "@type": "Service", name: "Dink's Plumbing" },
-            author: { "@type": "Person", name: "Maria K." },
-            reviewBody: "Fast, honest, and fixed my leak the same day.",
+            author: { "@type": "Person", name: "Gerald C." },
+            reviewBody:
+              "We've relied on Dink's Plumbing for over 10 years because his honest, reliable, dependable service! He always uses quality products and provides professional recommendations & options! I would highly recommend using Dink's Plumbing to all my family & friends!",
             reviewRating: { "@type": "Rating", ratingValue: 5 },
           }),
         }}

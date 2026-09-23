@@ -18,6 +18,16 @@
     <meta name="language" content="English" />
     <link rel="canonical" href="https://www.dinksplumbing.us/" />
 
+    <!-- Google Fonts: preconnect + a single stylesheet link instead of the
+         @import in global.css, which chained an extra render-blocking
+         round-trip before the browser even discovered the font request. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Pacifico&family=Audiowide&display=swap"
+    />
+
     <!-- Favicons. There were no icon tags here at all, so browsers fell back to
          the /favicon.ico convention and picked up the scaffold's default logo.
          These are the real Dink's roundel, cropped from the company logo and
@@ -88,11 +98,10 @@
             "Wednesday",
             "Thursday",
             "Friday",
-            "Saturday",
-            "Sunday"
+            "Saturday"
           ],
-          "opens": "00:00",
-          "closes": "23:59"
+          "opens": "08:00",
+          "closes": "20:00"
         }
       }
     </script>
