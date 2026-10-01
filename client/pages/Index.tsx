@@ -44,7 +44,10 @@ export default function Index() {
 
   return (
     <div className="bg-white pb-24 sm:pb-0">
-      {/* LocalBusiness structured data for SEO */}
+      {/* LocalBusiness structured data for SEO. Address matches the real
+          street address published in the footer (Footer.tsx) — it was
+          previously empty strings here, which is invalid/duplicate data
+          alongside the LocalBusiness schema already in index.html. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -58,10 +61,10 @@ export default function Index() {
               "+13103443833",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "",
-              addressLocality: "",
-              addressRegion: "",
-              postalCode: "",
+              streetAddress: "321 E Fairview Blvd",
+              addressLocality: "Inglewood",
+              addressRegion: "CA",
+              postalCode: "90302",
               addressCountry: "US",
             },
             aggregateRating: {
@@ -70,21 +73,6 @@ export default function Index() {
               reviewCount: "500",
             },
             priceRange: "$$",
-          }),
-        }}
-      />
-
-      {/* Reviews structured data example */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Review",
-            itemReviewed: { "@type": "Service", name: "Dink's Plumbing" },
-            author: { "@type": "Person", name: "Maria K." },
-            reviewBody: "Fast, honest, and fixed my leak the same day.",
-            reviewRating: { "@type": "Rating", ratingValue: 5 },
           }),
         }}
       />
