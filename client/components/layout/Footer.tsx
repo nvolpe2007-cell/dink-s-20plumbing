@@ -13,9 +13,16 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
+            {/* Self-hosted, same fix as Header.tsx: this was loading the
+                logo from the Builder.io CDN, making a third party a single
+                point of failure for the client's own brand mark. Explicit
+                width/height (matching the asset's real 500x636) reserve
+                the box so it doesn't shift as it loads. */}
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2Feb2280196bca4733adf305cb694633d2%2F831d1a3998354903877cdecdb0c255cc?format=webp&width=800"
+              src="/dinks-logo.webp"
               alt="Dink's Plumbing"
+              width={500}
+              height={636}
               className="h-32 w-auto mb-4"
             />
             <h3 className="text-2xl font-bold mb-4">Dink's Plumbing</h3>

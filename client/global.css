@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Audiowide&display=swap");
+/* Google Fonts are loaded via <link> tags in index.html (with preconnect)
+   instead of @import here, since @import is render-blocking and adds an
+   extra round trip before the browser can even discover the font CSS. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

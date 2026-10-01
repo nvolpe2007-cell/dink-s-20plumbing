@@ -1,7 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
+const PAGE_TITLE = "Book an Appointment | Dink's Plumbing";
+const PAGE_DESCRIPTION =
+  "Book a plumbing appointment with Dink's Plumbing, serving Inglewood, Hawthorne & Westchester. Same-day service. Call (310) 344-3833.";
+
 export default function Book() {
+  // This is a single static index.html SPA (no per-route HTML/SSR), so the
+  // static <title>/<meta description> are the homepage's. Set a distinct
+  // title/description for this route client-side so this page isn't an
+  // exact title/description duplicate of "/".
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = PAGE_TITLE;
+
+    const descTag = document.querySelector('meta[name="description"]');
+    const previousDescription = descTag?.getAttribute("content") ?? null;
+    descTag?.setAttribute("content", PAGE_DESCRIPTION);
+
+    return () => {
+      document.title = previousTitle;
+      if (previousDescription !== null) {
+        descTag?.setAttribute("content", previousDescription);
+      }
+    };
+  }, []);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -43,7 +67,7 @@ export default function Book() {
   return (
     <section className="container py-12">
       <div className="mx-auto max-w-lg">
-        <h2 className="text-2xl font-bold mb-4">Book an appointment</h2>
+        <h1 className="text-2xl font-bold mb-4">Book an appointment</h1>
         <form onSubmit={handleSubmit} className="space-y-4 bg-card p-6 rounded-lg">
           <label className="block">
             <div className="text-sm font-medium">Your name</div>
