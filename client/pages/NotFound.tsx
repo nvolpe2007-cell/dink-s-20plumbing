@@ -1,8 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useDocumentMeta } from "@/hooks/use-document-meta";
 
 const NotFound = () => {
   const location = useLocation();
+
+  // This SPA rewrites every path to index.html with a 200 status (soft 404),
+  // so search engines need an explicit noindex here or they may try to index it.
+  useDocumentMeta({
+    title: "Page Not Found | Dink's Plumbing",
+    noindex: true,
+  });
 
   useEffect(() => {
     console.error(

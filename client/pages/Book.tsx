@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useDocumentMeta } from "@/hooks/use-document-meta";
 
 export default function Book() {
+  useDocumentMeta({
+    title: "Book a Plumber Online | Dink's Plumbing",
+    description:
+      "Schedule plumbing service with Dink's Plumbing in Inglewood, CA. Pick a service, share your address and time, and we'll confirm your appointment.",
+    canonicalPath: "/book",
+  });
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -43,7 +51,7 @@ export default function Book() {
   return (
     <section className="container py-12">
       <div className="mx-auto max-w-lg">
-        <h2 className="text-2xl font-bold mb-4">Book an appointment</h2>
+        <h1 className="text-2xl font-bold mb-4">Book an appointment</h1>
         <form onSubmit={handleSubmit} className="space-y-4 bg-card p-6 rounded-lg">
           <label className="block">
             <div className="text-sm font-medium">Your name</div>
