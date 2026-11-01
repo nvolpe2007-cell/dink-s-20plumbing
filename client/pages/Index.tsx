@@ -58,12 +58,17 @@ export default function Index() {
               "+13103443833",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "",
-              addressLocality: "",
-              addressRegion: "",
-              postalCode: "",
+              streetAddress: "321 E Fairview Blvd",
+              addressLocality: "Inglewood",
+              addressRegion: "CA",
+              postalCode: "90302",
               addressCountry: "US",
             },
+            areaServed: [
+              "Inglewood",
+              "Los Angeles County",
+              "Greater Los Angeles",
+            ],
             aggregateRating: {
               "@type": "AggregateRating",
               ratingValue: "4.9",
